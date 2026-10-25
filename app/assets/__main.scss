@@ -5,9 +5,13 @@
 @use 'typography';
 
 html {
+  font-size: 20px;
   font-family: 'Geist', sans-serif;
   font-variation-settings: 'wght' 600;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  user-select: none;
+}
