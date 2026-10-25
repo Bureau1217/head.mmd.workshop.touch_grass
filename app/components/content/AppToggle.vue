@@ -45,7 +45,7 @@
 
     <div
         v-show="isOpen"
-        class="v-app-toggle__content"
+        class="v-app-toggle__content app-no-first-and-list-child-margin"
     >
       <slot/>
     </div>
@@ -71,6 +71,9 @@ const titleWords = computed(() => props.title.trim().split(/\s+/))
   margin: 0;
   padding-top: var(--app-gutter);
   padding-bottom: var(--app-gutter);
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, #FFFFFF 50%, #FFFFFF00);
 }
 
 .v-app-toggle__title__button {
@@ -97,5 +100,9 @@ const titleWords = computed(() => props.title.trim().split(/\s+/))
 .v-app-toggle__title__icon {
   display: block;
   flex: 0 0 auto;
+}
+
+.v-app-toggle__content {
+  padding-bottom: 2rem;
 }
 </style>
