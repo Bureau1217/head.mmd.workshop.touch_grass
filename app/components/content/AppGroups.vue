@@ -103,18 +103,17 @@ watch(() => [props.names, props.groupCount, props.min, props.max], shuffle, { de
 
 <style lang="scss" scoped>
 .v-app-groups {
-  margin: 0 0 1rem;
+  margin: 1rem 0;
 }
 
 .v-app-groups__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--app-gutter);
+  display: grid;
+  gap: calc(var(--app-gutter) / 2);
   margin: 0 0 1rem;
+  grid-template-columns: repeat(3, 3fr);
 }
 
 .v-app-groups__group {
-  flex: 1 1 8rem;
   padding: .5rem .75rem;
   border: 1px solid var(--app-color-tertiary);
   border-radius: 1rem;
