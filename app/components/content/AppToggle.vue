@@ -63,6 +63,16 @@ const titleWords = computed(() => props.title.trim().split(/\s+/))
 </script>
 
 <style lang="scss" scoped>
+.v-app-toggle {
+  border-bottom: 1px solid var(--app-color-tertiary);
+}
+
+.v-app-toggle__title {
+  margin: 0;
+  padding-top: var(--app-gutter);
+  padding-bottom: var(--app-gutter);
+}
+
 .v-app-toggle__title__button {
   display: flex;
   justify-content: space-between;
