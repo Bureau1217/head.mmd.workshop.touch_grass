@@ -64,3 +64,25 @@ th, td {
 th:last-child, td:last-child {
   padding-right: 0;
 }
+
+ul {
+  margin: 0 0 1rem;
+  padding: 0;
+  max-width: 38em;
+  list-style: none;
+}
+
+ul ul {
+  margin: 0;
+}
+
+li {
+  position: relative;
+  padding-left: 1em;
+}
+
+ul > li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+}
