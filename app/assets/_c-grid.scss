@@ -16,6 +16,16 @@
   &.app-container--align-items--flex-end {
     align-items: flex-end;
   }
+
+  &.app-container--justify-content--center {
+    justify-content: center;
+  }
+  &.app-container--justify-content--space-between {
+    justify-content: space-between;
+  }
+  &.app-container--justify-content--space-around {
+    justify-content: space-around;
+  }
 }
 
 .app-container__coll-1-12 {box-sizing: border-box; width: calc(100% / 12 * 1);}
