@@ -29,5 +29,6 @@
   bottom: 0;
   height: var(--app-footer-height);
   width: 100%;
+  z-index: 100;
 }
 </style>
