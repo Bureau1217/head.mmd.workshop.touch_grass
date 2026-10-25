@@ -1,0 +1,1 @@
+import{H as e,R as t,h as n}from"./CEFyf4kC.js";import{n as r}from"#entry";var i={};function a(r,i){return t(),n(`td`,null,[e(r.$slots,`default`)])}var o=Object.assign(r(i,[[`render`,a]]),{__name:`ProseTd`});export{o as default};

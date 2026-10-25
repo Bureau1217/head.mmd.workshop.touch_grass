@@ -1,0 +1,1 @@
+import{H as e,J as t,R as n,p as r}from"./CEFyf4kC.js";import{r as i}from"#entry";var a={__name:`ProseA`,props:{href:{type:String,default:``},target:{type:String,default:void 0,required:!1}},setup(a){let o=a;return(a,s)=>{let c=i;return n(),r(c,{href:o.href,target:o.target},{default:t(()=>[e(a.$slots,`default`)]),_:3},8,[`href`,`target`])}}};export{a as default};
