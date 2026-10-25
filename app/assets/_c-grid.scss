@@ -45,3 +45,13 @@
   padding-left: calc(var(--app-gutter) / 2);
   padding-right: calc(var(--app-gutter) / 2);
 }
+
+.app-no-first-and-list-child-margin {
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
