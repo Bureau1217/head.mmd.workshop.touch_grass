@@ -21,6 +21,7 @@
           >
             {{ name.firstName }}
             <br>{{ name.lastName }}
+<!--            ({{name.dev}})-->
           </p>
         </div>
       </div>
@@ -115,8 +116,22 @@ function placeNext() {
 
 // tire les groupes, dans un ordre aléatoire entre les groupes
 function draw() {
-  const names = shuffleArray(props.names)
-  const finalGroups = randomSizes().map(size => names.splice(0, size))
+  const sizes = randomSizes()
+  const devs = shuffleArray(props.names.filter(person => person.dev))
+  const finalGroups: Person[][] = sizes.map(() => [])
+
+  // d'abord 1 dev par groupe (dans un ordre de groupes aléatoire), tant qu'il reste des devs
+  for (const groupIndex of shuffleArray(sizes.map((_, index) => index))) {
+    if (devs.length === 0) break
+    if (sizes[groupIndex]! > 0) finalGroups[groupIndex]!.push(devs.shift()!)
+  }
+
+  // ensuite, les places restantes sont remplies au hasard avec tout le reste (devs restants + non-devs)
+  const rest = shuffleArray([...devs, ...props.names.filter(person => !person.dev)])
+  finalGroups.forEach((group, groupIndex) => {
+    group.push(...rest.splice(0, sizes[groupIndex]! - group.length))
+  })
+
   queue = shuffleArray(finalGroups.flatMap((group, groupIndex) => group.map(person => ({ groupIndex, person }))))
   hasDrawn = true
 }
