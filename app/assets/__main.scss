@@ -1,6 +1,8 @@
-@use 'params';
-@use 'grid';
-@use 'font-loader';
+@use 'a-params';
+@use 'b-font-loader';
+@use 'c-grid';
+
+@use 'typography';
 
 html {
   font-family: 'Geist', sans-serif;
