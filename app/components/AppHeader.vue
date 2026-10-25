@@ -1,20 +1,22 @@
 <template>
   <header class="v-app-header">
-    <div class="app-container app-container--flex-wrap--nowrap app-container--align-items--center">
+    <div class="app-container app-container--flex-wrap--nowrap app-container--align-items--flex-end">
       <div>
         <AppTextTouch
                 width="auto"
-                height="3rem"
+                height="2rem"
         />
       </div>
 
       <div class="app-container__coll-12-12">
-        <AppGrass/>
+        <AppGrass
+                :size="15"
+        />
       </div>
 
       <div>
         <AppTextGrass width="auto"
-                      height="3rem"
+                      height="2rem"
         />
       </div>
     </div>
