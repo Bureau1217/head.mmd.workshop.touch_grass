@@ -21,7 +21,7 @@
 
               />
             </span>
-            <span>{{ word }}</span>
+            <span v-html="word"/>
           </template>
         </span>
 
