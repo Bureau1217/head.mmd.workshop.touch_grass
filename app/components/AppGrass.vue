@@ -12,6 +12,7 @@
         alt=""
         :style="{
           width: `${blade.width}px`,
+          marginLeft: index === 0 ? '0' : `${-blade.width * overlap / 100}px`,
           transform: `rotate(${blade.rotation}deg)`,
         }"
     />
@@ -25,12 +26,14 @@ const props = withDefaults(defineProps<{
   sizeMax?: number // en %
   rotationMin?: number // en deg
   rotationMax?: number // en deg
+  overlap?: number // recouvrement entre brins, en % de la largeur d'un brin (0 à < 100)
 }>(), {
   size: 40,
   sizeMin: 70,
   sizeMax: 130,
   rotationMin: -20,
   rotationMax: 20,
+  overlap: 90,
 })
 
 interface Blade {
@@ -47,7 +50,9 @@ const random = (min: number, max: number) => min + Math.random() * (max - min)
 function fill() {
   if (!containerRef.value) return
   const containerWidth = containerRef.value.clientWidth
-  let totalWidth = blades.value.reduce((sum, blade) => sum + blade.width, 0)
+  // largeur réellement occupée par un brin, une fois le recouvrement déduit (min 1px pour éviter une boucle infinie à 100%)
+  const visibleWidth = (width: number) => Math.max(width * (1 - props.overlap / 100), 1)
+  let totalWidth = blades.value.reduce((sum, blade) => sum + visibleWidth(blade.width), 0)
 
   while (totalWidth < containerWidth) {
     const width = props.size * random(props.sizeMin, props.sizeMax) / 100
@@ -55,7 +60,7 @@ function fill() {
       width,
       rotation: random(props.rotationMin, props.rotationMax),
     })
-    totalWidth += width
+    totalWidth += visibleWidth(width)
   }
 }
 
@@ -72,7 +77,7 @@ onBeforeUnmount(() => {
   resizeObserver?.disconnect()
 })
 
-watch(() => [props.size, props.sizeMin, props.sizeMax, props.rotationMin, props.rotationMax], () => {
+watch(() => [props.size, props.sizeMin, props.sizeMax, props.rotationMin, props.rotationMax, props.overlap], () => {
   blades.value = []
   fill()
 })
