@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -9,6 +8,12 @@ export default defineNuxtConfig({
   content: {
     renderer: {
       anchorLinks: false,
+    },
+  },
+  nitro: {
+    preset: 'github-pages',
+    output: {
+      publicDir: 'docs',
     },
   },
 })
