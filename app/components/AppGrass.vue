@@ -23,7 +23,7 @@
             }"
     >
       <path d="M102.2 12.6001L85.2002 48.0001L122.7 36.1001L91.2002 59.6001L129.9 66.5001L91.1002 72.6001L122.2 96.7001L84.9001 84.1001L101.3 119.9L74.1002 91.4001L72.0002 130.7L61.2002 92.9001L41.0002 126.7L49.0002 88.2001L15.5002 108.7L40.5002 78.3001L1.2002 80.9001L37.5002 65.7001L1.50018 49.7001L40.7002 53.0001L16.3002 22.2001L49.4001 43.4001L42.1002 4.70007L61.6002 38.9001L73.1002 1.20007L74.6002 40.5001L102.2 12.6001Z"
-            stroke-width="2.4"
+            :stroke-width="strokeWidth"
             stroke-linejoin="round"
       />
     </svg>
@@ -39,6 +39,7 @@ const props = withDefaults(defineProps<{
   rotationMax?: number // en deg
   overlap?: number // recouvrement entre brins, en % de la largeur d'un brin (0 à < 100)
   overflow?: boolean // true : les brins peuvent dépasser du conteneur (rotation, taille, dernier brin)
+  strokeWidth?: number // width du tracé des brins (en px)
 }>(), {
   size: 40,
   sizeMin: 70,
@@ -47,6 +48,7 @@ const props = withDefaults(defineProps<{
   rotationMax: 20,
   overlap: 90,
   overflow: false,
+  strokeWidth: 2.4,
 })
 
 interface Blade {
