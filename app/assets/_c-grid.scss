@@ -11,6 +11,11 @@
   &.app-container--align-items--center {
     align-items: center;
   }
+
+
+  &.app-container--align-items--flex-end {
+    align-items: flex-end;
+  }
 }
 
 .app-container__coll-1-12 {box-sizing: border-box; width: calc(100% / 12 * 1);}
