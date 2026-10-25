@@ -150,7 +150,7 @@ watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep
 
 <style lang="scss" scoped>
 .v-app-groups {
-  min-height: calc( 100dvh - var(--app-header-height));
+  min-height: calc( 100dvh - var(--app-header-height) - var(--app-footer-height));
   box-sizing: border-box;
   padding-top: 1rem;
 }
