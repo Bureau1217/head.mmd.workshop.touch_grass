@@ -75,6 +75,8 @@ const titleWords = computed(() => props.title.trim().split(/\s+/))
   z-index: 50;
   top: 0;
   background: linear-gradient(180deg, #FFFFFF 50%, #FFFFFF00);
+  max-width: none;
+  padding-right: var(--app-gutter-half);
 }
 
 .v-app-toggle__title__button {
