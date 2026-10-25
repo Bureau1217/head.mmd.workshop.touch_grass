@@ -31,11 +31,13 @@
 </template>
 
 <script lang="ts" setup>
+interface Person {
+  lastName: string // nom
+  firstName: string // prénom
+}
+
 const props = withDefaults(defineProps<{
-  names?: {
-      lastName: string, // nom
-      firstName: string, // prénom
-  }[]
+  names?: Person[]
   groupCount?: number
   min?: number // nombre de personnes min par groupe (défaut : répartition la plus égale possible)
   max?: number // nombre de personnes max par groupe (défaut : répartition la plus égale possible)
@@ -44,7 +46,10 @@ const props = withDefaults(defineProps<{
   groupCount: 5,
 })
 
-const groups = ref< {lastName: string, firstName: string}[][]>([])
+const emptyGroups = (): Person[][] => Array.from({ length: props.groupCount }, () => [])
+
+// groupes affichés, remplis un nom après l'autre
+const groups = ref<Person[][]>(emptyGroups())
 
 // par défaut, min/max donnent la répartition la plus égale (ex: 11 personnes / 5 groupes → 2 ou 3)
 const min = computed(() => props.min ?? Math.floor(props.names.length / props.groupCount))
@@ -89,16 +94,40 @@ function randomSizes(): number[] {
   return sizes
 }
 
-function shuffle() {
-  if (error.value) return
-  const names = shuffleArray(props.names)
-  groups.value = randomSizes().map(size => names.splice(0, size))
+// noms restant à placer, dans l'ordre d'apparition
+let queue: { groupIndex: number, person: Person }[] = []
+let hasDrawn = false
+
+function reset() {
+  queue = []
+  hasDrawn = false
+  groups.value = emptyGroups()
 }
 
-// l'aléatoire est généré côté client uniquement (évite un mismatch d'hydratation SSR)
-onMounted(shuffle)
+function placeNext() {
+  const next = queue.shift()
+  if (!next) return
+  groups.value[next.groupIndex]!.push(next.person)
+}
 
-watch(() => [props.names, props.groupCount, props.min, props.max], shuffle, { deep: true })
+// tire les groupes, dans un ordre aléatoire entre les groupes
+function draw() {
+  const names = shuffleArray(props.names)
+  const finalGroups = randomSizes().map(size => names.splice(0, size))
+  queue = shuffleArray(finalGroups.flatMap((group, groupIndex) => group.map(person => ({ groupIndex, person }))))
+  hasDrawn = true
+}
+
+// à chaque appel, place un nom ; ne fait plus rien une fois que tous les noms sont placés
+function shuffle() {
+  if (error.value) return
+  if (!hasDrawn) draw()
+  placeNext()
+}
+
+// l'aléatoire n'est tiré qu'au clic, côté client (pas de mismatch d'hydratation SSR)
+
+watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep: true })
 </script>
 
 <style lang="scss" scoped>
