@@ -36,6 +36,7 @@
 interface Person {
   lastName: string // nom
   firstName: string // prénom
+  dev: boolean // profil dev
 }
 
 const props = withDefaults(defineProps<{
