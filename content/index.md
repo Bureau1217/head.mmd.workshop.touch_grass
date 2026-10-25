@@ -1,1 +1,1 @@
-A workshop for disobedient websites that sense, depend, react and change.
+## A workshop for disobedient websites that sense, depend, react and change.
