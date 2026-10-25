@@ -64,14 +64,15 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 
 :::AppToggle{title="Schedule"}
 
-### Besoins
+### Requirements
 
-- Abonnement Claude
-- MCP Figma + GitHub + Claude Code + ligne de commande
-- IDE : VS Code
-- Installation Node.js
-- Installation Git
-- Faire un check sur Windows
+- Claude subscription
+- MCP Figma + GitHub + Claude Code + command line
+- IDE: VS Code
+- Node.js installed
+- Git installed
+- Check setup on Windows
+
 - **Day 1 — Explore & Formulate**
     
     **Morning**
