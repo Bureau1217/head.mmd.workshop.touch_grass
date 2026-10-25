@@ -49,21 +49,37 @@ const blades = ref<Blade[]>([])
 
 const random = (min: number, max: number) => min + Math.random() * (max - min)
 
-// ajoute des brins jusqu'à remplir la largeur du conteneur
+// ajoute des brins tant qu'ils tiennent entièrement dans la largeur du conteneur
 function fill() {
   if (!containerRef.value) return
   const containerWidth = containerRef.value.clientWidth
   // largeur réellement occupée par un brin, une fois le recouvrement déduit (min 1px pour éviter une boucle infinie à 100%)
   const visibleWidth = (width: number) => Math.max(width * (1 - props.overlap / 100), 1)
-  let totalWidth = blades.value.reduce((sum, blade) => sum + visibleWidth(blade.width), 0)
+  // bord droit du brin, si on l'ajoute après un brin dont le bord droit est `right`
+  const nextRight = (right: number, width: number, isFirst: boolean) =>
+      isFirst ? width : right + visibleWidth(width)
 
-  while (totalWidth < containerWidth) {
+  // garde les brins existants qui tiennent encore (si le conteneur a rétréci)
+  let right = 0
+  let count = 0
+  for (const blade of blades.value) {
+    const bladeRight = nextRight(right, blade.width, count === 0)
+    if (bladeRight > containerWidth) break
+    right = bladeRight
+    count++
+  }
+  if (count < blades.value.length) blades.value.splice(count)
+
+  // ajoute des brins jusqu'à ce que le prochain dépasse le bord droit
+  while (true) {
     const width = props.size * random(props.sizeMin, props.sizeMax) / 100
+    const bladeRight = nextRight(right, width, blades.value.length === 0)
+    if (bladeRight > containerWidth) break
     blades.value.push({
       width,
       rotation: random(props.rotationMin, props.rotationMax),
     })
-    totalWidth += visibleWidth(width)
+    right = bladeRight
   }
 }
 
