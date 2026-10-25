@@ -9,7 +9,7 @@
         class="v-app-button__grass"
         aria-hidden="true"
     >
-      <AppGrass :size="45"/>
+      <AppGrass :size="45" :sizeMax="105" :sizeMin="95"/>
     </span>
     <span class="v-app-button__label">
       <slot/>
