@@ -1,0 +1,24 @@
+$grid-columns: 12;
+
+.app-container {
+  --gutter: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@for $i from 1 through $grid-columns {
+  .app-container__coll-#{$i}-#{$grid-columns} {
+    box-sizing: border-box;
+    flex: 0 0 calc(100% / #{$grid-columns} * #{$i});
+    max-width: calc(100% / #{$grid-columns} * #{$i});
+  }
+}
+
+
+.app-with-padding {
+  padding-left: calc(var(--gutter) / 2);
+  padding-right: calc(var(--gutter) / 2);
+}
