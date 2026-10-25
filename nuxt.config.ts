@@ -6,4 +6,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
   ],
+  content: {
+    renderer: {
+      anchorLinks: false,
+    },
+  },
 })
