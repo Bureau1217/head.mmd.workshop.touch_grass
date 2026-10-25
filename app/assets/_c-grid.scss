@@ -32,6 +32,6 @@
 .app-container__coll-12-12 {box-sizing: border-box; width: calc(100% / 12 * 12);}
 
 .app-with-padding {
-  padding-left: calc(var(--gutter) / 2);
-  padding-right: calc(var(--gutter) / 2);
+  padding-left: calc(var(--app-gutter) / 2);
+  padding-right: calc(var(--app-gutter) / 2);
 }
