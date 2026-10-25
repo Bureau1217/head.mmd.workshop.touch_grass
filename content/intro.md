@@ -73,68 +73,74 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 - Git installed
 - Check setup on Windows
 
-- **Day 1 — Explore & Formulate**
-    
-    **Morning**
-    
-    - 9h00–9h45 — Introduction du workshop + présentation du site comme référence + ce qu'on ne veut pas (pas de tuto)
-    - 9h45–10h15 — Présentation des étudiant·e·x·s + formation des groupes avec sketch interactif
-    - Break 15 min
-    - 10h30–11h30 — Règles du jeu + exemple interactif avec sketch fonctionnel
-    - 11h30–11h45 — Matières : API + BDD
-    - 11h45–12h00 —
-    
-    **Afternoon**
-    
-    - Concept narratif
-    - Appel — abonnement Claude
-    - 5 slides :
-        - Description des étapes
-        - Indices de compréhension sur l'interaction avec l'interface
-        - Enjeux avec les ressources
-        - Matières de données envisagées (API)
-    - Questions, réponses
-- **Day 2 — Define & Start Prototyping**
-    
-    **Morning**
-    
-    - 9h00–10h30 — Présentation des concepts, d'une narration et des contenus
-    - Break 10h30–10h45
-    - 10h45–12h00 — Affinement des concepts basé sur les retours collectifs, tests entre groupes. Objectif : valider le concept narratif pour la demi-journée
-    
-    **Afternoon**
-    
-    - 13h30–17h00
-        - Préparation des machines (GitHub + Node.js)
-        - Définition du design et de la technique
-        - Objectif : valider le concept narratif et le fonctionnement
-- **Day 3 — Prototype**
-    
-    **Morning**
-    
-    - 9h00–12h00 — Production & assistance technique et concept
-    
-    **Afternoon**
-    
-    - 13h00–17h00 — Production & assistance technique et concept
-- **Day 4 — Prototype & Narrate**
-    
-    **Morning**
-    
-    - 9h00–12h00 — Production & assistance technique et concept
-    
-    **Afternoon**
-    
-    - 13h00–17h00 — Production & assistance technique et concept
-- **Day 5 — Test, Document & Release**
-    
-    **Morning**
-    
-    - Documentation GitHub
-    
-    **Afternoon**
-    
-    - Présentation
+### Planning
+
+#### Day 1 — Explore & Formulate
+
+**Morning**
+
+- 9h00–9h45 — Introduction du workshop + présentation du site comme référence + ce qu'on ne veut pas (pas de tuto)
+- 9h45–10h15 — Présentation des étudiant·e·x·s + formation des groupes avec sketch interactif
+- Break 15 min
+- 10h30–11h30 — Règles du jeu + exemple interactif avec sketch fonctionnel
+- 11h30–11h45 — Matières : API + BDD
+- 11h45–12h00 —
+
+**Afternoon**
+
+- Concept narratif
+- Appel — abonnement Claude
+- 5 slides :
+    - Description des étapes
+    - Indices de compréhension sur l'interaction avec l'interface
+    - Enjeux avec les ressources
+    - Matières de données envisagées (API)
+- Questions, réponses
+
+#### Day 2 — Define & Start Prototyping
+
+**Morning**
+
+- 9h00–10h30 — Présentation des concepts, d'une narration et des contenus
+- Break 10h30–10h45
+- 10h45–12h00 — Affinement des concepts basé sur les retours collectifs, tests entre groupes. Objectif : valider le concept narratif pour la demi-journée
+
+**Afternoon**
+
+- 13h30–17h00
+    - Préparation des machines (GitHub + Node.js)
+    - Définition du design et de la technique
+    - Objectif : valider le concept narratif et le fonctionnement
+
+#### Day 3 — Prototype
+
+**Morning**
+
+- 9h00–12h00 — Production & assistance technique et concept
+
+**Afternoon**
+
+- 13h00–17h00 — Production & assistance technique et concept
+
+#### Day 4 — Prototype & Narrate
+
+**Morning**
+
+- 9h00–12h00 — Production & assistance technique et concept
+
+**Afternoon**
+
+- 13h00–17h00 — Production & assistance technique et concept
+
+#### Day 5 — Test, Document & Release
+
+**Morning**
+
+- Documentation GitHub
+
+**Afternoon**
+
+- Présentation
 
 :::
 
