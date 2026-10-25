@@ -167,7 +167,9 @@ watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep
 
 .v-app-groups__shuffle {
   position: sticky;
-  top: 100%;
+  top: calc( 100% - 2rem );
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>
