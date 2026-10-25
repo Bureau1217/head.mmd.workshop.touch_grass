@@ -1,10 +1,1 @@
-# My First Page
-
-Here is some content.
-
-
-:::AppToggle
-
-coucou
-
-:::
+A workshop for disobedient websites that sense, depend, react and change.
