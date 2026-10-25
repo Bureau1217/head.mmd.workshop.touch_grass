@@ -2,6 +2,8 @@
 title: Touch Grass
 ---
 
+:AppHeader
+
 :::AppToggle{title="Brief <em>Touch_Grass</em>"}
 
 ### Take your website off the leash.
