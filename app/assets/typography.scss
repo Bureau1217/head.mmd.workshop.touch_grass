@@ -3,6 +3,7 @@
   line-height: 3rem;
   margin: 0 0 1rem;
   font-variation-settings: 'wght' 700;
+  max-width: 25em;
 }
 
 .app-font-h2, h2 {
@@ -11,6 +12,7 @@
   margin: 2rem 0 1rem;
   font-variation-settings: 'wght' 700;
   color: var(--app-color-primary);
+  max-width: 25em;
 }
 
 .app-font-h3, h3 {
@@ -18,6 +20,7 @@
   line-height: 2rem;
   margin: 2rem 0 1rem;
   font-variation-settings: 'wght' 700;
+  max-width: 25em;
 }
 
 .app-font-h4, h4 {
@@ -25,6 +28,7 @@
   line-height: 1.5rem;
   margin: 2rem 0 1rem;
   font-variation-settings: 'wght' 700;
+  max-width: 25em;
 }
 
 .app-font-h5, h5 {
