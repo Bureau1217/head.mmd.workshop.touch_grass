@@ -1,5 +1,5 @@
 <template>
-  <div class="v-appheader">
+  <header class="v-app-header">
     <div class="app-container app-container--flex-wrap--nowrap app-container--align-items--center">
       <div>
         <AppTextTouch
@@ -18,15 +18,13 @@
         />
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>
-
-import AppTextTouch from "~/components/AppTextTouch.vue";
 </script>
 
 <style lang="scss" scoped>
-.v-appheader {
+.v-app-header {
 }
 </style>
