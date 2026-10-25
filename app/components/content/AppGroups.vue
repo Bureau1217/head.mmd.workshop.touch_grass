@@ -1,5 +1,5 @@
 <template>
-  <div class="v-app-groups">
+  <div class="v-app-groups app-with-gutter">
     <p
         v-if="error"
         class="v-app-groups__error"
@@ -25,7 +25,9 @@
         </div>
       </div>
 
-      <AppButton @click="shuffle">Shuffle groups</AppButton>
+      <div class="v-app-groups__shuffle">
+        <AppButton @click="shuffle">Shuffle groups</AppButton>
+      </div>
     </template>
   </div>
 </template>
@@ -132,7 +134,9 @@ watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep
 
 <style lang="scss" scoped>
 .v-app-groups {
-  margin: 1rem 0;
+  min-height: calc( 100dvh - var(--app-header-height));
+  box-sizing: border-box;
+  padding-top: 1rem;
 }
 
 .v-app-groups__list {
@@ -159,5 +163,11 @@ watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep
 
 .v-app-groups__error {
   color: var(--app-color-primary);
+}
+
+.v-app-groups__shuffle {
+  position: sticky;
+  top: 100%;
+  width: 100%;
 }
 </style>

@@ -55,3 +55,9 @@
     margin-bottom: 0;
   }
 }
+
+.app-with-gutter {
+  box-sizing: border-box;
+  margin-left: calc(var(--app-gutter) / 2);
+  margin-right: calc(var(--app-gutter) / 2);
+}

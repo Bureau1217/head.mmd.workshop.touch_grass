@@ -1,3 +1,5 @@
+<div class="app-with-gutter">
+
 ## A workshop for disobedient websites that sense, depend, react and change.
 
 <p>
@@ -11,3 +13,6 @@
 :AppButton[Create the groups!]{to="/groups"}
 
 </p>
+
+</div>
+

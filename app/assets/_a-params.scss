@@ -1,5 +1,6 @@
 :root {
   --app-gutter: 1rem;
+  --app-gutter-half: calc(var(--app-gutter) / 2);
 
   --app-header-height: 1rem;
 

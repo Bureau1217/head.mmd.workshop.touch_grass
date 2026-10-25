@@ -1,5 +1,5 @@
 <template>
-  <header class="v-app-header">
+  <header class="v-app-header app-with-gutter">
     <div class="app-container app-container--flex-wrap--nowrap app-container--align-items--flex-end">
       <div>
         <AppTextTouch

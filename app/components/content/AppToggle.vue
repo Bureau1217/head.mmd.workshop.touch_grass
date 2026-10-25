@@ -7,7 +7,7 @@
           :aria-expanded="isOpen"
           @click="isOpen = !isOpen"
       >
-        <span class="v-app-toggle__title__text">
+        <span class="v-app-toggle__title__text app-with-gutter">
           <template
               v-for="(word, index) in titleWords"
               :key="index"
@@ -45,7 +45,7 @@
 
     <div
         v-show="isOpen"
-        class="v-app-toggle__content app-no-first-and-list-child-margin"
+        class="v-app-toggle__content app-no-first-and-list-child-margin app-with-gutter"
     >
       <slot/>
     </div>
