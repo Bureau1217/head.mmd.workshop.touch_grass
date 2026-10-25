@@ -41,7 +41,7 @@ Your website should define:
 
 The goal is not to decorate a webpage with live data. The live condition should transform the way the website behaves, appears, or can be navigated.
 
-### THE QUESTION
+### The question
 
 **What happens to browsing when a website is no longer always available in the same way?**
 
@@ -49,7 +49,7 @@ Instead of treating navigation as a sequence of commands, we will explore it as 
 
 A website becomes something to approach, disturb, feed, wait for, or learn from.
 
-### RULES OF THE GAME
+### Rules of the game
 
 1. **No click as the main way in.**
 2. **No scroll as the main structure.**
@@ -64,7 +64,7 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 
 :::AppToggle{title="Schedule"}
 
-**Besoins**
+### Besoins
 
 - Abonnement Claude
 - MCP Figma + GitHub + Claude Code + ligne de commande
@@ -238,7 +238,7 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 
 :::AppToggle{title="Ressources links, papers, and tools"}
 
-### READ
+### Read
 
 A small selection of texts to think with.
 
