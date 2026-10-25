@@ -7,13 +7,13 @@
 html {
   font-size: 25px;
   font-family: 'Geist', sans-serif;
-  font-variation-settings: 'wght' 600;
+  font-variation-settings: 'wght' 550;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  @extend .app-font-p;
+  @extend .app-font-default;
 }
 
 button {
