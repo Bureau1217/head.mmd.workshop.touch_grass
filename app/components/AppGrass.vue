@@ -1,7 +1,6 @@
 <template>
   <div
       class="v-app-grass"
-      :class="{ 'v-app-grass--overflow': overflow }"
       ref="containerRef"
       :style="{ height: `${size * sizeMax / 100}px` }"
   >
@@ -38,7 +37,6 @@ const props = withDefaults(defineProps<{
   rotationMin?: number // en deg
   rotationMax?: number // en deg
   overlap?: number // recouvrement entre brins, en % de la largeur d'un brin (0 à < 100)
-  overflow?: boolean // true : les brins peuvent dépasser du conteneur (rotation, taille, dernier brin)
   strokeWidth?: number // width du tracé des brins (en px)
 }>(), {
   size: 40,
@@ -47,7 +45,6 @@ const props = withDefaults(defineProps<{
   rotationMin: -20,
   rotationMax: 20,
   overlap: 90,
-  overflow: false,
   strokeWidth: 2.4,
 })
 
@@ -120,11 +117,7 @@ watch(() => [props.size, props.sizeMin, props.sizeMax, props.rotationMin, props.
   flex-wrap: nowrap;
   align-items: center;
   width: 100%;
-  overflow: hidden;
-
-  &--overflow {
-    overflow: visible;
-  }
+  overflow: visible;
 }
 
 .v-app-grass__blade {
