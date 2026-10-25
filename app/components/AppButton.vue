@@ -1,7 +1,9 @@
 <template>
-  <NuxtLink
+  <component
+      :is="to ? NuxtLink : 'button'"
       class="v-app-button"
       :to="to"
+      :type="to ? undefined : 'button'"
   >
     <span
         class="v-app-button__grass"
@@ -12,18 +14,25 @@
     <span class="v-app-button__label">
       <slot/>
     </span>
-  </NuxtLink>
+  </component>
 </template>
 
 <script lang="ts" setup>
+// sans `to`, le composant est un <button> (pour les actions, ex: @click)
 defineProps<{
-  to: string
+  to?: string
 }>()
+
+const NuxtLink = resolveComponent('NuxtLink')
 </script>
 
 <style lang="scss" scoped>
 .v-app-button {
   position: relative;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
   isolation: isolate;
   display: inline-block;
   color: inherit;
