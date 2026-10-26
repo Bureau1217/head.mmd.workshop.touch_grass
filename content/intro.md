@@ -125,47 +125,47 @@ Set up the Claude subscription for tomorrow
 
 Morning
 
-- 9h00–10h30 — Présentation des concepts, d'une narration et des contenus
+- 9h00–10h30 — Presentation of the concepts, narrative and content
 - Break 10h30–10h45
-- 10h45–12h00 — Affinement des concepts basé sur les retours collectifs, tests entre groupes. Objectif : valider le
-  concept narratif pour la demi-journée
+- 10h45–12h00 — Refining the concepts based on collective feedback, testing between groups. Goal: validate the
+  narrative concept by midday
 
 Afternoon
 
 - 13h30–17h00
-    - Préparation des machines (GitHub + Node.js)
-    - Définition du design et de la technique
-    - Objectif : valider le concept narratif et le fonctionnement
+    - Setting up the computers (GitHub + Node.js)
+    - Defining the design and the technical approach
+    - Goal: validate the narrative concept and how it works
 
 #### Day 3 — Prototype
 
 Morning
 
-- 9h00–12h00 — Production & assistance technique et concept
+- 9h00–12h00 — Production & technical and concept support
 
 Afternoon
 
-- 13h00–17h00 — Production & assistance technique et concept
+- 13h00–17h00 — Production & technical and concept support
 
 #### Day 4 — Prototype & Narrate
 
 Morning
 
-- 9h00–12h00 — Production & assistance technique et concept
+- 9h00–12h00 — Production & technical and concept support
 
 Afternoon
 
-- 13h00–17h00 — Production & assistance technique et concept
+- 13h00–17h00 — Production & technical and concept support
 
 #### Day 5 — Test, Document & Release
 
 Morning
 
-- Documentation GitHub
+- GitHub documentation
 
 Afternoon
 
-- Présentation
+- Presentation
 
 :::
 
@@ -268,7 +268,7 @@ Afternoon
 :::
 
 
-:::AppToggle{title="Ressources links, papers, and tools"}
+:::AppToggle{title="Resources: links, papers, and tools"}
 
 ### Read
 
@@ -527,48 +527,48 @@ Ask:
 - **Can you replace the live signal with a fake value while testing?**
 - **Does the project still make sense if the sensor fails?**
 
-### APIs / Data ressources
+### APIs / Data resources
 
-#### Climat, plante and weather
+#### Climate, planet and weather
 
-| API | Ce qu'elle fournit | Accès |
+| API | What it provides | Access |
 |---|---|---|
-| [Open-Meteo](https://open-meteo.com/en/docs) | Prévisions, historique depuis 1940, qualité de l'air, houle | Sans clé |
-| [MeteoSwiss Open Data](https://opendatadocs.meteoswiss.ch) | Mesures des stations suisses, radar, modèles ICON-CH | Sans clé (API STAC) |
-| [Copernicus Climate Data Store](https://cds.climate.copernicus.eu) | Réanalyse ERA5, projections climatiques, séries longues | Compte gratuit |
-| [NASA POWER](https://power.larc.nasa.gov/docs/services/api/) | Rayonnement solaire, températures, vent, pour n'importe quel point du globe | Sans clé |
-| [OpenAQ](https://docs.openaq.org) | Qualité de l'air (PM2.5, NO₂…) issue de milliers de capteurs | Clé gratuite |
-| [NASA EONET](https://eonet.gsfc.nasa.gov/docs/v3) | Événements naturels en cours : feux, tempêtes, volcans, glaces | Sans clé |
-| [Tectonic Plane Map](https://tectonicplatemap.com/) | Tectonique des plaques |          |
+| [Open-Meteo](https://open-meteo.com/en/docs) | Forecasts, history since 1940, air quality, swell | No key |
+| [MeteoSwiss Open Data](https://opendatadocs.meteoswiss.ch) | Swiss station measurements, radar, ICON-CH models | No key (STAC API) |
+| [Copernicus Climate Data Store](https://cds.climate.copernicus.eu) | ERA5 reanalysis, climate projections, long time series | Free account |
+| [NASA POWER](https://power.larc.nasa.gov/docs/services/api/) | Solar radiation, temperatures, wind, for any point on the globe | No key |
+| [OpenAQ](https://docs.openaq.org) | Air quality (PM2.5, NO₂…) from thousands of sensors | Free key |
+| [NASA EONET](https://eonet.gsfc.nasa.gov/docs/v3) | Ongoing natural events: fires, storms, volcanoes, ice | No key |
+| [Tectonic Plane Map](https://tectonicplatemap.com/) | Plate tectonics |          |
 
-#### Flux de transport
+#### Transport flows
 
-| API | Ce qu'elle fournit | Accès |
+| API | What it provides | Access |
 |---|---|---|
-| [opentransportdata.swiss](https://opentransportdata.swiss) | Horaires et temps réel des transports suisses (GTFS-RT, perturbations) | Clé gratuite |
-| [transport.opendata.ch](https://transport.opendata.ch) | Version simplifiée : départs, connexions, gares | Sans clé |
-| [OpenSky Network](https://openskynetwork.github.io/opensky-api/) | Positions des avions en temps réel (ADS-B) | Sans clé (limité), compte pour plus |
-| [AISStream](https://aisstream.io) | Positions des navires en temps réel, via WebSocket | Clé gratuite |
+| [opentransportdata.swiss](https://opentransportdata.swiss) | Swiss public transport timetables and real-time data (GTFS-RT, disruptions) | Free key |
+| [transport.opendata.ch](https://transport.opendata.ch) | Simplified version: departures, connections, stations | No key |
+| [OpenSky Network](https://openskynetwork.github.io/opensky-api/) | Real-time aircraft positions (ADS-B) | No key (limited), account for more |
+| [AISStream](https://aisstream.io) | Real-time ship positions, via WebSocket | Free key |
 
-#### Situation socio-économique liée à Internet
+#### Internet-related socio-economic situation
 
-| API | Ce qu'elle fournit | Accès |
+| API | What it provides | Access |
 |---|---|---|
-| [World Bank Indicators](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392) | Taux d'accès à Internet, abonnements mobiles, PIB, par pays | Sans clé |
-| [Cloudflare Radar](https://developers.cloudflare.com/radar/) | Trafic mondial, pannes, attaques, part mobile/desktop, adoption IPv6 | Token gratuit |
-| [IODA](https://api.ioda.inetintel.cc.gatech.edu) | Détection des coupures Internet par pays et région, souvent politiques | Sans clé |
-| [OONI](https://api.ooni.io) | Mesures de censure : sites et applications bloqués par pays | Sans clé |
-| [RIPEstat](https://stat.ripe.net/docs/data-api) | Routage BGP, opérateurs (ASN), allocations IP par pays | Sans clé |
+| [World Bank Indicators](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392) | Internet access rates, mobile subscriptions, GDP, by country | No key |
+| [Cloudflare Radar](https://developers.cloudflare.com/radar/) | Global traffic, outages, attacks, mobile/desktop share, IPv6 adoption | Free token |
+| [IODA](https://api.ioda.inetintel.cc.gatech.edu) | Detection of Internet shutdowns by country and region, often political | No key |
+| [OONI](https://api.ooni.io) | Censorship measurements: websites and apps blocked by country | No key |
+| [RIPEstat](https://stat.ripe.net/docs/data-api) | BGP routing, operators (ASN), IP allocations by country | No key |
 
-#### Serveurs, câbles, satellites et téléphonie
+#### Servers, cables, satellites and telephony
 
-| API | Ce qu'elle fournit | Accès |
+| API | What it provides | Access |
 |---|---|---|
-| [PeeringDB](https://www.peeringdb.com/apidocs/) | Datacenters, points d'échange Internet, réseaux qui s'y connectent | Sans clé (lecture) |
-| [CelesTrak](https://celestrak.org/NORAD/documentation/gp-data-formats.php) | Orbites de tous les satellites suivis, avec un groupe Starlink dédié | Sans clé |
-| [N2YO](https://www.n2yo.com/api/) | Satellites visibles au-dessus d'un point et prévisions de passage | Clé gratuite |
-| [OpenCelliD](https://opencellid.org) | Base mondiale des antennes relais (GSM, 4G, 5G) avec leurs coordonnées | Clé gratuite |
-| [TeleGeography Submarine Cable Map](https://www.submarinecablemap.com) | Tracés des câbles sous-marins et points d'atterrissage (GeoJSON) | Endpoint non officiel, sans clé |
+| [PeeringDB](https://www.peeringdb.com/apidocs/) | Data centers, Internet exchange points, networks connecting to them | No key (read-only) |
+| [CelesTrak](https://celestrak.org/NORAD/documentation/gp-data-formats.php) | Orbits of all tracked satellites, with a dedicated Starlink group | No key |
+| [N2YO](https://www.n2yo.com/api/) | Satellites visible above a location and pass predictions | Free key |
+| [OpenCelliD](https://opencellid.org) | Worldwide database of cell towers (GSM, 4G, 5G) with their coordinates | Free key |
+| [TeleGeography Submarine Cable Map](https://www.submarinecablemap.com) | Submarine cable routes and landing points (GeoJSON) | Unofficial endpoint, no key |
 
 
 #### Other
@@ -579,15 +579,15 @@ https://www.swiss-farmers.ch/
 
 ### Plugins
 
-#### Resources utilisé par l'application web
+#### Resources used by the web application
 
 [in progress]
 
-#### Connection avec un autre terminal (websocket)
+#### Connection with another device (WebSocket)
 
 [in progress]
 
-#### Connection contrôler midi
+#### MIDI controller connection
 
 [in progress]
 
@@ -599,9 +599,9 @@ https://www.swiss-farmers.ch/
 
 :::AppToggle{title="References by group"}
 
-### Groupe 1
+### Group 1
 
-molecules / bactéries
+Molecules / bacteria
 
 [life forever Vytas (jelly Fish) website](https://vjnks.com/projects/life-forever)
 
@@ -612,11 +612,11 @@ molecules / bactéries
 [FORMA ƑANTASMA | Cambio](https://formafantasma.com/work/cambio)
 
 
-### Groupe 2
+### Group 2
 
 Satellites
 
-### Groupe 3
+### Group 3
 
 [CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression](https://arxiv.org/pdf/2606.24083)
 
@@ -626,7 +626,7 @@ Satellites
 
 
 
-### Groupe 4
+### Group 4
 
 Golden hour / IP address, localization / WebCam
 
@@ -637,14 +637,14 @@ Golden hour / IP address, localization / WebCam
 Chrome extension that destroys the page more and more as you scroll.
 
 
-### Groupe 5
+### Group 5
 
-La patate / Surabondance des canaux qui te donnent des données / On parle plus des monoples dans l'agro allimentaire
+The potato / Overabundance of channels feeding you data / We no longer talk about monopolies in the food industry
 
 [Permacomputing](https://fr.wikipedia.org/wiki/Permacomputing)
 
 [Smell of data](https://smellofdata.com/)  
-Object qui sort une mauvaise audeur quand il detecte que vous etes sur des site qui exploitent vos donnée (quand ça "pu" d'aller sur un site)
+An object that releases a bad smell when it detects you are on websites that exploit your data (when visiting a site "stinks")
 
 
 
