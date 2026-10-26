@@ -22,7 +22,7 @@
                 :key="nameIndex"
                 class="v-app-groups__name"
             >
-              {{ name.firstName }}
+              · {{ name.firstName }}
               <br>{{ name.lastName }}
   <!--            ({{name.dev}})-->
             </p>
