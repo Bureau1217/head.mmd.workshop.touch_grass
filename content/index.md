@@ -19,7 +19,7 @@
 
 <p>
 
-:AppButton[Get Monday presentation!]{to="/files/Touch_Grass-20260126.pdf)"}
+:AppButton[Get Monday presentation!]{to="/files/Touch_Grass-20260126.pdf"}
 
 </p>
 
