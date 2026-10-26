@@ -12,18 +12,21 @@
         <div
             v-for="(group, index) in groups"
             :key="index"
-            class="v-app-groups__group"
+            class="v-app-groups__group app-no-first-and-list-child-margin"
         >
           <h4 class="v-app-groups__group__title">Group {{ index + 1 }}</h4>
-          <p
-              v-for="(name, nameIndex) in group"
-              :key="nameIndex"
-              class="v-app-groups__name"
-          >
-            {{ name.firstName }}
-            <br>{{ name.lastName }}
-<!--            ({{name.dev}})-->
-          </p>
+
+          <div class="v-app-groups__group__liste app-no-first-and-list-child-margin">
+            <p
+                v-for="(name, nameIndex) in group"
+                :key="nameIndex"
+                class="v-app-groups__name"
+            >
+              {{ name.firstName }}
+              <br>{{ name.lastName }}
+  <!--            ({{name.dev}})-->
+            </p>
+          </div>
         </div>
       </div>
 
@@ -151,9 +154,9 @@ watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep
 
 <style lang="scss" scoped>
 .v-app-groups {
-  min-height: calc( 100dvh - var(--app-header-height) - var(--app-footer-height));
+  min-height: calc( 100dvh - var(--app-header-height) - var(--app-footer-height) - var(--app-gutter-half));
   box-sizing: border-box;
-  padding-top: 1rem;
+  padding-top: var(--app-gutter-half);
 }
 
 .v-app-groups__list {
@@ -174,8 +177,12 @@ watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep
 }
 
 .v-app-groups__group__title {
-  margin: 0 0 .5rem;
   color: var(--app-color-primary);
+  margin-bottom: 0;
+}
+
+.v-app-groups__group__liste {
+  min-height: 8rem;
 }
 
 .v-app-groups__error {
