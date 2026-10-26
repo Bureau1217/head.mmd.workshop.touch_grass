@@ -630,7 +630,7 @@ Golden hour / IP address, localisation / WebCam
 
 [Olia Lialina | Summer ](https://transmediale.de/de/artwork/summer)
 
-Plugin Chrome qui détruit la page de plus en plus quand tu scroll.
+Chrome extension that destroys the page more and more as you scroll.
 
 
 ### Groupe 5
