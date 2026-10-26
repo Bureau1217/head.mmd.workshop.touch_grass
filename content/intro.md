@@ -599,19 +599,19 @@ https://www.swiss-farmers.ch/
 
 :::AppToggle{title="References by group"}
 
-## Groupe 1
+### Groupe 1
 
-## Groupe 2
+### Groupe 2
 
-## Groupe 3
+### Groupe 3
 
 (CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression)[https://arxiv.org/pdf/2606.24083]
 
 (A Path Towards Autonomous Machine Intelligence — Yann LeCun)[https://openreview.net/pdf?id=BZ5a1r-kVsf&utm_source=chatgpt.com]
 
-## Groupe 4
+### Groupe 4
 
-## Groupe 5
+### Groupe 5
 
 
 :::
