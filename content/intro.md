@@ -249,7 +249,7 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 
 A small selection of texts to think with.
 
-- **READ**
+- **Read**
     
 #### Start here
 
@@ -284,59 +284,59 @@ Experiments around altered sensory perception, including forms of sensing inspir
 
 ---
 
-- **LOOK**
+- **Look**
     
 Projects to think through behaviour, infrastructure, conditions, and alternative ways of being online.
 
-### SOLAR PROTOCOL
+### Solar protocol
 
 `energy · weather · availability · infrastructure`
 
 A network of solar-powered servers. Traffic is routed according to where sunlight — and therefore energy — is currently available.
 
-### LOW-TECH MAGAZINE — SOLAR WEBSITE
+### Low-tech magazine — solar website
 
 `energy · limits · uptime · materiality`
 
 A solar-powered website whose availability depends on the energy stored in its battery.
 
-### METRIC DISPLACEMENT
+### Metric displacement
 
 `latency · network · rhythm · friction`
 
 Network delays and imperfections become material for rhythm and interaction instead of technical problems to hide.
 
-### HOW TO SLOW INTERNET
+### How to slow internet
 
 `slowness · infrastructure · solar · intermittence`
 
 Small-scale solar infrastructure used to question the permanent availability and scale of contemporary networks.
 
-### WITHIN LIMITS
+### Within limits
 
 `degrowth · solar · limits · computation`
 
 A solar-powered computing infrastructure that treats limited resources as a creative framework.
 
-### WEBSITE AS COMMUNITY GARDEN
+### Website as community garden
 
 `cycles · maintenance · growth · decay`
 
 A way of thinking about websites through maintenance, seasons, growth, neglect, and change.
 
-### BUILDING BENCHES FOR THE WEB / PLAYHTML
+### Building benches for the web / PlayHTML
 
 `presence · social · live web · behaviour`
 
 Web experiences shaped by the presence of other people rather than isolated individual interaction.
 
-### SUNDAY SITES
+### Sunday sites
 
 `constraints · handmade web · alternative behaviours`
 
 Small experimental websites produced from playful prompts and constraints.
 
-### HTML IN THE PARK
+### HTML in the park
 
 `outside · collective · handmade web`
 
@@ -345,88 +345,88 @@ A practice of physically taking HTML-making outside the usual environment of scr
 
 ---
 
-- **CONNECT**
+- **Connect**
     
 Pick something your website can be sensitive to. Think in terms of **phenomena**, not APIs.
 
-### WEATHER
+### Weather
 
 temperature · apparent temperature · humidity · pressure · rain · snowfall · cloud cover · wind speed · wind direction · wind gusts · visibility · UV index · dew point · freezing level · thunderstorms · lightning · weather alerts · historical weather · forecast uncertainty
 
 Possible sources: Open-Meteo · national meteorological services · local weather stations · physical weather sensors
 
-### SUN / LIGHT / SKY
+### Sun / light / sky
 
 sunrise · sunset · daylight duration · solar elevation · solar radiation · twilight · golden hour · moonrise · moonset · moon phase · cloud opacity · ambient light · seasonal daylight
 
 Possible sources: astronomical APIs · weather APIs · ambient light sensors · camera input
 
-### OCEAN / TIDES
+### Ocean / tides
 
 tide height · high tide · low tide · sea level · wave height · wave direction · wave period · swell · ocean currents · sea surface temperature
 
 Possible sources: Open-Meteo Marine · NOAA Tides & Currents · local marine services
 
-### RIVERS / WATER
+### Rivers / water
 
 river discharge · river level · flood risk · drought · rainfall accumulation · groundwater · snowmelt · watershed conditions
 
 Possible sources: Open-Meteo Flood API · GloFAS · local hydrological datasets
 
-### AIR
+### Air
 
 PM2.5 · PM10 · NO₂ · O₃ · SO₂ · CO · CO₂ · pollen · humidity · air pressure · air quality index · smoke
 
 Possible sources: OpenAQ · local air-quality networks · physical air sensors
 
-### EARTH
+### Earth
 
 earthquakes · magnitude · depth · distance · volcanic activity · landslides · soil moisture · ground temperature
 
 Possible sources: USGS Earthquake feeds · national geological services · NASA datasets
 
-### NATURAL EVENTS
+### Natural events
 
 wildfires · storms · volcanoes · floods · drought · dust storms · sea ice · snow events · landslides · earthquakes · tropical cyclones
 
 Possible sources: NASA EONET
 
-### FIRE
+### Fire
 
 active fires · wildfire perimeter · smoke · burned area · fire risk · heat anomalies
 
 Possible sources: NASA FIRMS · NASA EONET · Copernicus datasets
 
-### ICE / SNOW
+### Ice / snow
 
 snowfall · snow depth · freezing level · sea ice · lake ice · snow cover · glacial conditions
 
-### LIVING CONDITIONS
+### Living conditions
 
 pollen · flowering seasons · migration periods · vegetation index · plant moisture · soil moisture · daylight cycles · bird activity · growing degree days
 
-### COSMIC
+### Cosmic
 
 moon phase · solar activity · geomagnetic storms · aurora forecasts · meteor showers · ISS position · planetary positions · daylight cycles
 
-### DEVICE / LOCAL ENVIRONMENT
+### Device / local environment
 
 microphone · camera · ambient light · orientation · accelerometer · gyroscope · geolocation · battery · network status · performance · connected users · proximity
 
-### EXTERNAL SENSORS
+### External sensors
 
 light · temperature · humidity · pressure · distance · sound · soil moisture · touch · movement · air quality
 
-### CONDITIONS OR EVENTS?
+### Conditions or events?
 
 A **condition** changes continuously: temperature · wind · light · noise · presence · battery · number of visitors
     
 
 ---
 
-- **HOW TO**
+- **How to**
     
-### START
+### Start
 
 Use the smallest setup possible:
 
@@ -438,7 +438,7 @@ Use the smallest setup possible:
 
 Spend as little time as possible setting things up.
 
-### CONNECT DATA
+### Connect data
 
 Small patterns for bringing live conditions into the page:
 
@@ -453,7 +453,7 @@ Small patterns for bringing live conditions into the page:
 
 Each example should be small enough to copy, understand, and modify.
 
-### MAKE IT BEHAVE
+### Make it behave
 
 Turn data into behaviour: thresholds · ranges · timers · accumulation · decay · memory · probability · state machines · cooldowns · delays · multiple conditions
 
@@ -466,7 +466,7 @@ Examples:
 
 The point is not to display the value. Make the value change what the website can do.
 
-### PROTOTYPE WITH AI
+### Prototype with AI
 
 Once your concept has received the greenlight, generative AI can help you prototype it.
 
@@ -491,7 +491,7 @@ Above 30 km/h some content disappears.
 Help me implement this behaviour in JavaScript.
 > 
 
-### WHEN SOMETHING BREAKS
+### When something breaks
 
 Ask:
 
