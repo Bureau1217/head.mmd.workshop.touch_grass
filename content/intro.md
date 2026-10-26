@@ -601,6 +601,12 @@ https://www.swiss-farmers.ch/
 
 ### Groupe 1
 
+molecules / bactéries
+
+[life forever Vytas (jelly Fish) website](https://vjnks.com/projects/life-forever)
+[life forever Vytas (jelly Fish) isnta](https://www.instagram.com/reels/DV0k_2Vge9-/)
+
+
 ### Groupe 2
 
 ### Groupe 3
@@ -610,6 +616,8 @@ https://www.swiss-farmers.ch/
 (A Path Towards Autonomous Machine Intelligence — Yann LeCun)[https://openreview.net/pdf?id=BZ5a1r-kVsf&utm_source=chatgpt.com]
 
 ### Groupe 4
+
+Satellites
 
 ### Groupe 5
 
