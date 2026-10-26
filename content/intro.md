@@ -77,7 +77,7 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 
 #### Day 1 — Explore & Formulate
 
-**Morning**
+Morning
 
 - 9h00–9h45 — Introduction du workshop + présentation du site comme référence + ce qu'on ne veut pas (pas de tuto)
 - 9h45–10h15 — Présentation des étudiant·e·x·s + formation des groupes avec sketch interactif
@@ -86,16 +86,19 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 - 11h30–11h45 — Matières : API + BDD
 - 11h45–12h00 —
 
-**Afternoon**
+Afternoon
 
-- Concept narratif
-- Appel — abonnement Claude
-- 5 slides :
+- présentation d'APIs (continuer à chercher et partager)
+- présention d'input possible
+- Concept narratif | Concept interraction
+- minimum de 5 slides, présentation de wireframe/sketch/proto carton, qu'on comprenne les grandes lignes et le concept
+  général :
     - Description des étapes
     - Indices de compréhension sur l'interaction avec l'interface
     - Enjeux avec les ressources
     - Matières de données envisagées (API)
 - Questions, réponses
+- Set up the Claude subscription for tomorrow
 
 #### Day 2 — Define & Start Prototyping
 
@@ -103,7 +106,8 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 
 - 9h00–10h30 — Présentation des concepts, d'une narration et des contenus
 - Break 10h30–10h45
-- 10h45–12h00 — Affinement des concepts basé sur les retours collectifs, tests entre groupes. Objectif : valider le concept narratif pour la demi-journée
+- 10h45–12h00 — Affinement des concepts basé sur les retours collectifs, tests entre groupes. Objectif : valider le
+  concept narratif pour la demi-journée
 
 **Afternoon**
 
@@ -485,10 +489,10 @@ But keep the rule: **AI can help you build the system. It should not decide what
 Describe the behaviour before asking for code. Example:
 
 > My website receives wind speed from an API.
-Below 10 km/h it is fully available.
-Between 10–30 km/h navigation becomes slower.
-Above 30 km/h some content disappears.
-Help me implement this behaviour in JavaScript.
+> Below 10 km/h it is fully available.
+> Between 10–30 km/h navigation becomes slower.
+> Above 30 km/h some content disappears.
+> Help me implement this behaviour in JavaScript.
 > 
 
 ### When something breaks
@@ -504,7 +508,7 @@ Ask:
 
 ### APIs
 
-## Climat et météo
+#### Climat et météo
 
 | API | Ce qu'elle fournit | Accès |
 |---|---|---|
@@ -515,7 +519,7 @@ Ask:
 | [OpenAQ](https://docs.openaq.org) | Qualité de l'air (PM2.5, NO₂…) issue de milliers de capteurs | Clé gratuite |
 | [NASA EONET](https://eonet.gsfc.nasa.gov/docs/v3) | Événements naturels en cours : feux, tempêtes, volcans, glaces | Sans clé |
 
-## Flux de transport
+#### Flux de transport
 
 | API | Ce qu'elle fournit | Accès |
 |---|---|---|
@@ -524,7 +528,7 @@ Ask:
 | [OpenSky Network](https://openskynetwork.github.io/opensky-api/) | Positions des avions en temps réel (ADS-B) | Sans clé (limité), compte pour plus |
 | [AISStream](https://aisstream.io) | Positions des navires en temps réel, via WebSocket | Clé gratuite |
 
-## Situation socio-économique liée à Internet
+#### Situation socio-économique liée à Internet
 
 | API | Ce qu'elle fournit | Accès |
 |---|---|---|
@@ -534,7 +538,7 @@ Ask:
 | [OONI](https://api.ooni.io) | Mesures de censure : sites et applications bloqués par pays | Sans clé |
 | [RIPEstat](https://stat.ripe.net/docs/data-api) | Routage BGP, opérateurs (ASN), allocations IP par pays | Sans clé |
 
-## Serveurs, câbles, satellites et téléphonie
+#### Serveurs, câbles, satellites et téléphonie
 
 | API | Ce qu'elle fournit | Accès |
 |---|---|---|
@@ -544,11 +548,22 @@ Ask:
 | [OpenCelliD](https://opencellid.org) | Base mondiale des antennes relais (GSM, 4G, 5G) avec leurs coordonnées | Clé gratuite |
 | [TeleGeography Submarine Cable Map](https://www.submarinecablemap.com) | Tracés des câbles sous-marins et points d'atterrissage (GeoJSON) | Endpoint non officiel, sans clé |
 
-## Notes
 
-Pour un usage dans un navigateur sans backend, les plus simples sont Open-Meteo, transport.opendata.ch, NASA EONET, World Bank, IODA et CelesTrak. Elles ne demandent pas de clé et acceptent en général les requêtes depuis un autre domaine (CORS). Les autres demandent une clé ou passent mieux par un petit proxy.
+### Plugins
 
-Les quotas et conditions d'usage évoluent : à vérifier avant de lancer un projet.
+#### Resources utilisé par l'application web
+
+[in progress]
+
+#### Connection avec un autre terminal (websocket)
+
+[in progress]
+
+#### Connection contrôler midi
+
+[in progress]
+
+
 
 :::
 
