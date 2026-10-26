@@ -504,7 +504,51 @@ Ask:
 
 ### APIs
 
+## Climat et météo
 
+| API | Ce qu'elle fournit | Accès |
+|---|---|---|
+| [Open-Meteo](https://open-meteo.com/en/docs) | Prévisions, historique depuis 1940, qualité de l'air, houle | Sans clé |
+| [MeteoSwiss Open Data](https://opendatadocs.meteoswiss.ch) | Mesures des stations suisses, radar, modèles ICON-CH | Sans clé (API STAC) |
+| [Copernicus Climate Data Store](https://cds.climate.copernicus.eu) | Réanalyse ERA5, projections climatiques, séries longues | Compte gratuit |
+| [NASA POWER](https://power.larc.nasa.gov/docs/services/api/) | Rayonnement solaire, températures, vent, pour n'importe quel point du globe | Sans clé |
+| [OpenAQ](https://docs.openaq.org) | Qualité de l'air (PM2.5, NO₂…) issue de milliers de capteurs | Clé gratuite |
+| [NASA EONET](https://eonet.gsfc.nasa.gov/docs/v3) | Événements naturels en cours : feux, tempêtes, volcans, glaces | Sans clé |
+
+## Flux de transport
+
+| API | Ce qu'elle fournit | Accès |
+|---|---|---|
+| [opentransportdata.swiss](https://opentransportdata.swiss) | Horaires et temps réel des transports suisses (GTFS-RT, perturbations) | Clé gratuite |
+| [transport.opendata.ch](https://transport.opendata.ch) | Version simplifiée : départs, connexions, gares | Sans clé |
+| [OpenSky Network](https://openskynetwork.github.io/opensky-api/) | Positions des avions en temps réel (ADS-B) | Sans clé (limité), compte pour plus |
+| [AISStream](https://aisstream.io) | Positions des navires en temps réel, via WebSocket | Clé gratuite |
+
+## Situation socio-économique liée à Internet
+
+| API | Ce qu'elle fournit | Accès |
+|---|---|---|
+| [World Bank Indicators](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392) | Taux d'accès à Internet, abonnements mobiles, PIB, par pays | Sans clé |
+| [Cloudflare Radar](https://developers.cloudflare.com/radar/) | Trafic mondial, pannes, attaques, part mobile/desktop, adoption IPv6 | Token gratuit |
+| [IODA](https://api.ioda.inetintel.cc.gatech.edu) | Détection des coupures Internet par pays et région, souvent politiques | Sans clé |
+| [OONI](https://api.ooni.io) | Mesures de censure : sites et applications bloqués par pays | Sans clé |
+| [RIPEstat](https://stat.ripe.net/docs/data-api) | Routage BGP, opérateurs (ASN), allocations IP par pays | Sans clé |
+
+## Serveurs, câbles, satellites et téléphonie
+
+| API | Ce qu'elle fournit | Accès |
+|---|---|---|
+| [PeeringDB](https://www.peeringdb.com/apidocs/) | Datacenters, points d'échange Internet, réseaux qui s'y connectent | Sans clé (lecture) |
+| [CelesTrak](https://celestrak.org/NORAD/documentation/gp-data-formats.php) | Orbites de tous les satellites suivis, avec un groupe Starlink dédié | Sans clé |
+| [N2YO](https://www.n2yo.com/api/) | Satellites visibles au-dessus d'un point et prévisions de passage | Clé gratuite |
+| [OpenCelliD](https://opencellid.org) | Base mondiale des antennes relais (GSM, 4G, 5G) avec leurs coordonnées | Clé gratuite |
+| [TeleGeography Submarine Cable Map](https://www.submarinecablemap.com) | Tracés des câbles sous-marins et points d'atterrissage (GeoJSON) | Endpoint non officiel, sans clé |
+
+## Notes
+
+Pour un usage dans un navigateur sans backend, les plus simples sont Open-Meteo, transport.opendata.ch, NASA EONET, World Bank, IODA et CelesTrak. Elles ne demandent pas de clé et acceptent en général les requêtes depuis un autre domaine (CORS). Les autres demandent une clé ou passent mieux par un petit proxy.
+
+Les quotas et conditions d'usage évoluent : à vérifier avant de lancer un projet.
 
 :::
 
