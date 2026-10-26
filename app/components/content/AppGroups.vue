@@ -18,6 +18,7 @@
           <p
               v-for="(name, nameIndex) in group"
               :key="nameIndex"
+              class="v-app-groups__name"
           >
             {{ name.firstName }}
             <br>{{ name.lastName }}
@@ -187,5 +188,21 @@ watch(() => [props.names, props.groupCount, props.min, props.max], reset, { deep
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+// à son apparition, le nom passe progressivement du flou au net
+.v-app-groups__name {
+  animation: v-app-groups-reveal 5s ease-out both;
+}
+
+@keyframes v-app-groups-reveal {
+  from {
+    filter: blur(1em);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
 }
 </style>
