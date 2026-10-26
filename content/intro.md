@@ -622,9 +622,13 @@ Satellites
 
 [A Path Towards Autonomous Machine Intelligence — Yann LeCun](https://openreview.net/pdf?id=BZ5a1r-kVsf&utm_source=chatgpt.com)
 
+[https://wealth.ronnycoste.com/](https://wealth.ronnycoste.com/)
+
+
+
 ### Groupe 4
 
-Golden hour / IP address, localisation / WebCam
+Golden hour / IP address, localization / WebCam
 
 [Félicien Goguey | Colorimetry](https://felicien.io/colorimetry/)
 
@@ -634,6 +638,14 @@ Chrome extension that destroys the page more and more as you scroll.
 
 
 ### Groupe 5
+
+La patate / Surabondance des canaux qui te donnent des données / On parle plus des monoples dans l'agro allimentaire
+
+[Permacomputing](https://fr.wikipedia.org/wiki/Permacomputing)
+
+[Smell of data](https://smellofdata.com/)  
+Object qui sort une mauvaise audeur quand il detecte que vous etes sur des site qui exploitent vos donnée (quand ça "pu" d'aller sur un site)
+
 
 
 :::
