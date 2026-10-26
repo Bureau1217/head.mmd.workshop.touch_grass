@@ -82,9 +82,9 @@ Morning
 - 9h00–9h45 — Introduction du workshop + présentation du site comme référence + ce qu'on ne veut pas (pas de tuto)
 - 9h45–10h15 — Présentation des étudiant·e·x·s + formation des groupes avec sketch interactif
 - Break 15 min
-- 10h30–11h30 — Règles du jeu + exemple interactif avec sketch fonctionnel
-- 11h30–11h45 — Matières : API + BDD
-- 11h45–12h00 —
+- 10h30–12h00 — Règles du jeu
+
+Lunch break — 12h00 -> 13h30
 
 Afternoon
 
