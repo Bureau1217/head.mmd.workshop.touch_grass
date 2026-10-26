@@ -102,21 +102,25 @@ Afternoon
   - Narrative concept | Interaction concept
   - At least 5 slides, presenting a wireframe / sketch / cardboard prototype, so we understand the main lines and the
     overall concept:
-      - Description of the steps
-      - Clues for understanding the interaction with the interface
-      - Challenges related to resources
-      - Data sources considered (APIs)
 - Have your Claude and GitHub accounts ready, install Claude Code, Claude Connectors and a Git tool (like GitKraken)
   - Connectors to start with:
     - Figma
     - Navigator
 - Questions and answers
 
+#### for tomorow
+
+Minimal slides structure
+- Description of the steps
+  - Clues for understanding the interaction with the interface
+  - Challenges related to resources
+  - Data sources considered (APIs)
+
 - Set up the Claude subscription for tomorrow
 
 #### Day 2 — Define & Start Prototyping
 
-**Morning**
+Morning
 
 - 9h00–10h30 — Présentation des concepts, d'une narration et des contenus
 - Break 10h30–10h45
@@ -132,31 +136,31 @@ Afternoon
 
 #### Day 3 — Prototype
 
-**Morning**
+Morning
 
 - 9h00–12h00 — Production & assistance technique et concept
 
-**Afternoon**
+Afternoon
 
 - 13h00–17h00 — Production & assistance technique et concept
 
 #### Day 4 — Prototype & Narrate
 
-**Morning**
+Morning
 
 - 9h00–12h00 — Production & assistance technique et concept
 
-**Afternoon**
+Afternoon
 
 - 13h00–17h00 — Production & assistance technique et concept
 
 #### Day 5 — Test, Document & Release
 
-**Morning**
+Morning
 
 - Documentation GitHub
 
-**Afternoon**
+Afternoon
 
 - Présentation
 
@@ -520,9 +524,9 @@ Ask:
 - **Can you replace the live signal with a fake value while testing?**
 - **Does the project still make sense if the sensor fails?**
 
-### APIs
+### APIs / Data ressources
 
-#### Climat et météo
+#### Climat, plante and weather
 
 | API | Ce qu'elle fournit | Accès |
 |---|---|---|
@@ -532,6 +536,7 @@ Ask:
 | [NASA POWER](https://power.larc.nasa.gov/docs/services/api/) | Rayonnement solaire, températures, vent, pour n'importe quel point du globe | Sans clé |
 | [OpenAQ](https://docs.openaq.org) | Qualité de l'air (PM2.5, NO₂…) issue de milliers de capteurs | Clé gratuite |
 | [NASA EONET](https://eonet.gsfc.nasa.gov/docs/v3) | Événements naturels en cours : feux, tempêtes, volcans, glaces | Sans clé |
+| [Tectonic Plane Map](https://tectonicplatemap.com/) | Tectonique des plaques |          |
 
 #### Flux de transport
 
@@ -562,6 +567,12 @@ Ask:
 | [OpenCelliD](https://opencellid.org) | Base mondiale des antennes relais (GSM, 4G, 5G) avec leurs coordonnées | Clé gratuite |
 | [TeleGeography Submarine Cable Map](https://www.submarinecablemap.com) | Tracés des câbles sous-marins et points d'atterrissage (GeoJSON) | Endpoint non officiel, sans clé |
 
+
+#### Other
+
+[die with me](https://diewithme.online/)
+https://mitpress.mit.edu/9780262640305/electrifying-america/
+https://www.swiss-farmers.ch/
 
 ### Plugins
 
