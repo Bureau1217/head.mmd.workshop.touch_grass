@@ -614,15 +614,15 @@ molecules / bactéries
 
 ### Groupe 2
 
+Satellites
+
 ### Groupe 3
-
-(CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression)[https://arxiv.org/pdf/2606.24083]
-
-(A Path Towards Autonomous Machine Intelligence — Yann LeCun)[https://openreview.net/pdf?id=BZ5a1r-kVsf&utm_source=chatgpt.com]
 
 ### Groupe 4
 
-Satellites
+[CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression](https://arxiv.org/pdf/2606.24083)
+
+[A Path Towards Autonomous Machine Intelligence — Yann LeCun](https://openreview.net/pdf?id=BZ5a1r-kVsf&utm_source=chatgpt.com)
 
 ### Groupe 5
 
