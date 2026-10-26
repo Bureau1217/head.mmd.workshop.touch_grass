@@ -618,11 +618,20 @@ Satellites
 
 ### Groupe 3
 
-### Groupe 4
-
 [CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression](https://arxiv.org/pdf/2606.24083)
 
 [A Path Towards Autonomous Machine Intelligence — Yann LeCun](https://openreview.net/pdf?id=BZ5a1r-kVsf&utm_source=chatgpt.com)
+
+### Groupe 4
+
+Golden hour / IP address, localisation / WebCam
+
+[Félicien Goguey | Colorimetry](https://felicien.io/colorimetry/)
+
+[Olia Lialina | Summer ](https://transmediale.de/de/artwork/summer)
+
+Plugin Chrome qui détruit la page de plus en plus quand tu scroll.
+
 
 ### Groupe 5
 
