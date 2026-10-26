@@ -251,256 +251,259 @@ A small selection of texts to think with.
 
 - **READ**
     
-    #### Start here
-    
-    **Thomas Nagel — What Is It Like to Be a Bat?**
-    A classic text about the difficulty of imagining another being's sensory experience. Useful for thinking about perception beyond our own.
-    
-    **Permacomputing — Principles**
-    Limits, maintenance, resilience, resources, infrastructure, "not doing" and alternatives to always-on computing.
-    
-    **Poikolainen Rosén & Heitlinger — Introducing More-Than-Human Design in Practice**
-    A short introduction to designing through relations between humans, non-humans, environments, sensors, and data.
-    
-    #### Go further
-    
-    **James Bridle — Ways of Being**
-    Other forms of intelligence, sensing, and relationships between technology and the living world.
-    
-    **Fanny Lopez — À bout de flux**
-    The infrastructures, cables, energy systems, and dependencies hidden behind digital services.
-    
-    **Tung-Hui Hu — A Prehistory of the Cloud**
-    A material and political history of the infrastructures hidden behind the apparently immaterial cloud.
-    
-    #### Deeper research
-    
-    **More-than-Human Perspectives in Human-Computer Interaction Research**
-    A broader overview of more-than-human approaches within HCI.
-    
-    **Experiencing the More-than-Human Through Human Augmentation**
-    Experiments around altered sensory perception, including forms of sensing inspired by non-human perception.
+#### Start here
+
+**Thomas Nagel — What Is It Like to Be a Bat?**
+A classic text about the difficulty of imagining another being's sensory experience. Useful for thinking about perception beyond our own.
+
+**Permacomputing — Principles**
+Limits, maintenance, resilience, resources, infrastructure, "not doing" and alternatives to always-on computing.
+
+**Poikolainen Rosén & Heitlinger — Introducing More-Than-Human Design in Practice**
+A short introduction to designing through relations between humans, non-humans, environments, sensors, and data.
+
+#### Go further
+
+**James Bridle — Ways of Being**
+Other forms of intelligence, sensing, and relationships between technology and the living world.
+
+**Fanny Lopez — À bout de flux**
+The infrastructures, cables, energy systems, and dependencies hidden behind digital services.
+
+**Tung-Hui Hu — A Prehistory of the Cloud**
+A material and political history of the infrastructures hidden behind the apparently immaterial cloud.
+
+#### Deeper research
+
+**More-than-Human Perspectives in Human-Computer Interaction Research**
+A broader overview of more-than-human approaches within HCI.
+
+**Experiencing the More-than-Human Through Human Augmentation**
+Experiments around altered sensory perception, including forms of sensing inspired by non-human perception.
     
 
 ---
 
 - **LOOK**
     
-    Projects to think through behaviour, infrastructure, conditions, and alternative ways of being online.
-    
-    ### SOLAR PROTOCOL
-    
-    `energy · weather · availability · infrastructure`
-    
-    A network of solar-powered servers. Traffic is routed according to where sunlight — and therefore energy — is currently available.
-    
-    ### LOW-TECH MAGAZINE — SOLAR WEBSITE
-    
-    `energy · limits · uptime · materiality`
-    
-    A solar-powered website whose availability depends on the energy stored in its battery.
-    
-    ### METRIC DISPLACEMENT
-    
-    `latency · network · rhythm · friction`
-    
-    Network delays and imperfections become material for rhythm and interaction instead of technical problems to hide.
-    
-    ### HOW TO SLOW INTERNET
-    
-    `slowness · infrastructure · solar · intermittence`
-    
-    Small-scale solar infrastructure used to question the permanent availability and scale of contemporary networks.
-    
-    ### WITHIN LIMITS
-    
-    `degrowth · solar · limits · computation`
-    
-    A solar-powered computing infrastructure that treats limited resources as a creative framework.
-    
-    ### WEBSITE AS COMMUNITY GARDEN
-    
-    `cycles · maintenance · growth · decay`
-    
-    A way of thinking about websites through maintenance, seasons, growth, neglect, and change.
-    
-    ### BUILDING BENCHES FOR THE WEB / PLAYHTML
-    
-    `presence · social · live web · behaviour`
-    
-    Web experiences shaped by the presence of other people rather than isolated individual interaction.
-    
-    ### SUNDAY SITES
-    
-    `constraints · handmade web · alternative behaviours`
-    
-    Small experimental websites produced from playful prompts and constraints.
-    
-    ### HTML IN THE PARK
-    
-    `outside · collective · handmade web`
-    
-    A practice of physically taking HTML-making outside the usual environment of screens, desks, and studios.
+Projects to think through behaviour, infrastructure, conditions, and alternative ways of being online.
+
+### SOLAR PROTOCOL
+
+`energy · weather · availability · infrastructure`
+
+A network of solar-powered servers. Traffic is routed according to where sunlight — and therefore energy — is currently available.
+
+### LOW-TECH MAGAZINE — SOLAR WEBSITE
+
+`energy · limits · uptime · materiality`
+
+A solar-powered website whose availability depends on the energy stored in its battery.
+
+### METRIC DISPLACEMENT
+
+`latency · network · rhythm · friction`
+
+Network delays and imperfections become material for rhythm and interaction instead of technical problems to hide.
+
+### HOW TO SLOW INTERNET
+
+`slowness · infrastructure · solar · intermittence`
+
+Small-scale solar infrastructure used to question the permanent availability and scale of contemporary networks.
+
+### WITHIN LIMITS
+
+`degrowth · solar · limits · computation`
+
+A solar-powered computing infrastructure that treats limited resources as a creative framework.
+
+### WEBSITE AS COMMUNITY GARDEN
+
+`cycles · maintenance · growth · decay`
+
+A way of thinking about websites through maintenance, seasons, growth, neglect, and change.
+
+### BUILDING BENCHES FOR THE WEB / PLAYHTML
+
+`presence · social · live web · behaviour`
+
+Web experiences shaped by the presence of other people rather than isolated individual interaction.
+
+### SUNDAY SITES
+
+`constraints · handmade web · alternative behaviours`
+
+Small experimental websites produced from playful prompts and constraints.
+
+### HTML IN THE PARK
+
+`outside · collective · handmade web`
+
+A practice of physically taking HTML-making outside the usual environment of screens, desks, and studios.
     
 
 ---
 
 - **CONNECT**
     
-    Pick something your website can be sensitive to. Think in terms of **phenomena**, not APIs.
-    
-    ### WEATHER
-    
-    temperature · apparent temperature · humidity · pressure · rain · snowfall · cloud cover · wind speed · wind direction · wind gusts · visibility · UV index · dew point · freezing level · thunderstorms · lightning · weather alerts · historical weather · forecast uncertainty
-    
-    Possible sources: Open-Meteo · national meteorological services · local weather stations · physical weather sensors
-    
-    ### SUN / LIGHT / SKY
-    
-    sunrise · sunset · daylight duration · solar elevation · solar radiation · twilight · golden hour · moonrise · moonset · moon phase · cloud opacity · ambient light · seasonal daylight
-    
-    Possible sources: astronomical APIs · weather APIs · ambient light sensors · camera input
-    
-    ### OCEAN / TIDES
-    
-    tide height · high tide · low tide · sea level · wave height · wave direction · wave period · swell · ocean currents · sea surface temperature
-    
-    Possible sources: Open-Meteo Marine · NOAA Tides & Currents · local marine services
-    
-    ### RIVERS / WATER
-    
-    river discharge · river level · flood risk · drought · rainfall accumulation · groundwater · snowmelt · watershed conditions
-    
-    Possible sources: Open-Meteo Flood API · GloFAS · local hydrological datasets
-    
-    ### AIR
-    
-    PM2.5 · PM10 · NO₂ · O₃ · SO₂ · CO · CO₂ · pollen · humidity · air pressure · air quality index · smoke
-    
-    Possible sources: OpenAQ · local air-quality networks · physical air sensors
-    
-    ### EARTH
-    
-    earthquakes · magnitude · depth · distance · volcanic activity · landslides · soil moisture · ground temperature
-    
-    Possible sources: USGS Earthquake feeds · national geological services · NASA datasets
-    
-    ### NATURAL EVENTS
-    
-    wildfires · storms · volcanoes · floods · drought · dust storms · sea ice · snow events · landslides · earthquakes · tropical cyclones
-    
-    Possible sources: NASA EONET
-    
-    ### FIRE
-    
-    active fires · wildfire perimeter · smoke · burned area · fire risk · heat anomalies
-    
-    Possible sources: NASA FIRMS · NASA EONET · Copernicus datasets
-    
-    ### ICE / SNOW
-    
-    snowfall · snow depth · freezing level · sea ice · lake ice · snow cover · glacial conditions
-    
-    ### LIVING CONDITIONS
-    
-    pollen · flowering seasons · migration periods · vegetation index · plant moisture · soil moisture · daylight cycles · bird activity · growing degree days
-    
-    ### COSMIC
-    
-    moon phase · solar activity · geomagnetic storms · aurora forecasts · meteor showers · ISS position · planetary positions · daylight cycles
-    
-    ### DEVICE / LOCAL ENVIRONMENT
-    
-    microphone · camera · ambient light · orientation · accelerometer · gyroscope · geolocation · battery · network status · performance · connected users · proximity
-    
-    ### EXTERNAL SENSORS
-    
-    light · temperature · humidity · pressure · distance · sound · soil moisture · touch · movement · air quality
-    
-    ### CONDITIONS OR EVENTS?
-    
-    A **condition** changes continuously: temperature · wind · light · noise · presence · battery · number of visitors
+Pick something your website can be sensitive to. Think in terms of **phenomena**, not APIs.
+
+### WEATHER
+
+temperature · apparent temperature · humidity · pressure · rain · snowfall · cloud cover · wind speed · wind direction · wind gusts · visibility · UV index · dew point · freezing level · thunderstorms · lightning · weather alerts · historical weather · forecast uncertainty
+
+Possible sources: Open-Meteo · national meteorological services · local weather stations · physical weather sensors
+
+### SUN / LIGHT / SKY
+
+sunrise · sunset · daylight duration · solar elevation · solar radiation · twilight · golden hour · moonrise · moonset · moon phase · cloud opacity · ambient light · seasonal daylight
+
+Possible sources: astronomical APIs · weather APIs · ambient light sensors · camera input
+
+### OCEAN / TIDES
+
+tide height · high tide · low tide · sea level · wave height · wave direction · wave period · swell · ocean currents · sea surface temperature
+
+Possible sources: Open-Meteo Marine · NOAA Tides & Currents · local marine services
+
+### RIVERS / WATER
+
+river discharge · river level · flood risk · drought · rainfall accumulation · groundwater · snowmelt · watershed conditions
+
+Possible sources: Open-Meteo Flood API · GloFAS · local hydrological datasets
+
+### AIR
+
+PM2.5 · PM10 · NO₂ · O₃ · SO₂ · CO · CO₂ · pollen · humidity · air pressure · air quality index · smoke
+
+Possible sources: OpenAQ · local air-quality networks · physical air sensors
+
+### EARTH
+
+earthquakes · magnitude · depth · distance · volcanic activity · landslides · soil moisture · ground temperature
+
+Possible sources: USGS Earthquake feeds · national geological services · NASA datasets
+
+### NATURAL EVENTS
+
+wildfires · storms · volcanoes · floods · drought · dust storms · sea ice · snow events · landslides · earthquakes · tropical cyclones
+
+Possible sources: NASA EONET
+
+### FIRE
+
+active fires · wildfire perimeter · smoke · burned area · fire risk · heat anomalies
+
+Possible sources: NASA FIRMS · NASA EONET · Copernicus datasets
+
+### ICE / SNOW
+
+snowfall · snow depth · freezing level · sea ice · lake ice · snow cover · glacial conditions
+
+### LIVING CONDITIONS
+
+pollen · flowering seasons · migration periods · vegetation index · plant moisture · soil moisture · daylight cycles · bird activity · growing degree days
+
+### COSMIC
+
+moon phase · solar activity · geomagnetic storms · aurora forecasts · meteor showers · ISS position · planetary positions · daylight cycles
+
+### DEVICE / LOCAL ENVIRONMENT
+
+microphone · camera · ambient light · orientation · accelerometer · gyroscope · geolocation · battery · network status · performance · connected users · proximity
+
+### EXTERNAL SENSORS
+
+light · temperature · humidity · pressure · distance · sound · soil moisture · touch · movement · air quality
+
+### CONDITIONS OR EVENTS?
+
+A **condition** changes continuously: temperature · wind · light · noise · presence · battery · number of visitors
     
 
 ---
 
 - **HOW TO**
     
-    ### START
-    
-    Use the smallest setup possible:
-    
-    - basic HTML / CSS / JavaScript
-    - local development
-    - simple project structure
-    - quick deployment
-    - phone + desktop testing
-    
-    Spend as little time as possible setting things up.
-    
-    ### CONNECT DATA
-    
-    Small patterns for bringing live conditions into the page:
-    
-    - `fetch()` an API
-    - poll data at intervals
-    - read browser / device states
-    - receive sensor values
-    - use geolocation
-    - handle missing data
-    - store values locally
-    - keep a short history of previous states
-    
-    Each example should be small enough to copy, understand, and modify.
-    
-    ### MAKE IT BEHAVE
-    
-    Turn data into behaviour: thresholds · ranges · timers · accumulation · decay · memory · probability · state machines · cooldowns · delays · multiple conditions
-    
-    Examples:
-    
-    - `wind > 40 km/h → close part of the website`
-    - `5 visitors connected → website begins to tire`
-    - `no sunlight for 30 min → enter sleep mode`
-    - `condition stays true for 10 min → unlock another state`
-    
-    The point is not to display the value. Make the value change what the website can do.
-    
-    ### PROTOTYPE WITH AI
-    
-    Once your concept has received the greenlight, generative AI can help you prototype it.
-    
-    Use it to:
-    
-    - understand an API
-    - generate a first implementation
-    - connect a sensor
-    - debug code
-    - explain unfamiliar JavaScript
-    - test technical approaches
-    - simplify or refactor
-    
-    But keep the rule: **AI can help you build the system. It should not decide what the system is.**
-    
-    Describe the behaviour before asking for code. Example:
-    
-    > My website receives wind speed from an API.
-    Below 10 km/h it is fully available.
-    Between 10–30 km/h navigation becomes slower.
-    Above 30 km/h some content disappears.
-    Help me implement this behaviour in JavaScript.
-    > 
-    
-    ### WHEN SOMETHING BREAKS
-    
-    Ask:
-    
-    - **Is the API actually returning data?**
-    - **Is the browser blocking a permission?**
-    - **Is the value in the format you expected?**
-    - **What happens when there is no data?**
-    - **Can you replace the live signal with a fake value while testing?**
-    - **Does the project still make sense if the sensor fails?**
+### START
+
+Use the smallest setup possible:
+
+- basic HTML / CSS / JavaScript
+- local development
+- simple project structure
+- quick deployment
+- phone + desktop testing
+
+Spend as little time as possible setting things up.
+
+### CONNECT DATA
+
+Small patterns for bringing live conditions into the page:
+
+- `fetch()` an API
+- poll data at intervals
+- read browser / device states
+- receive sensor values
+- use geolocation
+- handle missing data
+- store values locally
+- keep a short history of previous states
+
+Each example should be small enough to copy, understand, and modify.
+
+### MAKE IT BEHAVE
+
+Turn data into behaviour: thresholds · ranges · timers · accumulation · decay · memory · probability · state machines · cooldowns · delays · multiple conditions
+
+Examples:
+
+- `wind > 40 km/h → close part of the website`
+- `5 visitors connected → website begins to tire`
+- `no sunlight for 30 min → enter sleep mode`
+- `condition stays true for 10 min → unlock another state`
+
+The point is not to display the value. Make the value change what the website can do.
+
+### PROTOTYPE WITH AI
+
+Once your concept has received the greenlight, generative AI can help you prototype it.
+
+Use it to:
+
+- understand an API
+- generate a first implementation
+- connect a sensor
+- debug code
+- explain unfamiliar JavaScript
+- test technical approaches
+- simplify or refactor
+
+But keep the rule: **AI can help you build the system. It should not decide what the system is.**
+
+Describe the behaviour before asking for code. Example:
+
+> My website receives wind speed from an API.
+Below 10 km/h it is fully available.
+Between 10–30 km/h navigation becomes slower.
+Above 30 km/h some content disappears.
+Help me implement this behaviour in JavaScript.
+> 
+
+### WHEN SOMETHING BREAKS
+
+Ask:
+
+- **Is the API actually returning data?**
+- **Is the browser blocking a permission?**
+- **Is the value in the format you expected?**
+- **What happens when there is no data?**
+- **Can you replace the live signal with a fake value while testing?**
+- **Does the project still make sense if the sensor fails?**
+
+### APIs
+
 
 
 :::
