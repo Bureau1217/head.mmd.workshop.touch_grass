@@ -557,18 +557,18 @@ Les quotas et conditions d'usage évoluent : à vérifier avant de lancer un pro
 In progress… :)
 
 ### Students
-|                     |           |
-|---------------------|-----------|
-| Benigni             | Luca      |
-| Clarke              | Julianna  |
-| Correia Da Rocha    | Luca      |
-| Dhinakar            | Prabu     |
-| Gama Santos Correia | Margarida |
-| Giraud              | Lisa      |
-| Hudec               | Adam      |
-| König               | Moritz    |
-| Neyret              | Antony    |
-| Rinn                | Léa       |
-| Sangnakkara         | Julia     |
+| Group | Last name           | First name |
+|-------|---------------------|------------|
+| 1     | Rinn                | Léa        |
+| 1     | Gama Santos Correia | Margarida  |
+| 1     | Clarke              | Julianna   |
+| 2     | Correia Da Rocha    | Luca       |
+| 2     | Sangnakkara         | Julia      |
+| 3     | Benigni             | Luca       |
+| 3     | König               | Moritz     |
+| 4     | Hudec               | Adam       |
+| 4     | Dhinakar            | Prabu      |
+| 5     | Giraud              | Lisa       |
+| 5     | Neyret              | Antony     |
 
 ::: 
