@@ -106,17 +106,20 @@ Afternoon
   - Connectors to start with:
     - Figma
     - Navigator
-- Questions and answers
+- Questions and answers ?
 
-#### for tomorow
+##### <span style='color:var(--app-color-tertiary)' >For day 2</span>
 
-Minimal slides structure
-- Description of the steps
+<div style='color:var(--app-color-tertiary)' >
+
+Minimal slides structure :
+  - Description of the steps
   - Clues for understanding the interaction with the interface
   - Challenges related to resources
   - Data sources considered (APIs)
 
-- Set up the Claude subscription for tomorrow
+Set up the Claude subscription for tomorrow
+</div> 
 
 #### Day 2 — Define & Start Prototyping
 
@@ -127,7 +130,7 @@ Morning
 - 10h45–12h00 — Affinement des concepts basé sur les retours collectifs, tests entre groupes. Objectif : valider le
   concept narratif pour la demi-journée
 
-**Afternoon**
+Afternoon
 
 - 13h30–17h00
     - Préparation des machines (GitHub + Node.js)
