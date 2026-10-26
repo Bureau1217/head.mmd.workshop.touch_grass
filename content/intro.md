@@ -79,8 +79,8 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 
 Morning
 
-- 9h00 -> 9h45 — Introduction du workshop + présentation du site comme référence + ce qu'on ne veut pas (pas de tuto)
-- 9h45 -> 10h15 — Présentation des étudiant·e·x·s + formation des groupes avec sketch interactif
+- 9h00 -> 9h45 — Workshop introduction + presentation of the website as a reference + what we don't want (no tutorials)
+- 9h45 -> 10h15 — Student introductions + group formation with an interactive sketch
 - Break 15 min
 - 10h30 -> 12h00 — Rules !
 
@@ -89,24 +89,28 @@ Lunch break — 12h00 -> 13h30
 Afternoon
 
 - Afternoon intro 13h30
-  - What we can use d'APIs (continuer à chercher et partager)
-  - what we can plug
-    - midi
-    - other devises
-      - mobile (studio moniker)
-      - other tab (transmedial)
-  - Concept narratif | Concept interaction
-  - minimum de 5 slides, présentation de wireframe/sketch/proto carton, qu'on comprenne les grandes lignes et le concept
-    général :
-      - Description des étapes
-      - Indices de compréhension sur l'interaction avec l'interface
-      - Enjeux avec les ressources
-      - Matières de données envisagées (API)
-- Have you Claude and GitHub account, install Claude Code, Claude Connectors and a Git tool (like GitKraken)
-  - connectors to start : 
+  - Which APIs we can use (keep searching and sharing)
+  - What we can plug
+    - MIDI Controllers
+    - Other devices
+      - Mobile (ex: Studio Moniker Project)
+      - Other tab (transmedial project)
+    - webcam
+    - Audio
+    - Arduino
+    - Device materials
+  - Narrative concept | Interaction concept
+  - At least 5 slides, presenting a wireframe / sketch / cardboard prototype, so we understand the main lines and the
+    overall concept:
+      - Description of the steps
+      - Clues for understanding the interaction with the interface
+      - Challenges related to resources
+      - Data sources considered (APIs)
+- Have your Claude and GitHub accounts ready, install Claude Code, Claude Connectors and a Git tool (like GitKraken)
+  - Connectors to start with:
     - Figma
     - Navigator
-- Questions, réponses
+- Questions and answers
 
 - Set up the Claude subscription for tomorrow
 
