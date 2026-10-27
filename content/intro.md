@@ -686,14 +686,19 @@ How routes are created in apps:
 
 [kelvingrade](https://kelvingrade.ch/)
 
-Map of 
+Live Map of cultural hot spots in Geneva
 
-OpenAgenda
+[OpenAgenda geneve](https://openagenda.com/en/ville-de-geneve)
 
-traffic
-  - Bluetooth
-  - waze/map traffic
-  - population statistics
+Open API you can use
+
+##### idees to get trafic information
+
+detect Bluetooth around you
+ 
+Waze/Google Map traffic API information (you can use the API to get traffic information)
+
+population statistics in public administration with Google 
 
 
 ---
