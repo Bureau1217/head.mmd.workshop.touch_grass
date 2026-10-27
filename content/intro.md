@@ -657,6 +657,8 @@ Satellites
 
 [Mozilla's airborne leaflet propaganda tool](https://studiomoniker.com/projects/paperstorm)
 
+[ODE TO OFFICE](https://www.instagram.com/p/Dero9j0iFA9/?img_index=1)
+
 
 ---
 
