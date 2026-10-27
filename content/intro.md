@@ -270,11 +270,9 @@ The goal is not to add a story on top of the website. Let the story emerge throu
 
 :::AppToggle{title="Resources: links, papers, and tools"}
 
-### Read
-
 A small selection of texts to think with.
 
-- **Read**
+### Read
     
 #### Start here
 
@@ -308,150 +306,149 @@ Experiments around altered sensory perception, including forms of sensing inspir
     
 
 ---
-
-- **Look**
+### Look
     
 Projects to think through behaviour, infrastructure, conditions, and alternative ways of being online.
 
-### Solar protocol
+#### Solar protocol
 
-`energy · weather · availability · infrastructure`
+_energy · weather · availability · infrastructure_
 
 A network of solar-powered servers. Traffic is routed according to where sunlight — and therefore energy — is currently available.
 
-### Low-tech magazine — solar website
+#### Low-tech magazine — solar website
 
-`energy · limits · uptime · materiality`
+_energy · limits · uptime · materiality_
 
 A solar-powered website whose availability depends on the energy stored in its battery.
 
-### Metric displacement
+#### Metric displacement
 
-`latency · network · rhythm · friction`
+_latency · network · rhythm · friction_
 
 Network delays and imperfections become material for rhythm and interaction instead of technical problems to hide.
 
-### How to slow internet
+#### How to slow internet
 
-`slowness · infrastructure · solar · intermittence`
+_slowness · infrastructure · solar · intermittence_
 
 Small-scale solar infrastructure used to question the permanent availability and scale of contemporary networks.
 
-### Within limits
+#### Within limits
 
-`degrowth · solar · limits · computation`
+_degrowth · solar · limits · computation_
 
 A solar-powered computing infrastructure that treats limited resources as a creative framework.
 
-### Website as community garden
+#### Website as community garden
 
-`cycles · maintenance · growth · decay`
+_cycles · maintenance · growth · decay_
 
 A way of thinking about websites through maintenance, seasons, growth, neglect, and change.
 
-### Building benches for the web / PlayHTML
+#### Building benches for the web / PlayHTML
 
-`presence · social · live web · behaviour`
+_presence · social · live web · behaviour_
 
 Web experiences shaped by the presence of other people rather than isolated individual interaction.
 
-### Sunday sites
+#### Sunday sites
 
-`constraints · handmade web · alternative behaviours`
+_constraints · handmade web · alternative behaviours_
 
 Small experimental websites produced from playful prompts and constraints.
 
-### HTML in the park
+#### HTML in the park
 
-`outside · collective · handmade web`
+_outside · collective · handmade web_
 
 A practice of physically taking HTML-making outside the usual environment of screens, desks, and studios.
     
 
 ---
 
-- **Connect**
+### Connect
     
 Pick something your website can be sensitive to. Think in terms of **phenomena**, not APIs.
 
-### Weather
+#### Weather
 
 temperature · apparent temperature · humidity · pressure · rain · snowfall · cloud cover · wind speed · wind direction · wind gusts · visibility · UV index · dew point · freezing level · thunderstorms · lightning · weather alerts · historical weather · forecast uncertainty
 
 Possible sources: Open-Meteo · national meteorological services · local weather stations · physical weather sensors
 
-### Sun / light / sky
+#### Sun / light / sky
 
 sunrise · sunset · daylight duration · solar elevation · solar radiation · twilight · golden hour · moonrise · moonset · moon phase · cloud opacity · ambient light · seasonal daylight
 
 Possible sources: astronomical APIs · weather APIs · ambient light sensors · camera input
 
-### Ocean / tides
+#### Ocean / tides
 
 tide height · high tide · low tide · sea level · wave height · wave direction · wave period · swell · ocean currents · sea surface temperature
 
 Possible sources: Open-Meteo Marine · NOAA Tides & Currents · local marine services
 
-### Rivers / water
+#### Rivers / water
 
 river discharge · river level · flood risk · drought · rainfall accumulation · groundwater · snowmelt · watershed conditions
 
 Possible sources: Open-Meteo Flood API · GloFAS · local hydrological datasets
 
-### Air
+#### Air
 
 PM2.5 · PM10 · NO₂ · O₃ · SO₂ · CO · CO₂ · pollen · humidity · air pressure · air quality index · smoke
 
 Possible sources: OpenAQ · local air-quality networks · physical air sensors
 
-### Earth
+#### Earth
 
 earthquakes · magnitude · depth · distance · volcanic activity · landslides · soil moisture · ground temperature
 
 Possible sources: USGS Earthquake feeds · national geological services · NASA datasets
 
-### Natural events
+#### Natural events
 
 wildfires · storms · volcanoes · floods · drought · dust storms · sea ice · snow events · landslides · earthquakes · tropical cyclones
 
 Possible sources: NASA EONET
 
-### Fire
+#### Fire
 
 active fires · wildfire perimeter · smoke · burned area · fire risk · heat anomalies
 
 Possible sources: NASA FIRMS · NASA EONET · Copernicus datasets
 
-### Ice / snow
+#### Ice / snow
 
 snowfall · snow depth · freezing level · sea ice · lake ice · snow cover · glacial conditions
 
-### Living conditions
+#### Living conditions
 
 pollen · flowering seasons · migration periods · vegetation index · plant moisture · soil moisture · daylight cycles · bird activity · growing degree days
 
-### Cosmic
+#### Cosmic
 
 moon phase · solar activity · geomagnetic storms · aurora forecasts · meteor showers · ISS position · planetary positions · daylight cycles
 
-### Device / local environment
+#### Device / local environment
 
 microphone · camera · ambient light · orientation · accelerometer · gyroscope · geolocation · battery · network status · performance · connected users · proximity
 
-### External sensors
+#### External sensors
 
 light · temperature · humidity · pressure · distance · sound · soil moisture · touch · movement · air quality
 
-### Conditions or events?
+#### Conditions or events?
 
 A **condition** changes continuously: temperature · wind · light · noise · presence · battery · number of visitors
     
 
 ---
 
-- **How to**
+### How to ###
     
-### Start
+#### Start
 
 Use the smallest setup possible:
 
@@ -463,7 +460,7 @@ Use the smallest setup possible:
 
 Spend as little time as possible setting things up.
 
-### Connect data
+#### Connect data
 
 Small patterns for bringing live conditions into the page:
 
@@ -478,7 +475,7 @@ Small patterns for bringing live conditions into the page:
 
 Each example should be small enough to copy, understand, and modify.
 
-### Make it behave
+#### Make it behave
 
 Turn data into behaviour: thresholds · ranges · timers · accumulation · decay · memory · probability · state machines · cooldowns · delays · multiple conditions
 
@@ -491,7 +488,7 @@ Examples:
 
 The point is not to display the value. Make the value change what the website can do.
 
-### Prototype with AI
+#### Prototype with AI
 
 Once your concept has received the greenlight, generative AI can help you prototype it.
 
@@ -515,7 +512,7 @@ Describe the behaviour before asking for code. Example:
 > Above 30 km/h some content disappears.
 > Help me implement this behaviour in JavaScript.
 
-### When something breaks
+#### When something breaks
 
 Ask:
 
@@ -525,6 +522,8 @@ Ask:
 - **What happens when there is no data?**
 - **Can you replace the live signal with a fake value while testing?**
 - **Does the project still make sense if the sensor fails?**
+
+---
 
 ### APIs / Data resources
 
@@ -576,6 +575,8 @@ Ask:
 https://mitpress.mit.edu/9780262640305/electrifying-america/
 https://www.swiss-farmers.ch/
 
+---
+
 ### Plugins
 
 #### Resources used by the web application
@@ -618,7 +619,7 @@ Molecules / bacteria
 game of life
 
 
-
+---
 
 ### Group 2 | Luca, Julias
 
@@ -630,7 +631,7 @@ Satellites
 
 -> presentation
 
-
+---
 
 ### Group 3 | Luca, Moritz
 
@@ -651,6 +652,9 @@ Satellites
 [Félicien Captcha](https://www.instagram.com/p/DdQuFoYjDNg/?img_index=4)
 
 [Mozilla's airborne leaflet propaganda tool](https://studiomoniker.com/projects/paperstorm)
+
+
+---
 
 
 ### Group 4 | Adam, Prabu
@@ -691,6 +695,8 @@ traffic
   - waze/map traffic
   - population statistics
 
+
+---
 
 ### Group 5 | Lisa, Antony
 
