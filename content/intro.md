@@ -631,6 +631,10 @@ Satellites
 
 -> presentation
 
+##### refs 
+
+[hysteresia-ou-la-musique-des-satellites-fantomes](https://hemisphereson.com/hysteresia-ou-la-musique-des-satellites-fantomes/)
+
 ---
 
 ### Group 3 | Luca, Moritz
