@@ -598,7 +598,7 @@ https://www.swiss-farmers.ch/
 
 :::AppToggle{title="References by group"}
 
-### Group 1
+### Group 1 | Léa, Margarida, Julianna
 
 #### day 1
 
@@ -620,7 +620,7 @@ game of life
 
 
 
-### Group 2
+### Group 2 | Luca, Julias
 
 #### day 1
 
@@ -632,7 +632,7 @@ Satellites
 
 
 
-### Group 3
+### Group 3 | Luca, Moritz
 
 #### day 1
 
@@ -648,15 +648,12 @@ Satellites
 
 ##### ref
 
-[Félicien projet sur Captcha](https://www.instagram.com/p/DdQuFoYjDNg/?img_index=4)
+[Félicien Captcha](https://www.instagram.com/p/DdQuFoYjDNg/?img_index=4)
 
 [Mozilla's airborne leaflet propaganda tool](https://studiomoniker.com/projects/paperstorm)
 
-italien serius game (ref de Douglas)
 
-
-
-### Group 4
+### Group 4 | Adam, Prabu
 
 #### day 1
 
@@ -670,11 +667,22 @@ Chrome extension that destroys the page more and more as you scroll.
 
 #### day 2
 
--> présentaiton
+Rush hour / localization
+
+-> presentation
 
 ##### ref
 
-kelvingrade
+[Google maps hack](https://www.androidauthority.com/google-maps-hack-1079604/)
+
+Comment les chemins se créé sur les applications :
+- créer du temps libre par le chemin
+- céer le parcour le plus reposant
+- …
+
+[kelvingrade]()
+
+Carte de 
 
 OpenAgenda
 
@@ -684,7 +692,7 @@ trafique
   - statistique de nombre de population
 
 
-### Group 5
+### Group 5 | Lisa, Antony
 
 #### day 1
 
@@ -697,7 +705,9 @@ An object that releases a bad smell when it detects you are on websites that exp
 
 #### day 2
 
+/!\ ne pas faire !
 
+[molleindustria](https://www.molleindustria.org/)
 
 
 
