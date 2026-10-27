@@ -628,7 +628,7 @@ Satellites
 
 #### day 2
 
--> présentation
+-> presentation
 
 
 
@@ -644,7 +644,7 @@ Satellites
 
 #### day 2
 
--> présentation
+-> presentation
 
 ##### ref
 
@@ -675,21 +675,21 @@ Rush hour / localization
 
 [Google maps hack](https://www.androidauthority.com/google-maps-hack-1079604/)
 
-Comment les chemins se créé sur les applications :
-- créer du temps libre par le chemin
-- céer le parcour le plus reposant
+How routes are created in apps:
+- create free time through the route
+- create the most restful route
 - …
 
-[kelvingrade]()
+[kelvingrade](https://kelvingrade.ch/)
 
-Carte de 
+Map of 
 
 OpenAgenda
 
-trafique
-  - bluetoth
-  - trafique waze/map
-  - statistique de nombre de population
+traffic
+  - Bluetooth
+  - waze/map traffic
+  - population statistics
 
 
 ### Group 5 | Lisa, Antony
@@ -705,7 +705,7 @@ An object that releases a bad smell when it detects you are on websites that exp
 
 #### day 2
 
-/!\ ne pas faire !
+##### /!\ don't do this! #####
 
 [molleindustria](https://www.molleindustria.org/)
 
