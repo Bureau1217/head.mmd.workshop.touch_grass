@@ -173,97 +173,97 @@ Afternoon
 
 :::AppToggle{title="Experiments — adapt to your environment"}
 
-- **Experiment 1 — Break the Leash**
+### Experiment 1 — Break the Leash
     
-    Start from something the web usually asks you to do: click, scroll, hover, refresh, open, submit, navigate, wait.
+Start from something the web usually asks you to do: click, scroll, hover, refresh, open, submit, navigate, wait.
+
+Then remove it.
+
+Ask yourself:
+  
+- What could happen instead?
+- What if you clicked by making a sound?
+- What if scrolling was replaced by moving closer to the screen?
+- What if a page opened when the room became dark?
+- What if a link appeared only when two people were present?
+- What if refreshing meant waiting for the weather to change?
+  
+The goal is not to reproduce the same interaction with a different input. Try to change the relationship itself.
+
+Ask:
+  
+- What familiar behaviour am I replacing?
+- What condition takes its place?
+- How does this change the way someone approaches the website?
+  
+Keep it small. One interaction is enough.
+
+You do not need to keep the result. Use the experiment to discover a behaviour you would not have designed from the interface alone.
     
-    Then remove it.
+### Experiment 2 — Feel the Air
     
-    Ask yourself:
+#### Connect your website to conditions beyond the page.
+
+Bring something from outside the interface into the system.
+
+It might come from: weather, light, sound, movement, presence, time, tides, location, air quality, battery, network activity, a connected sensor, another device, another person, a live API.
+
+**Start simple.** Choose one external condition and let the website receive it.
+
+Then ask:
+
+- **What does the website notice?**
+- **What does it ignore?**
+- **Where does the signal come from?**
+- **How often does it change?** Is it continuous, occasional, or unpredictable?
+- **What happens when it disappears?**
+
+The goal is not to demonstrate a sensor or decorate the page with live data.
     
-    - What could happen instead?
-    - What if you clicked by making a sound?
-    - What if scrolling was replaced by moving closer to the screen?
-    - What if a page opened when the room became dark?
-    - What if a link appeared only when two people were present?
-    - What if refreshing meant waiting for the weather to change?
+### Experiment 3 — Adapt to Your Environment
     
-    The goal is not to reproduce the same interaction with a different input. Try to change the relationship itself.
+Let the conditions shape the behaviour of your website. Your website can now sense something beyond the page. What happens when that condition starts to matter?
+
+It might: wake up, slow down, wait, accumulate, rest, hide, saturate, forget, disappear, return, change after repeated visits.
+
+Ask:
+
+- **What does your website depend on?**
+- **What does it consume?**
+- **What happens when it gets too much?**
+- **What happens when something it needs disappears?**
+- **Can it recover, adapt, or transform?**
+- **What makes it change state?**
+- **What can only happen after waiting?**
+
+Examples:
+
+- A website might become slower the more people visit it.
+- It might lose parts of itself as its battery drops.
+- It might become more generous when there is enough sunlight.
+- It might disappear once a resource is exhausted and return when that resource comes back.
+
+The condition should have a real consequence. Time, resources, and surroundings should change what the website can do, reveal or become.
     
-    Ask:
+#### Experiment 4 — Touch Grass
     
-    - What familiar behaviour am I replacing?
-    - What condition takes its place?
-    - How does this change the way someone approaches the website?
-    
-    Keep it small. One interaction is enough.
-    
-    You do not need to keep the result. Use the experiment to discover a behaviour you would not have designed from the interface alone.
-    
-- **Experiment 2 — Feel the Air**
-    
-    #### Connect your website to conditions beyond the page.
-    
-    Bring something from outside the interface into the system.
-    
-    It might come from: weather, light, sound, movement, presence, time, tides, location, air quality, battery, network activity, a connected sensor, another device, another person, a live API.
-    
-    **Start simple.** Choose one external condition and let the website receive it.
-    
-    Then ask:
-    
-    - **What does the website notice?**
-    - **What does it ignore?**
-    - **Where does the signal come from?**
-    - **How often does it change?** Is it continuous, occasional, or unpredictable?
-    - **What happens when it disappears?**
-    
-    The goal is not to demonstrate a sensor or decorate the page with live data.
-    
-- **Experiment 3 — Adapt to Your Environment**
-    
-    Let the conditions shape the behaviour of your website. Your website can now sense something beyond the page. What happens when that condition starts to matter?
-    
-    It might: wake up, slow down, wait, accumulate, rest, hide, saturate, forget, disappear, return, change after repeated visits.
-    
-    Ask:
-    
-    - **What does your website depend on?**
-    - **What does it consume?**
-    - **What happens when it gets too much?**
-    - **What happens when something it needs disappears?**
-    - **Can it recover, adapt, or transform?**
-    - **What makes it change state?**
-    - **What can only happen after waiting?**
-    
-    Examples:
-    
-    - A website might become slower the more people visit it.
-    - It might lose parts of itself as its battery drops.
-    - It might become more generous when there is enough sunlight.
-    - It might disappear once a resource is exhausted and return when that resource comes back.
-    
-    The condition should have a real consequence. Time, resources, and surroundings should change what the website can do, reveal or become.
-    
-- **Experiment 4 — Touch Grass**
-    
-    ### Bring the system together into a meaningful experience.
-    
-    Your website now has behaviours, dependencies, conditions, and rhythms. Why are they there?
-    
-    Ask:
-    
-    - **Why does your website behave this way?**
-    - **What does someone understand by experiencing it?**
-    - **What happens during the first visit?**
-    - **What changes if they return later?**
-    - **What relationship does the website create with its visitor?**
-    - **What remains outside their control?**
-    - **Could the same idea exist without the external condition?**
-    
-    If the answer to the last question is yes, the condition might still be decorative.
-    
-    The goal is not to add a story on top of the website. Let the story emerge through its behaviour.
+##### Bring the system together into a meaningful experience.
+
+Your website now has behaviours, dependencies, conditions, and rhythms. Why are they there?
+
+Ask:
+
+- **Why does your website behave this way?**
+- **What does someone understand by experiencing it?**
+- **What happens during the first visit?**
+- **What changes if they return later?**
+- **What relationship does the website create with its visitor?**
+- **What remains outside their control?**
+- **Could the same idea exist without the external condition?**
+
+If the answer to the last question is yes, the condition might still be decorative.
+
+The goal is not to add a story on top of the website. Let the story emerge through its behaviour.
     
 :::
 
@@ -514,7 +514,6 @@ Describe the behaviour before asking for code. Example:
 > Between 10–30 km/h navigation becomes slower.
 > Above 30 km/h some content disappears.
 > Help me implement this behaviour in JavaScript.
-> 
 
 ### When something breaks
 
@@ -601,6 +600,8 @@ https://www.swiss-farmers.ch/
 
 ### Group 1
 
+#### day 1
+
 Molecules / bacteria
 
 [life forever Vytas (jelly Fish) website](https://vjnks.com/projects/life-forever)
@@ -611,12 +612,29 @@ Molecules / bacteria
 
 [FORMA ƑANTASMA | Cambio](https://formafantasma.com/work/cambio)
 
+#### day 2
+
+
+game of life
+
+
+
 
 ### Group 2
 
+#### day 1
+
 Satellites
 
+#### day 2
+
+-> présentation
+
+
+
 ### Group 3
+
+#### day 1
 
 [CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression](https://arxiv.org/pdf/2606.24083)
 
@@ -624,9 +642,23 @@ Satellites
 
 [https://wealth.ronnycoste.com/](https://wealth.ronnycoste.com/)
 
+#### day 2
+
+-> présentation
+
+##### ref
+
+[Félicien projet sur Captcha](https://www.instagram.com/p/DdQuFoYjDNg/?img_index=4)
+
+[Mozilla's airborne leaflet propaganda tool](https://studiomoniker.com/projects/paperstorm)
+
+italien serius game (ref de Douglas)
+
 
 
 ### Group 4
+
+#### day 1
 
 Golden hour / IP address, localization / WebCam
 
@@ -636,8 +668,25 @@ Golden hour / IP address, localization / WebCam
 
 Chrome extension that destroys the page more and more as you scroll.
 
+#### day 2
+
+-> présentaiton
+
+##### ref
+
+kelvingrade
+
+OpenAgenda
+
+trafique
+  - bluetoth
+  - trafique waze/map
+  - statistique de nombre de population
+
 
 ### Group 5
+
+#### day 1
 
 The potato / Overabundance of channels feeding you data / We no longer talk about monopolies in the food industry
 
@@ -645,6 +694,10 @@ The potato / Overabundance of channels feeding you data / We no longer talk abou
 
 [Smell of data](https://smellofdata.com/)  
 An object that releases a bad smell when it detects you are on websites that exploit your data (when visiting a site "stinks")
+
+#### day 2
+
+
 
 
 
