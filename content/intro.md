@@ -600,6 +600,9 @@ https://www.swiss-farmers.ch/
 :::AppToggle{title="References by group"}
 
 ### Group 1 | Léa, Margarida, Julianna
+@juliannaclarke
+@frostie-jpg
+@guiffi
 
 #### day 1
 
@@ -622,6 +625,9 @@ game of life
 ---
 
 ### Group 2 | Luca, Julias
+@LucaCDRocha
+@bernalSphere
+
 
 #### day 1
 
@@ -638,6 +644,8 @@ Satellites
 ---
 
 ### Group 3 | Luca, Moritz
+@lukalukalukalukaluka
+@MoritzKoenig-mmd
 
 #### day 1
 
@@ -665,6 +673,8 @@ Satellites
 
 
 ### Group 4 | Adam, Prabu
+@adamhudec-mmd
+@prabudhinakar
 
 #### day 1
 
@@ -711,6 +721,8 @@ population statistics in public administration with Google
 ---
 
 ### Group 5 | Lisa, Antony
+@lisagrd12
+@antonynyt
 
 #### day 1
 
