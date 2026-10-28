@@ -653,7 +653,8 @@ Satellites
 
 ##### ref
 
-[Félicien Captcha](https://www.instagram.com/p/DdQuFoYjDNg/?img_index=4)
+[Félicien Captcha | WhatsApp](https://www.instagram.com/p/DdQuFoYjDNg/?img_index=4)
+[Félicien Captcha | website](https://impakt.nl/abroad/2026/code-2026-ars-electronica-55478/)
 
 [Mozilla's airborne leaflet propaganda tool](https://studiomoniker.com/projects/paperstorm)
 
