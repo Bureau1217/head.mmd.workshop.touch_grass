@@ -23,5 +23,11 @@
 
 </p>
 
+<p>
+
+:AppButton[Get the Figma template!]{to="https://www.figma.com/design/xIi4cRRgXI86OLPGxjZ19P/Untitled?node-id=4-2&t=dKxmLrQ1RzwK0bzz-1" target="_blank"}
+
+</p>
+
 </div>
 
