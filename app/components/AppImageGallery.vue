@@ -36,11 +36,11 @@ onMounted(() => {
         if (props.imagesPath) {
             let nextIndex = indexImageToShow.value + 1
 
-            if (nextIndex > props.imagesPath.length) nextIndex = 0
+            if (nextIndex >= props.imagesPath.length) nextIndex = 0
 
             indexImageToShow.value = nextIndex
         }
-    }, 500);
+    }, 5_000);
 })
 
 onUnmounted(() => {
