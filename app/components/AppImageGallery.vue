@@ -11,24 +11,36 @@ type AppImage = {
 }
 
 const props = defineProps<{
-    imagesPath: AppImage[],
+    imagesPath?: AppImage[],
 }>()
 
 const indexImageToShow = ref(0)
-const imageToShow: ComputedRef<AppImage> = computed(() => props.imagesPath[indexImageToShow.value] || {
-    url: '',
+const imageToShow: ComputedRef<AppImage> = computed(() => {
+
+    console.log('imageToShow', props.imagesPath)
+
+    if( !props.imagesPath) return {
+        url: '',
+    }
+
+    return props.imagesPath[indexImageToShow.value] || {
+        url: '',
+    }
+
 })
 
 let timer: ReturnType<typeof setTimeout>;
 
 onMounted(() => {
     timer = setInterval(() => {
-        let nextIndex = indexImageToShow.value + 1
+        if (props.imagesPath) {
+            let nextIndex = indexImageToShow.value + 1
 
-        if(nextIndex > props.imagesPath.length) nextIndex = 0
+            if (nextIndex > props.imagesPath.length) nextIndex = 0
 
-        indexImageToShow.value = nextIndex
-    }, 2_000);
+            indexImageToShow.value = nextIndex
+        }
+    }, 500);
 })
 
 onUnmounted(() => {
