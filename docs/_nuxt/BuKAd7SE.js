@@ -1,0 +1,1 @@
+import{H as e,R as t,h as n}from"./CEFyf4kC.js";import{r}from"#entry";var i={};function a(r,i){return t(),n(`blockquote`,null,[e(r.$slots,`default`)])}var o=Object.assign(r(i,[[`render`,a]]),{__name:`ProseBlockquote`});export{o as default};

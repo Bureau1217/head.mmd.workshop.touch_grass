@@ -1,1 +1,0 @@
-import{H as e,R as t,h as n}from"./CEFyf4kC.js";import{n as r}from"#entry";var i={};function a(r,i){return t(),n(`li`,null,[e(r.$slots,`default`)])}var o=Object.assign(r(i,[[`render`,a]]),{__name:`ProseLi`});export{o as default};

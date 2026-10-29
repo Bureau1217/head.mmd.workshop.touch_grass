@@ -1,0 +1,1 @@
+import{H as e,R as t,h as n}from"./CEFyf4kC.js";import{r}from"#entry";var i={};function a(r,i){return t(),n(`code`,null,[e(r.$slots,`default`)])}var o=Object.assign(r(i,[[`render`,a]]),{__name:`ProseCode`});export{o as default};
