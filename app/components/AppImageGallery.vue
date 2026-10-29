@@ -51,5 +51,14 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .v-app-image-gallery {
+  width: 100%;
+  height: calc(100dvh - (var(--app-header-height) + var(--app-footer-height) ) );
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
