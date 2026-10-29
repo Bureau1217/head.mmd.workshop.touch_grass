@@ -40,7 +40,7 @@ onMounted(() => {
 
             indexImageToShow.value = nextIndex
         }
-    }, 5_000);
+    }, 60_000);
 })
 
 onUnmounted(() => {
