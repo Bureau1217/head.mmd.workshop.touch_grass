@@ -160,4 +160,29 @@ onBeforeUnmount(() => {
     height: 1rem;
   }
 }
+
+@media (max-width: 700px) {
+  .v-app-footer__left {
+    font-size: .8rem;
+    gap: .6em;
+  }
+
+  .v-app-footer__dot {
+    margin-right: 0;
+  }
+
+  .v-app-footer__logo img {
+    height: .65rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .v-app-footer__left {
+    font-size: .7rem;
+  }
+
+  .v-app-footer__logo img {
+    height: .55rem;
+  }
+}
 </style>

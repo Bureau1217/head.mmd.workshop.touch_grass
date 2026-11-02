@@ -107,5 +107,6 @@ const titleWords = computed(() => props.title.trim().split(/\s+/))
 
 .v-app-toggle__content {
   padding-bottom: 2rem;
+  overflow-wrap: break-word;
 }
 </style>

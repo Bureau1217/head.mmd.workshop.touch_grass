@@ -13,6 +13,11 @@
   font-variation-settings: 'wght' 700;
   color: var(--app-color-primary);
   max-width: 25em;
+
+  @media (max-width: 700px) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 .app-font-h3, h3 {
@@ -57,6 +62,13 @@
 table {
   border-collapse: collapse;
   margin: 0 0 1rem;
+
+  // un tableau trop large défile dans sa largeur sans élargir la page
+  @media (max-width: 700px) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
 
 th, td {

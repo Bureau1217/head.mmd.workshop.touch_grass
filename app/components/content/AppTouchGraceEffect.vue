@@ -74,26 +74,57 @@ onMounted(() => {
     const letters = [];
     for (const ln of lines) {
         [...ln.word].forEach((ch, i) => {
-            const ox = ln.x + i * ADV + PAD, oy = ln.y + PAD;
             const style = ch === '_' ? 'us' : ln.style;
             const stars = [];
             for (const pl of SK[ch]) for (const [x, y] of resample(pl, 13)) {
                 stars.push({
-                    x: ox + x, y: oy + y, ro: 26 + rnd() * 9, ri: 11, rot: rnd() * 6.283,
+                    lx: x, ly: y, x: 0, y: 0, ro: 26 + rnd() * 9, ri: 11, rot: rnd() * 6.283,
                     dx: 0, dy: 0, dr: 0, ds: 1, vx: 0, vy: 0
                 });
             }
             // centre accent (comme les cœurs colorés des lettres)
-            letters.push({ch, style, stars, box: [ox - 40, oy - 40, ox + 140, oy + 180], hot: 0});
+            letters.push({ch, style, stars, index: letters.length, lineX: ln.x + i * ADV + PAD, lineY: ln.y + PAD, box: [0, 0, 0, 0], hot: 0});
         });
     }
     const WORLD_W = 64 + 5 * ADV + 100 + PAD * 2, WORLD_H = 208 + 140 + PAD * 2;
 
+    // ---- téléphone : TOUCH_GRASS sur une seule ligne, qui défile sans fin de gauche à droite ----
+    const ROW_H = 140 + PAD * 2; // hauteur de la ligne
+    const LOOP = letters.length * ADV; // longueur d'un tour : le mot se répète sans blanc
+    const VISIBLE_LETTERS = 1; // largeur de l'écran, en lettres : plus c'est petit, plus le titre est grand
+    const SPEED = 70; // en unités de squelette par seconde
+    let marquee = false;
+    let scroll = 2 * ADV + PAD; // la première lettre est visible dès le départ
+    let lastTime = 0;
+
+    function placeLetter(L, ox, oy) {
+        L.box = [ox - 40, oy - 40, ox + 140, oy + 180];
+        for (const s of L.stars) {
+            s.x = ox + s.lx;
+            s.y = oy + s.ly;
+        }
+    }
+
+    function placeLetters() {
+        for (const L of letters) {
+            if (marquee) placeLetter(L, (L.index * ADV + scroll) % LOOP - 2 * ADV, PAD);
+            else placeLetter(L, L.lineX, L.lineY);
+        }
+    }
+
+    placeLetters();
+
     let scale = 1, dpr = 1;
-    let originX = 0, canvasW = 0, canvasH = 0;
+    let originX = 0, originY = 0, canvasW = 0, canvasH = 0;
     let bounds = {x0: 0, y0: 0, x1: WORLD_W, y1: WORLD_H};
 
     function resize() {
+        const narrow = matchMedia('(max-width: 700px)').matches;
+        const wantsMarquee = narrow && !reduce;
+        if (wantsMarquee !== marquee) {
+            marquee = wantsMarquee;
+            placeLetters();
+        }
         const root = cv.parentElement;
         const avail = root.clientWidth - parseFloat(getComputedStyle(root).paddingLeft) - parseFloat(getComputedStyle(root).paddingRight);
         // le titre prend toute la largeur, sauf s'il pousse la tagline sous le footer
@@ -104,14 +135,19 @@ onMounted(() => {
         const canvasTop = cv.getBoundingClientRect().top + window.scrollY;
         const maxH = Math.max(120, window.innerHeight - canvasTop - footer - taglineSpace - margin);
         dpr = Math.min(2, window.devicePixelRatio || 1);
-        scale = Math.min(avail / WORLD_W, maxH / WORLD_H);
-        const h = Math.round(WORLD_H * scale);
+        canvasW = root.clientWidth;
+        scale = marquee
+            ? Math.min(maxH / ROW_H, canvasW / (ADV * VISIBLE_LETTERS))
+            : Math.min(avail / WORLD_W, maxH / WORLD_H);
+        const titleH = (marquee ? ROW_H : WORLD_H) * scale;
+        // sur téléphone, le titre se centre dans l'espace libre : la tagline se retrouve juste au-dessus du footer
+        const h = narrow ? Math.floor(maxH) : Math.round(titleH);
+        originX = marquee ? 0 : (canvasW - WORLD_W * scale) / 2;
+        originY = Math.max(0, (h - titleH) / 2);
         root.style.height = h + 'px';
         // le canvas couvre toute la zone visible entre le header et le footer : les étoiles ont de la place pour bouger sans être coupées
-        canvasW = root.clientWidth;
         canvasH = Math.max(h, window.innerHeight - canvasTop - footer);
-        originX = (canvasW - WORLD_W * scale) / 2;
-        bounds = {x0: -originX / scale, y0: 0, x1: (canvasW - originX) / scale, y1: canvasH / scale};
+        bounds = {x0: -originX / scale, y0: -originY / scale, x1: (canvasW - originX) / scale, y1: (canvasH - originY) / scale};
         cv.style.width = canvasW + 'px';
         cv.style.height = canvasH + 'px';
         cv.width = Math.round(canvasW * dpr);
@@ -124,7 +160,7 @@ onMounted(() => {
     function setMouse(e) {
         const r = cv.getBoundingClientRect();
         mouse.x = (e.clientX - r.left - originX) / scale;
-        mouse.y = (e.clientY - r.top) / scale;
+        mouse.y = (e.clientY - r.top - originY) / scale;
         mouse.in = true;
         kick();
     }
@@ -137,7 +173,14 @@ onMounted(() => {
         kick();
     }
 
+    // au doigt il n'y a pas de survol : la lettre se relâche quand le doigt se lève
+    function releaseTouch(e) {
+        if (e.pointerType !== 'mouse') clearMouse();
+    }
+
     document.documentElement.addEventListener('pointerleave', clearMouse);
+    window.addEventListener('pointerup', releaseTouch);
+    window.addEventListener('pointercancel', releaseTouch);
 
     function starPath(x, y, ro, ri, rot) {
         ctx.beginPath();
@@ -152,9 +195,11 @@ onMounted(() => {
     function draw() {
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.clearRect(0, 0, cv.width, cv.height);
-        ctx.setTransform(dpr * scale, 0, 0, dpr * scale, dpr * originX, 0);
+        ctx.setTransform(dpr * scale, 0, 0, dpr * scale, dpr * originX, dpr * originY);
         ctx.lineJoin = 'round';
         for (const L of letters) {
+            // en défilement, inutile de dessiner les lettres hors de l'écran
+            if (marquee && (L.box[2] + 250 < bounds.x0 || L.box[0] - 250 > bounds.x1)) continue;
             const [fill, stroke] = STYLES[L.style];
             ctx.fillStyle = fill;
             ctx.strokeStyle = stroke;
@@ -180,6 +225,35 @@ onMounted(() => {
         return {x: -Math.sin(from), y: Math.cos(from), strength};
     }
 
+    // ---- gyroscope : incliner le téléphone déplace un peu les étoiles, le vent reste le mouvement principal ----
+    const TILT_STRENGTH = 10; // en unités de squelette, à inclinaison maximale
+    const tiltTarget = {x: 0, y: 0};
+    const tilt = {x: 0, y: 0};
+    let restBeta = null;
+
+    function onOrientation(e) {
+        if (e.gamma === null || e.beta === null) return;
+        // la position de repos suit lentement la façon dont le téléphone est tenu
+        restBeta = restBeta === null ? e.beta : restBeta + (e.beta - restBeta) * 0.002;
+        const clamp = v => Math.max(-1, Math.min(1, v));
+        const x = clamp(e.gamma / 45), y = clamp((e.beta - restBeta) / 45);
+        // écran tourné : les axes du téléphone ne sont plus ceux de l'écran
+        const angle = (screen.orientation?.angle || 0) * Math.PI / 180;
+        tiltTarget.x = x * Math.cos(angle) + y * Math.sin(angle);
+        tiltTarget.y = y * Math.cos(angle) - x * Math.sin(angle);
+    }
+
+    // iOS n'autorise le gyroscope qu'après une demande faite pendant un geste de l'utilisateur
+    function askOrientationPermission() {
+        DeviceOrientationEvent.requestPermission().catch(() => {});
+    }
+
+    const needsPermission = typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function';
+    if (!reduce) {
+        window.addEventListener('deviceorientation', onOrientation);
+        if (needsPermission) window.addEventListener('click', askOrientationPermission, {once: true});
+    }
+
     function kick() {
         if (!running && !reduce) {
             running = true;
@@ -188,6 +262,13 @@ onMounted(() => {
     }
 
     function step(time) {
+        if (marquee) {
+            scroll = (scroll + (lastTime ? time - lastTime : 0) * 0.001 * SPEED) % LOOP;
+            placeLetters();
+        }
+        lastTime = time;
+        tilt.x += (tiltTarget.x - tilt.x) * 0.08;
+        tilt.y += (tiltTarget.y - tilt.y) * 0.08;
         const wind = getWind();
         for (const L of letters) {
             const [x0, y0, x1, y1] = L.box;
@@ -218,9 +299,10 @@ onMounted(() => {
                 // tout le titre penche dans le sens du vent, en vagues qui le traversent ; la lettre survolée penche davantage
                 const wave = Math.sin(time * 0.0025 - (s.x * wind.x + s.y * wind.y) * 0.012 + s.rot * 0.4);
                 const push = wind.strength * (0.3 + 0.7 * L.hot) * (0.6 + 0.4 * wave);
-                tx += wind.x * push;
-                ty += wind.y * push;
+                tx += wind.x * push + tilt.x * TILT_STRENGTH;
+                ty += wind.y * push + tilt.y * TILT_STRENGTH;
                 if (wind.strength) tr += wave * 0.25;
+                tr += tilt.x * 0.15;
                 // ressort : suit le curseur avec un peu d'inertie, revient en place à la sortie
                 s.vx = (s.vx + (tx - s.dx) * 0.16) * 0.72;
                 s.vy = (s.vy + (ty - s.dy) * 0.16) * 0.72;
@@ -228,9 +310,9 @@ onMounted(() => {
                 s.dy += s.vy;
                 s.dr += (tr - s.dr) * 0.14;
                 s.ds += (ts - s.ds) * 0.14;
-                // l'étoile entière reste toujours dans la zone visible
+                // l'étoile entière reste toujours dans la zone visible (en défilement, elle doit pouvoir sortir sur les côtés)
                 const R = s.ro * s.ds + 4;
-                const px = Math.min(bounds.x1 - R, Math.max(bounds.x0 + R, s.x + s.dx));
+                const px = marquee ? s.x + s.dx : Math.min(bounds.x1 - R, Math.max(bounds.x0 + R, s.x + s.dx));
                 const py = Math.min(bounds.y1 - R, Math.max(bounds.y0 + R, s.y + s.dy));
                 if (px !== s.x + s.dx) {
                     s.dx = px - s.x;
@@ -259,6 +341,10 @@ onMounted(() => {
         window.removeEventListener('pointerdown', setMouse);
         window.removeEventListener('resize', resize);
         document.documentElement.removeEventListener('pointerleave', clearMouse);
+        window.removeEventListener('pointerup', releaseTouch);
+        window.removeEventListener('pointercancel', releaseTouch);
+        window.removeEventListener('deviceorientation', onOrientation);
+        window.removeEventListener('click', askOrientationPermission);
     };
 })
 

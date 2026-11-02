@@ -10,6 +10,11 @@ html {
   font-variation-settings: 'wght' 550;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // tout le site est en rem : cette base réduit l'ensemble sur téléphone
+  @media (max-width: 700px) {
+    font-size: 18px;
+  }
 }
 
 body {
@@ -32,6 +37,12 @@ button {
   line-height: 1.5rem;
   max-width: none;
   margin: .5rem 0 0;
+  text-align: left;
+
+  @media (max-width: 700px) {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
 }
 
 .app-button-stack {
