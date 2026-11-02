@@ -3,8 +3,7 @@
     <div class="v-app-footer__container app-with-gutter app-container app-container--flex-wrap--nowrap app-container--justify-content--space-between app-container--align-items--center">
       <div class="v-app-footer__left">
         <span class="v-app-footer__dot" aria-hidden="true"></span>
-        <span>GENÈVE</span>
-        <span>{{ temperature }}°C</span>
+        <span>GENEVA</span>
         <svg
             class="v-app-footer__wind-icon"
             width="30"
@@ -15,8 +14,8 @@
             aria-hidden="true"
         >
           <circle cx="15" cy="15" r="14.25" stroke-width="0.9"/>
-          <!-- la flèche pointe vers où va le vent -->
-          <g :style="{ transform: `rotate(${windArrowRotation}deg)` }">
+          <!-- the arrow points where the wind comes from -->
+          <g ref="windArrow" :style="{ transform: `rotate(${windArrowRotation}deg)` }">
             <path
                 d="M15 23V7M10 12L15 7L20 12"
                 stroke-width="1.95"
@@ -25,13 +24,17 @@
             />
           </g>
         </svg>
-        <span>VENT {{ windSpeed }} km/h {{ windCardinal }}</span>
+        <span>WIND {{ windSpeed }} km/h {{ windCardinal }}</span>
       </div>
 
-      <div class="v-app-footer__right">
-        <div>RAFALES {{ windGusts }} km/h · SOLEIL ↓ {{ sunset }}</div>
-        <div>MAJ IL Y A {{ updatedMinutesAgo }} MIN · OPEN-METEO</div>
-      </div>
+      <a
+          class="v-app-footer__logo"
+          href="https://bureau1217.ch"
+          target="_blank"
+          rel="noopener"
+      >
+        <img src="/images/bureau-1217-logo.svg" alt="Bureau 1217" width="125" height="18">
+      </a>
     </div>
   </footer>
 </template>
@@ -39,76 +42,71 @@
 <script lang="ts" setup>
 interface OpenMeteoResponse {
   current: {
-    time: number // unix, en s
-    temperature_2m: number
     wind_speed_10m: number
-    wind_direction_10m: number // d'où vient le vent, en deg
-    wind_gusts_10m: number
-  }
-  daily: {
-    sunset: number[] // unix, en s
+    wind_direction_10m: number // where the wind comes from, in degrees
   }
 }
-
-const TIMEZONE = 'Europe/Zurich'
 
 const { data, refresh } = await useFetch<OpenMeteoResponse>('https://api.open-meteo.com/v1/forecast', {
   key: 'app-footer-weather',
   query: {
     latitude: 46.2044,
     longitude: 6.1432,
-    current: 'temperature_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m',
-    daily: 'sunset',
-    timezone: TIMEZONE,
-    timeformat: 'unixtime',
-    forecast_days: 1,
+    current: 'wind_speed_10m,wind_direction_10m',
   },
 })
 
 const PLACEHOLDER = '—'
 
-const temperature = computed(() => data.value ? Math.round(data.value.current.temperature_2m) : PLACEHOLDER)
-const windSpeed = computed(() => data.value ? Math.round(data.value.current.wind_speed_10m) : PLACEHOLDER)
-const windGusts = computed(() => data.value ? Math.round(data.value.current.wind_gusts_10m) : PLACEHOLDER)
+// the digits roll to each new reading; until the animation starts they show the reading itself
+const shownSpeed = ref<number | null>(null)
+const windSpeed = computed(() => {
+  const speed = shownSpeed.value ?? data.value?.current.wind_speed_10m
+  return speed === undefined ? PLACEHOLDER : speed.toFixed(1)
+})
 
-// open-meteo donne la direction d'où vient le vent : la flèche pointe à l'opposé
-const windArrowRotation = computed(() => data.value ? (data.value.current.wind_direction_10m + 180) % 360 : 0)
+// open-meteo gives where the wind comes from: the arrow points there, like the cardinal next to it
+const windArrowRotation = computed(() => data.value ? data.value.current.wind_direction_10m % 360 : 0)
 
-const CARDINALS = ['N', 'NE', 'E', 'SE', 'S', 'SO', 'O', 'NO']
+const CARDINALS = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW']
 const windCardinal = computed(() => {
   if (!data.value) return ''
   return CARDINALS[Math.round(data.value.current.wind_direction_10m / 45) % 8]
 })
 
-// fuseau horaire fixé : même rendu côté serveur et côté client
-const sunset = computed(() => {
-  const time = data.value?.daily.sunset[0]
-  if (!time) return PLACEHOLDER
-  return new Intl.DateTimeFormat('fr-CH', { hour: '2-digit', minute: '2-digit', timeZone: TIMEZONE }).format(time * 1000)
-})
-
-// `now` reste null jusqu'au montage : le serveur et le client affichent le même placeholder (pas de mismatch d'hydratation)
-const now = ref<number | null>(null)
-
-const updatedMinutesAgo = computed(() => {
-  if (!now.value || !data.value) return PLACEHOLDER
-  return Math.max(0, Math.floor((now.value - data.value.current.time * 1000) / 60000))
-})
-
-let clockTimer: ReturnType<typeof setInterval> | null = null
 let refreshTimer: ReturnType<typeof setInterval> | null = null
 
+// the arrow shows the real wind direction and turns the shortest way to each new reading
+const windArrow = ref<SVGGElement | null>(null)
+let animationFrame = 0
+let arrowAngle: number | null = null
+let easedSpeed: number | null = null
+
+function animateWind() {
+  const current = data.value?.current
+  if (windArrow.value && current) {
+    const target = windArrowRotation.value
+    arrowAngle ??= target
+    arrowAngle += ((target - arrowAngle + 540) % 360 - 180) * 0.05
+    windArrow.value.style.transform = `rotate(${arrowAngle}deg)`
+
+    easedSpeed ??= current.wind_speed_10m
+    easedSpeed += (current.wind_speed_10m - easedSpeed) * 0.04
+    shownSpeed.value = Math.round(easedSpeed * 10) / 10
+  }
+  animationFrame = requestAnimationFrame(animateWind)
+}
+
 onMounted(() => {
-  now.value = Date.now()
-  clockTimer = setInterval(() => now.value = Date.now(), 30 * 1000)
-  // open-meteo met à jour les valeurs "current" toutes les 15 min
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) animationFrame = requestAnimationFrame(animateWind)
   refresh()
-  refreshTimer = setInterval(refresh, 10 * 60 * 1000)
+  // open-meteo updates its "current" values every 15 min: checking every 5 picks them up soon after, without using up the shared rate limit
+  refreshTimer = setInterval(refresh, 5 * 60 * 1000)
 })
 
 onBeforeUnmount(() => {
-  if (clockTimer) clearInterval(clockTimer)
   if (refreshTimer) clearInterval(refreshTimer)
+  cancelAnimationFrame(animationFrame)
 })
 </script>
 
@@ -152,11 +150,14 @@ onBeforeUnmount(() => {
   }
 }
 
-.v-app-footer__right {
-  font-family: 'Geist Mono', monospace;
-  font-size: .45rem;
-  line-height: .6rem;
-  text-align: right;
-  white-space: nowrap;
+.v-app-footer__logo {
+  display: block;
+  flex: 0 0 auto;
+
+  img {
+    display: block;
+    width: auto;
+    height: 1rem;
+  }
 }
 </style>

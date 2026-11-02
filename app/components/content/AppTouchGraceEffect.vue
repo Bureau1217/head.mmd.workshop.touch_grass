@@ -6,6 +6,12 @@
 
 <script lang="js" setup>
 
+// données météo chargées et rafraîchies par AppFooter
+const { data: weather } = useNuxtData('app-footer-weather');
+
+let stop = null;
+onBeforeUnmount(() => stop?.());
+
 onMounted(() => {
     const cv = document.getElementById('title');
     const ctx = cv.getContext('2d');
@@ -84,17 +90,32 @@ onMounted(() => {
     const WORLD_W = 64 + 5 * ADV + 100 + PAD * 2, WORLD_H = 208 + 140 + PAD * 2;
 
     let scale = 1, dpr = 1;
+    let originX = 0, canvasW = 0, canvasH = 0;
+    let bounds = {x0: 0, y0: 0, x1: WORLD_W, y1: WORLD_H};
 
     function resize() {
-        const avail = cv.parentElement.clientWidth - parseFloat(getComputedStyle(cv.parentElement).paddingLeft) - parseFloat(getComputedStyle(cv.parentElement).paddingRight);
-        const w = avail;
-        cv.style.width = w + 'px'; // le titre prend toute la largeur, comme dans le Figma
+        const root = cv.parentElement;
+        const avail = root.clientWidth - parseFloat(getComputedStyle(root).paddingLeft) - parseFloat(getComputedStyle(root).paddingRight);
+        // le titre prend toute la largeur, sauf s'il pousse la tagline sous le footer
+        const tagline = root.nextElementSibling?.querySelector('h2');
+        const taglineSpace = tagline ? tagline.getBoundingClientRect().bottom - root.getBoundingClientRect().bottom : 0;
+        const footer = document.querySelector('.v-app-footer')?.offsetHeight || 0;
+        const margin = parseFloat(getComputedStyle(document.documentElement).fontSize) / 2;
+        const canvasTop = cv.getBoundingClientRect().top + window.scrollY;
+        const maxH = Math.max(120, window.innerHeight - canvasTop - footer - taglineSpace - margin);
         dpr = Math.min(2, window.devicePixelRatio || 1);
-        scale = w / WORLD_W;
+        scale = Math.min(avail / WORLD_W, maxH / WORLD_H);
         const h = Math.round(WORLD_H * scale);
-        cv.style.height = h + 'px';
-        cv.width = Math.round(w * dpr);
-        cv.height = Math.round(h * dpr);
+        root.style.height = h + 'px';
+        // le canvas couvre toute la zone visible entre le header et le footer : les étoiles ont de la place pour bouger sans être coupées
+        canvasW = root.clientWidth;
+        canvasH = Math.max(h, window.innerHeight - canvasTop - footer);
+        originX = (canvasW - WORLD_W * scale) / 2;
+        bounds = {x0: -originX / scale, y0: 0, x1: (canvasW - originX) / scale, y1: canvasH / scale};
+        cv.style.width = canvasW + 'px';
+        cv.style.height = canvasH + 'px';
+        cv.width = Math.round(canvasW * dpr);
+        cv.height = Math.round(canvasH * dpr);
         draw();
     }
 
@@ -102,7 +123,7 @@ onMounted(() => {
 
     function setMouse(e) {
         const r = cv.getBoundingClientRect();
-        mouse.x = (e.clientX - r.left) / scale;
+        mouse.x = (e.clientX - r.left - originX) / scale;
         mouse.y = (e.clientY - r.top) / scale;
         mouse.in = true;
         kick();
@@ -111,10 +132,12 @@ onMounted(() => {
     // écoute sur toute la fenêtre : la lettre reste accrochée même quand le curseur sort du titre
     window.addEventListener('pointermove', setMouse);
     window.addEventListener('pointerdown', setMouse);
-    document.documentElement.addEventListener('pointerleave', () => {
+    function clearMouse() {
         mouse.in = false;
         kick();
-    });
+    }
+
+    document.documentElement.addEventListener('pointerleave', clearMouse);
 
     function starPath(x, y, ro, ri, rot) {
         ctx.beginPath();
@@ -127,8 +150,9 @@ onMounted(() => {
     }
 
     function draw() {
-        ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0);
-        ctx.clearRect(0, 0, WORLD_W, WORLD_H);
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, cv.width, cv.height);
+        ctx.setTransform(dpr * scale, 0, 0, dpr * scale, dpr * originX, 0);
         ctx.lineJoin = 'round';
         for (const L of letters) {
             const [fill, stroke] = STYLES[L.style];
@@ -145,16 +169,26 @@ onMounted(() => {
 
     // ---- interaction : les formes suivent le curseur dans la lettre survolée ----
     let running = false;
+    let frame = 0;
+
+    // vent en unités de squelette. open-meteo donne la direction d'où il vient : les étoiles partent à l'opposé
+    function getWind() {
+        const current = weather.value?.current;
+        if (!current) return {x: 0, y: 0, strength: 0};
+        const from = current.wind_direction_10m * Math.PI / 180;
+        const strength = 35 + Math.min(current.wind_speed_10m, 50); // visible même par vent faible
+        return {x: -Math.sin(from), y: Math.cos(from), strength};
+    }
 
     function kick() {
         if (!running && !reduce) {
             running = true;
-            requestAnimationFrame(step);
+            frame = requestAnimationFrame(step);
         } else if (reduce) draw();
     }
 
-    function step() {
-        let moving = false;
+    function step(time) {
+        const wind = getWind();
         for (const L of letters) {
             const [x0, y0, x1, y1] = L.box;
             // entrée sur la lettre, sortie seulement quand le curseur s'éloigne nettement (marge de 110 unités)
@@ -181,6 +215,12 @@ onMounted(() => {
                     tr = Math.atan2(Math.sin(want), Math.cos(want)) * pull;
                     ts = 1 + 0.35 * pull;
                 }
+                // tout le titre penche dans le sens du vent, en vagues qui le traversent ; la lettre survolée penche davantage
+                const wave = Math.sin(time * 0.0025 - (s.x * wind.x + s.y * wind.y) * 0.012 + s.rot * 0.4);
+                const push = wind.strength * (0.3 + 0.7 * L.hot) * (0.6 + 0.4 * wave);
+                tx += wind.x * push;
+                ty += wind.y * push;
+                if (wind.strength) tr += wave * 0.25;
                 // ressort : suit le curseur avec un peu d'inertie, revient en place à la sortie
                 s.vx = (s.vx + (tx - s.dx) * 0.16) * 0.72;
                 s.vy = (s.vy + (ty - s.dy) * 0.16) * 0.72;
@@ -188,20 +228,43 @@ onMounted(() => {
                 s.dy += s.vy;
                 s.dr += (tr - s.dr) * 0.14;
                 s.ds += (ts - s.ds) * 0.14;
-                if (Math.abs(s.vx) + Math.abs(s.vy) + Math.abs(tr - s.dr) + Math.abs(ts - s.ds) + Math.abs(tx - s.dx) + Math.abs(ty - s.dy) > 0.02) moving = true;
+                // l'étoile entière reste toujours dans la zone visible
+                const R = s.ro * s.ds + 4;
+                const px = Math.min(bounds.x1 - R, Math.max(bounds.x0 + R, s.x + s.dx));
+                const py = Math.min(bounds.y1 - R, Math.max(bounds.y0 + R, s.y + s.dy));
+                if (px !== s.x + s.dx) {
+                    s.dx = px - s.x;
+                    s.vx = 0;
+                }
+                if (py !== s.y + s.dy) {
+                    s.dy = py - s.y;
+                    s.vy = 0;
+                }
             }
         }
         draw();
-        if (moving || mouse.in) requestAnimationFrame(step); else running = false;
+        frame = requestAnimationFrame(step);
     }
 
     window.addEventListener('resize', resize);
     resize();
-    if (document.fonts) document.fonts.ready.then(resize);
+    if (document.fonts) document.fonts.ready.then(() => {
+        if (cv.isConnected) resize();
+    });
+    kick();
+
+    stop = () => {
+        cancelAnimationFrame(frame);
+        window.removeEventListener('pointermove', setMouse);
+        window.removeEventListener('pointerdown', setMouse);
+        window.removeEventListener('resize', resize);
+        document.documentElement.removeEventListener('pointerleave', clearMouse);
+    };
 })
 
 </script>
 
 <style scoped>
-canvas#title { display: block; margin-inline: auto; touch-action: pan-y; cursor: crosshair; }
+.v-app-touch-grace-effect { position: relative; touch-action: pan-y; cursor: crosshair; }
+canvas#title { display: block; position: absolute; top: 0; left: 0; pointer-events: none; }
 </style>

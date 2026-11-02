@@ -4,7 +4,7 @@ title: Touch Grass
 
 :AppHeader
 
-:::AppToggle{title="Brief <em>Touch_Grass</em>"}
+:::AppToggle{title="Brief"}
 
 ### Take your website off the leash.
 
@@ -19,6 +19,16 @@ But websites are not sealed systems. They run through cables, servers, batteries
 During the workshop, you will design web systems that sense, depend, react, and change. A website might slow down when too many people visit it, wake up with daylight, disappear at high tide, become nervous when its CPU is overloaded, remember who passed through, or wait until the room is quiet enough.
 
 For your website to touch grass, you will explore modes beyond constant availability and servile response. It might wake up, slow down, wait, hide, rest, disappear, return, or become something else.
+
+<div class="app-button-stack">
+
+:AppButton[Create the groups!]{to="/groups"}
+
+:AppButton[Get Monday presentation!]{to="/files/Touch_Grass-20260126.pdf"}
+
+:AppButton[Get the Figma template!]{to="https://www.figma.com/design/xIi4cRRgXI86OLPGxjZ19P/Untitled?node-id=4-2&t=dKxmLrQ1RzwK0bzz-1" target="_blank"}
+
+</div>
 
 :::
 
@@ -62,7 +72,7 @@ A website becomes something to approach, disturb, feed, wait for, or learn from.
 :::
 
 
-:::AppToggle{title="Schedule"}
+:::AppToggle{title="Schedule of the week"}
 
 ### Requirements
 
@@ -171,7 +181,7 @@ Afternoon
 
 
 
-:::AppToggle{title="Experiments — adapt to your environment"}
+:::AppToggle{title="Experiments, if you're stuck"}
 
 ### Experiment 1 — Break the Leash
     
@@ -268,7 +278,7 @@ The goal is not to add a story on top of the website. Let the story emerge throu
 :::
 
 
-:::AppToggle{title="Resources: links, papers, and tools"}
+:::AppToggle{title="Resources"}
 
 A small selection of texts to think with.
 
@@ -276,32 +286,32 @@ A small selection of texts to think with.
     
 #### Start here
 
-**Thomas Nagel — What Is It Like to Be a Bat?**
+**[Thomas Nagel — What Is It Like to Be a Bat?](https://www.sas.upenn.edu/~cavitch/pdf-library/Nagel_Bat.pdf)**
 A classic text about the difficulty of imagining another being's sensory experience. Useful for thinking about perception beyond our own.
 
-**Permacomputing — Principles**
+**[Permacomputing — Principles](https://permacomputing.net/principles/)**
 Limits, maintenance, resilience, resources, infrastructure, "not doing" and alternatives to always-on computing.
 
-**Poikolainen Rosén & Heitlinger — Introducing More-Than-Human Design in Practice**
+**[Poikolainen Rosén & Heitlinger — Introducing More-Than-Human Design in Practice](https://openaccess.city.ac.uk/id/eprint/35032/1/3712714.pdf)**
 A short introduction to designing through relations between humans, non-humans, environments, sensors, and data.
 
 #### Go further
 
-**James Bridle — Ways of Being**
+**[James Bridle — Ways of Being](https://www.penguin.co.uk/books/317823/ways-of-being-by-bridle-james/9780141994260)**
 Other forms of intelligence, sensing, and relationships between technology and the living world.
 
-**Fanny Lopez — À bout de flux**
+**[Fanny Lopez — À bout de flux](https://www.editionsdivergences.com/livre/a-bout-de-flux)**
 The infrastructures, cables, energy systems, and dependencies hidden behind digital services.
 
-**Tung-Hui Hu — A Prehistory of the Cloud**
+**[Tung-Hui Hu — A Prehistory of the Cloud](https://mitpress.mit.edu/9780262529969/a-prehistory-of-the-cloud/)**
 A material and political history of the infrastructures hidden behind the apparently immaterial cloud.
 
 #### Deeper research
 
-**More-than-Human Perspectives in Human-Computer Interaction Research**
+**[More-than-Human Perspectives in Human-Computer Interaction Research](https://research.tue.nl/en/publications/more-than-human-perspectives-in-human-computer-interaction-resear/)**
 A broader overview of more-than-human approaches within HCI.
 
-**Experiencing the More-than-Human Through Human Augmentation**
+**[Experiencing the More-than-Human Through Human Augmentation](https://dl.designresearchsociety.org/drs-conference-papers/drs2026/researchpapers/129)**
 Experiments around altered sensory perception, including forms of sensing inspired by non-human perception.
     
 
@@ -596,170 +606,3 @@ https://www.swiss-farmers.ch/
 [in progress]
 
 :::
-
-:::AppToggle{title="References by group"}
-
-### Group 1 | Léa, Margarida, Julianna
-@juliannaclarke
-@frostie-jpg
-@guiffi
-
-#### day 1
-
-Molecules / bacteria
-
-[life forever Vytas (jelly Fish) website](https://vjnks.com/projects/life-forever)
-
-[life forever Vytas (jelly Fish) insta](https://www.instagram.com/reels/DV0k_2Vge9-/)
-
-[What Is It Like to Be a Bat?](https://www.sas.upenn.edu/~cavitch/pdf-library/Nagel_Bat.pdf)
-
-[FORMA ƑANTASMA | Cambio](https://formafantasma.com/work/cambio)
-
-#### day 2
-
-
-game of life
-
-
----
-
-### Group 2 | Luca, Julias
-@LucaCDRocha
-@bernalSphere
-
-
-#### day 1
-
-Satellites
-
-#### day 2
-
--> presentation
-
-##### refs 
-
-[hysteresia-ou-la-musique-des-satellites-fantomes](https://hemisphereson.com/hysteresia-ou-la-musique-des-satellites-fantomes/)
-
----
-
-### Group 3 | Luca, Moritz
-@lukalukalukalukaluka
-@MoritzKoenig-mmd
-
-#### day 1
-
-[CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression](https://arxiv.org/pdf/2606.24083)
-
-[A Path Towards Autonomous Machine Intelligence — Yann LeCun](https://openreview.net/pdf?id=BZ5a1r-kVsf&utm_source=chatgpt.com)
-
-[https://wealth.ronnycoste.com/](https://wealth.ronnycoste.com/)
-
-#### day 2
-
--> presentation
-
-##### ref
-
-[Félicien Captcha | WhatsApp](https://www.instagram.com/p/DdQuFoYjDNg/?img_index=4)
-[Félicien Captcha | website](https://impakt.nl/abroad/2026/code-2026-ars-electronica-55478/)
-
-[Mozilla's airborne leaflet propaganda tool](https://studiomoniker.com/projects/paperstorm)
-
-[ODE TO OFFICE](https://www.instagram.com/p/Dero9j0iFA9/?img_index=1)
-
-
----
-
-
-### Group 4 | Adam, Prabu
-@adamhudec-mmd
-@prabudhinakar
-
-#### day 1
-
-Golden hour / IP address, localization / WebCam
-
-[Félicien Goguey | Colorimetry](https://felicien.io/colorimetry/)
-
-[Olia Lialina | Summer ](https://transmediale.de/de/artwork/summer)
-
-Chrome extension that destroys the page more and more as you scroll.
-
-#### day 2
-
-Rush hour / localization
-
--> presentation
-
-##### ref
-
-[Google maps hack](https://www.androidauthority.com/google-maps-hack-1079604/)
-
-How routes are created in apps:
-- create free time through the route
-- create the most restful route
-- …
-
-[kelvingrade](https://kelvingrade.ch/)
-
-Live Map of cultural hot spots in Geneva
-
-[OpenAgenda geneve](https://openagenda.com/en/ville-de-geneve)
-
-Open API you can use
-
-##### idees to get trafic information
-
-detect Bluetooth around you
- 
-Waze/Google Map traffic API information (you can use the API to get traffic information)
-
-population statistics in public administration with Google 
-
-
----
-
-### Group 5 | Lisa, Antony
-@lisagrd12
-@antonynyt
-
-#### day 1
-
-The potato / Overabundance of channels feeding you data / We no longer talk about monopolies in the food industry
-
-[Permacomputing](https://fr.wikipedia.org/wiki/Permacomputing)
-
-[Smell of data](https://smellofdata.com/)  
-An object that releases a bad smell when it detects you are on websites that exploit your data (when visiting a site "stinks")
-
-#### day 2
-
-##### /!\ don't do this! #####
-
-[molleindustria](https://www.molleindustria.org/)
-
-
-
-:::
-
-:::AppToggle{title="Final Works"}
-
-In progress… :)
-
-### Students
-| Group | Last name           | First name |
-|-------|---------------------|------------|
-| 1     | Rinn                | Léa        |
-| 1     | Gama Santos Correia | Margarida  |
-| 1     | Clarke              | Julianna   |
-| 2     | Correia Da Rocha    | Luca       |
-| 2     | Sangnakkara         | Julia      |
-| 3     | Benigni             | Luca       |
-| 3     | König               | Moritz     |
-| 4     | Hudec               | Adam       |
-| 4     | Dhinakar            | Prabu      |
-| 5     | Giraud              | Lisa       |
-| 5     | Neyret              | Antony     |
-
-::: 

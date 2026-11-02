@@ -73,7 +73,7 @@ const titleWords = computed(() => props.title.trim().split(/\s+/))
   padding-bottom: var(--app-gutter);
   position: sticky;
   z-index: 50;
-  top: 0;
+  top: var(--app-header-height);
   background: linear-gradient(180deg, #FFFFFF 50%, #FFFFFF00);
   max-width: none;
   padding-right: var(--app-gutter-half);
