@@ -12,6 +12,20 @@ const { data: page } = await useAsyncData(route.path, () => {
 </script>
 
 <style lang="scss" scoped>
-.v-index {
+// Phone: the title takes what's left of the screen above the tagline.
+@media (max-width: 700px) {
+  .v-index {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+
+    > :deep(div) {
+      flex: 1 1 0;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 </style>
