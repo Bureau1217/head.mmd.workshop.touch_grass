@@ -27,6 +27,11 @@
 </script>
 
 <style lang="scss" scoped>
+.v-app-header {
+  // now the first thing on its page: the same margin as the screen's corners
+  padding-top: var(--app-gutter-half);
+}
+
 .v-app-header__home {
   color: inherit;
   text-decoration: none;

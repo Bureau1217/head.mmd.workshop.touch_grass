@@ -56,15 +56,13 @@
   z-index: 100;
 }
 
-/* A phone's inner pages open straight on their title, which leads back home. */
-@media (max-width: 700px) {
-  .v-app--inner {
-    --app-header-height: 0px;
-  }
+/* Inner pages open straight on their title, which leads back home. */
+.v-app--inner {
+  --app-header-height: 0px;
+}
 
-  .v-app--inner .v-app__app-header-home {
-    display: none;
-  }
+.v-app--inner .v-app__app-header-home {
+  display: none;
 }
 
 .v-app__app-footer {
