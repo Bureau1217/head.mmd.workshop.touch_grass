@@ -69,8 +69,10 @@ const titleWords = computed(() => props.title.trim().split(/\s+/))
 
 .v-app-toggle__title {
   margin: 0;
-  padding-top: var(--app-gutter);
-  padding-bottom: var(--app-gutter);
+  padding-top: var(--app-row-padding);
+  padding-bottom: var(--app-row-padding);
+  font-size: var(--app-row-font);
+  line-height: 1.2;
   position: sticky;
   z-index: 50;
   top: var(--app-header-height);

@@ -1,9 +1,13 @@
 <template>
   <footer class="v-app-footer">
-    <div class="v-app-footer__container app-with-gutter app-container app-container--flex-wrap--nowrap app-container--justify-content--space-between app-container--align-items--center">
+    <div class="v-app-footer__container app-with-gutter app-container app-container--flex-wrap--nowrap app-container--justify-content--space-between ">
       <div class="v-app-footer__left">
-        <span class="v-app-footer__dot" aria-hidden="true"></span>
-        <span>GENEVA</span>
+        <span class="v-app-footer__line">
+          <span class="v-app-footer__dot" aria-hidden="true"></span>
+          <span>GENEVA</span>
+          <span v-if="temperature" class="v-app-footer__temperature">{{ temperature }}</span>
+        </span>
+        <span class="v-app-footer__line">
         <svg
             class="v-app-footer__wind-icon"
             width="30"
@@ -25,6 +29,7 @@
           </g>
         </svg>
         <span>WIND {{ windSpeed }} km/h {{ windCardinal }}</span>
+        </span>
       </div>
 
       <a
@@ -42,6 +47,7 @@
 <script lang="ts" setup>
 interface OpenMeteoResponse {
   current: {
+    temperature_2m: number
     wind_speed_10m: number
     wind_direction_10m: number // where the wind comes from, in degrees
   }
@@ -52,11 +58,12 @@ const { data, refresh } = await useFetch<OpenMeteoResponse>('https://api.open-me
   query: {
     latitude: 46.2044,
     longitude: 6.1432,
-    current: 'wind_speed_10m,wind_direction_10m',
+    current: 'temperature_2m,wind_speed_10m,wind_direction_10m',
   },
 })
 
 const PLACEHOLDER = '—'
+const temperature = computed(() => data.value ? `${Math.round(data.value.current.temperature_2m)} °C` : '')
 
 // the digits roll to each new reading; until the animation starts they show the reading itself
 const shownSpeed = ref<number | null>(null)
@@ -119,6 +126,8 @@ onBeforeUnmount(() => {
 .v-app-footer__container {
   height: var(--app-footer-height);
   gap: var(--app-gutter);
+  // its height is its tallest element, the logo, plus the same margin all around
+  align-items: center;
 }
 
 .v-app-footer__left {
@@ -128,6 +137,17 @@ onBeforeUnmount(() => {
   font-size: 1.2rem;
   line-height: 1.5rem;
   white-space: nowrap;
+}
+
+.v-app-footer__line {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  // down to the letters themselves, like the logo and the header's text
+  > span:not(.v-app-footer__dot) {
+    text-box: trim-both cap alphabetic;
+  }
 }
 
 .v-app-footer__dot {
@@ -143,11 +163,17 @@ onBeforeUnmount(() => {
   display: block;
   width: 1em;
   height: 1em;
+  // taller than the capitals beside it: mustn't lift them off the corner's margin
+  margin-block: -.15em;
   stroke: currentColor;
 
   g {
     transform-origin: 15px 15px;
   }
+}
+
+.v-app-footer__temperature {
+  display: none;
 }
 
 .v-app-footer__logo {
@@ -163,26 +189,28 @@ onBeforeUnmount(() => {
 
 @media (max-width: 700px) {
   .v-app-footer__left {
-    font-size: .8rem;
-    gap: .6em;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .35em;
+    font-size: min(.7rem, 3.2vw);
+    line-height: 1.2;
   }
 
+  .v-app-footer__line {
+    gap: .5em;
+  }
+
+  // in the same 1em column as the wind icon below it, so both lines' text lines up
   .v-app-footer__dot {
-    margin-right: 0;
+    margin: 0 .35em;
+  }
+
+  .v-app-footer__temperature {
+    display: inline;
   }
 
   .v-app-footer__logo img {
-    height: .65rem;
-  }
-}
-
-@media (max-width: 359px) {
-  .v-app-footer__left {
-    font-size: .7rem;
-  }
-
-  .v-app-footer__logo img {
-    height: .55rem;
+    height: min(1.2rem, 5.4vw);
   }
 }
 </style>

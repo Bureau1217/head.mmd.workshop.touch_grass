@@ -606,3 +606,5 @@ https://www.swiss-farmers.ch/
 [in progress]
 
 :::
+
+:AppEntryLink{title="Final projects" to="/projects"}

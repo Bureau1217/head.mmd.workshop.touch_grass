@@ -1,6 +1,6 @@
 <template>
   <header class="v-app-header app-with-gutter">
-    <div class="app-container app-container--flex-wrap--nowrap app-container--align-items--flex-end">
+    <NuxtLink to="/" aria-label="TOUCH_GRASS, home" class="v-app-header__home app-container app-container--flex-wrap--nowrap app-container--align-items--flex-end">
       <div>
         <AppTextTouch
                 width="auto"
@@ -19,7 +19,7 @@
                       height="2rem"
         />
       </div>
-    </div>
+    </NuxtLink>
   </header>
 </template>
 
@@ -27,6 +27,8 @@
 </script>
 
 <style lang="scss" scoped>
-.v-app-header {
+.v-app-header__home {
+  color: inherit;
+  text-decoration: none;
 }
 </style>

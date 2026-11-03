@@ -88,14 +88,12 @@ onMounted(() => {
     }
     const WORLD_W = 64 + 5 * ADV + 100 + PAD * 2, WORLD_H = 208 + 140 + PAD * 2;
 
-    // ---- téléphone : TOUCH_GRASS sur une seule ligne, qui défile sans fin de gauche à droite ----
-    const ROW_H = 140 + PAD * 2; // hauteur de la ligne
-    const LOOP = letters.length * ADV; // longueur d'un tour : le mot se répète sans blanc
-    const VISIBLE_LETTERS = 1; // largeur de l'écran, en lettres : plus c'est petit, plus le titre est grand
-    const SPEED = 70; // en unités de squelette par seconde
-    let marquee = false;
-    let scroll = 2 * ADV + PAD; // la première lettre est visible dès le départ
-    let lastTime = 0;
+    // ---- téléphone : TOU / CH_ / GRA / SS empilés, décalés d'une ligne à l'autre ----
+    // [colonne, ligne] de chaque lettre, en largeurs de lettre et en hauteurs de ligne
+    const STACK = [[0, 0], [1, 0], [2, 0], [.45, 1], [1.45, 1], [2.45, 1], [0, 2], [1, 2], [2, 2], [1.45, 3], [2.45, 3]];
+    const ROW = 208;
+    const STACK_W = 2.45 * ADV + 100 + PAD * 2, STACK_H = 3 * ROW + 140 + PAD * 2;
+    let stacked = false;
 
     function placeLetter(L, ox, oy) {
         L.box = [ox - 40, oy - 40, ox + 140, oy + 180];
@@ -107,7 +105,7 @@ onMounted(() => {
 
     function placeLetters() {
         for (const L of letters) {
-            if (marquee) placeLetter(L, (L.index * ADV + scroll) % LOOP - 2 * ADV, PAD);
+            if (stacked) placeLetter(L, STACK[L.index][0] * ADV + PAD, STACK[L.index][1] * ROW + PAD);
             else placeLetter(L, L.lineX, L.lineY);
         }
     }
@@ -120,9 +118,8 @@ onMounted(() => {
 
     function resize() {
         const narrow = matchMedia('(max-width: 700px)').matches;
-        const wantsMarquee = narrow && !reduce;
-        if (wantsMarquee !== marquee) {
-            marquee = wantsMarquee;
+        if (narrow !== stacked) {
+            stacked = narrow;
             placeLetters();
         }
         const root = cv.parentElement;
@@ -133,18 +130,18 @@ onMounted(() => {
         const footer = document.querySelector('.v-app-footer')?.offsetHeight || 0;
         const margin = parseFloat(getComputedStyle(document.documentElement).fontSize) / 2;
         const canvasTop = cv.getBoundingClientRect().top + window.scrollY;
-        const maxH = Math.max(120, window.innerHeight - canvasTop - footer - taglineSpace - margin);
+        // téléphone : la mise en page CSS donne au titre ce qui reste au-dessus de la tagline, qui reste donc toujours visible
+        const maxH = narrow ? root.clientHeight : Math.max(120, window.innerHeight - canvasTop - footer - taglineSpace - margin);
         dpr = Math.min(2, window.devicePixelRatio || 1);
         canvasW = root.clientWidth;
-        scale = marquee
-            ? Math.min(maxH / ROW_H, canvasW / (ADV * VISIBLE_LETTERS))
-            : Math.min(avail / WORLD_W, maxH / WORLD_H);
-        const titleH = (marquee ? ROW_H : WORLD_H) * scale;
+        const worldW = stacked ? STACK_W : WORLD_W, worldH = stacked ? STACK_H : WORLD_H;
+        scale = Math.min(avail / worldW, maxH / worldH);
+        const titleH = worldH * scale;
         // sur téléphone, le titre se centre dans l'espace libre : la tagline se retrouve juste au-dessus du footer
         const h = narrow ? Math.floor(maxH) : Math.round(titleH);
-        originX = marquee ? 0 : (canvasW - WORLD_W * scale) / 2;
+        originX = (canvasW - worldW * scale) / 2;
         originY = Math.max(0, (h - titleH) / 2);
-        root.style.height = h + 'px';
+        root.style.height = narrow ? '' : h + 'px';
         // le canvas couvre toute la zone visible entre le header et le footer : les étoiles ont de la place pour bouger sans être coupées
         canvasH = Math.max(h, window.innerHeight - canvasTop - footer);
         bounds = {x0: -originX / scale, y0: -originY / scale, x1: (canvasW - originX) / scale, y1: (canvasH - originY) / scale};
@@ -198,8 +195,6 @@ onMounted(() => {
         ctx.setTransform(dpr * scale, 0, 0, dpr * scale, dpr * originX, dpr * originY);
         ctx.lineJoin = 'round';
         for (const L of letters) {
-            // en défilement, inutile de dessiner les lettres hors de l'écran
-            if (marquee && (L.box[2] + 250 < bounds.x0 || L.box[0] - 250 > bounds.x1)) continue;
             const [fill, stroke] = STYLES[L.style];
             ctx.fillStyle = fill;
             ctx.strokeStyle = stroke;
@@ -262,11 +257,6 @@ onMounted(() => {
     }
 
     function step(time) {
-        if (marquee) {
-            scroll = (scroll + (lastTime ? time - lastTime : 0) * 0.001 * SPEED) % LOOP;
-            placeLetters();
-        }
-        lastTime = time;
         tilt.x += (tiltTarget.x - tilt.x) * 0.08;
         tilt.y += (tiltTarget.y - tilt.y) * 0.08;
         const wind = getWind();
@@ -310,9 +300,9 @@ onMounted(() => {
                 s.dy += s.vy;
                 s.dr += (tr - s.dr) * 0.14;
                 s.ds += (ts - s.ds) * 0.14;
-                // l'étoile entière reste toujours dans la zone visible (en défilement, elle doit pouvoir sortir sur les côtés)
+                // l'étoile entière reste toujours dans la zone visible
                 const R = s.ro * s.ds + 4;
-                const px = marquee ? s.x + s.dx : Math.min(bounds.x1 - R, Math.max(bounds.x0 + R, s.x + s.dx));
+                const px = Math.min(bounds.x1 - R, Math.max(bounds.x0 + R, s.x + s.dx));
                 const py = Math.min(bounds.y1 - R, Math.max(bounds.y0 + R, s.y + s.dy));
                 if (px !== s.x + s.dx) {
                     s.dx = px - s.x;
@@ -329,6 +319,16 @@ onMounted(() => {
     }
 
     window.addEventListener('resize', resize);
+    // barres du navigateur qui bougent sur téléphone, tagline qui change de hauteur…
+    let lastRootH = 0;
+    const rootObserver = new ResizeObserver(() => {
+        const rootH = cv.parentElement.clientHeight;
+        if (rootH !== lastRootH && matchMedia('(max-width: 700px)').matches) {
+            lastRootH = rootH;
+            resize();
+        }
+    });
+    rootObserver.observe(cv.parentElement);
     resize();
     if (document.fonts) document.fonts.ready.then(() => {
         if (cv.isConnected) resize();
@@ -337,6 +337,7 @@ onMounted(() => {
 
     stop = () => {
         cancelAnimationFrame(frame);
+        rootObserver.disconnect();
         window.removeEventListener('pointermove', setMouse);
         window.removeEventListener('pointerdown', setMouse);
         window.removeEventListener('resize', resize);
@@ -352,5 +353,8 @@ onMounted(() => {
 
 <style scoped>
 .v-app-touch-grace-effect { position: relative; touch-action: pan-y; cursor: crosshair; }
+@media (max-width: 700px) {
+  .v-app-touch-grace-effect { flex: 1 1 0; min-height: 0; }
+}
 canvas#title { display: block; position: absolute; top: 0; left: 0; pointer-events: none; }
 </style>

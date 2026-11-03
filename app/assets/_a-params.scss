@@ -2,8 +2,14 @@
   --app-gutter: 1rem;
   --app-gutter-half: calc(var(--app-gutter) / 2);
 
-  --app-header-height: 2rem;
+  --app-header-height: 2.2rem;
   --app-footer-height: 2rem;
+
+  // what the workshop's rows and final band scale with, so the closed list fits
+  // the window's height: their full size on a tall screen, tighter on a short one
+  --app-row-font: clamp(1.1rem, 6.4svh, 1.92rem);
+  --app-row-padding: clamp(.3rem, 1.4svh, 1rem);
+  --app-band-padding: clamp(1rem, 4.5svh, 3rem);
 
   --app-color-primary: #FF00A6;
   --app-color-secondary: #FF8100;
@@ -11,8 +17,11 @@
   --app-color-quaternary: #26FF00;
   --app-color-white: #FFFFFF;
 
-  // le header empile son texte et ses boutons sur téléphone
   @media (max-width: 700px) {
-    --app-header-height: 4rem;
+    --app-header-height: 3rem;
+    // the logo's height (AppFooter), plus the margin above and below it
+    --app-footer-height: calc(min(1.2rem, 5.4vw) + 1.6rem);
+    --app-row-font: clamp(1.05rem, 3.5svh, 1.5rem);
+    --app-row-padding: clamp(.3rem, 1.5svh, 1rem);
   }
 }
