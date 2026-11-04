@@ -51,6 +51,16 @@ Satellites
 
 [hysteresia-ou-la-musique-des-satellites-fantomes](https://hemisphereson.com/hysteresia-ou-la-musique-des-satellites-fantomes/)
 
+###### À bout de flux
+
+> Une nouvelle infrastructure se déploie. « Au xixe siècle, on construisait des gares, au xxe des autoroutes, au xxie siècle des centres de données», répètent à l'envi les grands dirigeants du numérique qui, dans un tour de passe-passe sémantique, endossent le rôle de grands bâtisseurs d'infrastructures publiques dans l'intérêt général. Mais que reste-t-il de « public » dans ces infrastructures?
+>
+> Le secteur public (collectivités, opérateur de fibre, d'électricité) est KO face aux géants du numérique. Aucune création d'infrastructure n'a rapporté autant d'argent aux actionnaires de ce secteur privé et si peu aux collectivités. Pour ce qui est des services rendus à la société civile, ils doivent aussi se mesurer à l'aune de la remise en cause de l'ultraconnexion généralisée comme mode de vie, de l'excès d'écran et de la collecte des données personnelles. Comme s'il y avait une impérieuse nécessité à être connecté 24 heures sur 24 à du très très haut débit sur plusieurs écrans en simultané.
+>
+> Ce numérique-là est morbide2, il n'est en rien une nécessité vitale, il n'est pas non plus un service public comparable à celui que fut un temps celui de la santé, de l'assainissement ou de l'électricité.-Toute raison gardée, un dixième de la connexion déployée aujourd'hui, peut-être même bien moins, suffirait. Pour l'évaluer, il faudrait d'abord se mettre collectivement d'accord sur le projet technique et numérique de nos sociétés, à quelles fins et selon quels modes de gouvernementalité penser cet outil de communication, par ailleurs remarquable sous bien des aspects. Et à partir de cette finalité sociétale pourrait se poser la question des moyens techniques et infrastructuraux à déployer, dans la mesure de la finitude des ressources qui menace chaque jour nos existences.
+>
+> — Fanny Lopez, *À bout de flux* (Quimperlé: Éditions Divergences, 2022), 10-11.
+
 :::
 
 :::AppToggle{title="Group 3"}
