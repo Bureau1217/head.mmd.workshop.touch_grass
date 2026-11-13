@@ -15,5 +15,9 @@ export default defineNuxtConfig({
     output: {
       publicDir: 'docs',
     },
+    // the group demos (public/demos/) are static pages of their own, copied as they are: not pages to prerender
+    prerender: {
+      ignore: ['/demos'],
+    },
   },
 })

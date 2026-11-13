@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browsy — Touch_Grass demo</title>
+  <style>
+    :root { --chrome: #dee1e6; --tabbar: #dee1e6; --active: #fff; --ink: #202124; }
+    * { box-sizing: border-box; }
+    html { background: #fff; }
+    body { margin: 0; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--ink); }
+
+    /* the pretend browser: tabs and address bar, fixed on top; the website scrolls under them */
+    .browser { position: fixed; inset: 0 0 auto 0; z-index: 10; background: var(--chrome); box-shadow: 0 1px 0 #c4c7cc; }
+    .tabbar { display: flex; align-items: flex-end; gap: 0; padding: 8px 8px 0; min-width: 0; }
+    .tabs { display: flex; flex: 1 1 auto; min-width: 0; overflow: hidden; }
+    .tab {
+      flex: 1 1 220px; min-width: 24px; max-width: 220px; height: 34px; display: flex; align-items: center; gap: 7px;
+      padding: 0 10px; border: 0; border-radius: 8px 8px 0 0; background: transparent; font: inherit; font-size: 12px;
+      color: var(--ink); cursor: pointer; position: relative; overflow: hidden; text-align: left;
+      transition: opacity .25s, transform .25s;
+    }
+    .tab + .tab::before { content: ''; position: absolute; left: 0; top: 9px; bottom: 9px; width: 1px; background: #9aa0a6; }
+    .tab.is-active::before, .tab.is-active + .tab::before { display: none; }
+    .tab:hover { background: rgba(255,255,255,.5); }
+    .tab.is-active { background: var(--active); }
+    .tab.is-closing { opacity: 0; transform: translateY(6px); }
+    .tab i { flex: 0 0 auto; width: 14px; height: 14px; border-radius: 3px; }
+    .tab span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .new-tab { flex: 0 0 auto; width: 30px; height: 30px; margin: 0 4px 2px; border: 0; border-radius: 50%; background: transparent; font-size: 20px; line-height: 1; cursor: pointer; color: #5f6368; }
+    .new-tab:hover { background: rgba(0,0,0,.08); }
+    .count { flex: 0 0 auto; align-self: center; font-size: 11px; color: #5f6368; padding: 0 8px 4px; white-space: nowrap; }
+    .toolbar { display: flex; align-items: center; gap: 8px; padding: 6px 10px 8px; background: var(--active); }
+    .toolbar .nav { color: #9aa0a6; font-size: 16px; letter-spacing: 8px; padding-left: 4px; }
+    .address { flex: 1 1 auto; min-width: 0; background: #f1f3f4; border-radius: 999px; padding: 7px 14px; font-size: 13px; color: #5f6368; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* the website */
+    #page { padding: 96px 16px 120px; }
+    article { max-width: 680px; margin: 0 auto; }
+    .site { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--site); margin: 24px 0 4px; font-weight: 600; }
+    h1 { font-size: 34px; line-height: 1.15; margin: 0 0 20px; }
+    h2 { font-size: 19px; margin: 28px 0 8px; color: var(--site); }
+    p { font-size: 16px; line-height: 1.6; margin: 0; }
+    .write { display: block; font-size: 13px; color: #5f6368; margin-bottom: 8px; }
+    .write textarea { display: block; width: 100%; margin-top: 6px; font: inherit; font-size: 15px; padding: 10px; border: 1px solid #dadce0; border-radius: 8px; resize: vertical; }
+    .empty { text-align: center; color: #9aa0a6; padding-top: 30vh; }
+
+    /* the browser has quit (after the crash) */
+    .closed { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; position: fixed; inset: 0; z-index: 2147483647; background: #111; color: #eee; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; padding: 16px; }
+    .closed[hidden] { display: none; }
+    .closed p { font-size: 15px; color: #aaa; max-width: 420px; }
+    .closed button { font: inherit; font-size: 14px; padding: 9px 18px; border-radius: 999px; border: 1.5px solid #9673F0; background: #fff; cursor: pointer; }
+    .closed button:hover { background: #26FF00; }
+  </style>
+</head>
+<body>
+  <div class="browser">
+    <div class="tabbar">
+      <div class="tabs" id="tabs"></div>
+      <button class="new-tab" id="newTab" type="button" title="New tab" aria-label="New tab">+</button>
+      <span class="count"><span id="tabCount">0</span> tabs</span>
+    </div>
+    <div class="toolbar"><span class="nav">‹ › ⟳</span><div class="address" id="address"></div></div>
+  </div>
+  <main id="page"></main>
+  <div class="closed" id="closed" hidden>
+    <strong>The browser has quit.</strong>
+    <p>Browsy died, and took every tab with him. In the real extension, this is your real browser.</p>
+    <button type="button" id="reopen">Open the browser again</button>
+  </div>
+
+  <script src="browser-host.js"></script>
+  <script src="browsy.js"></script>
+  <script src="/demos/demo-bar.js"></script>
+  <script>
+    (() => {
+      const B = window.__browser;
+      const demo = TouchGrassDemo({
+        group: 'Group 4', title: 'Browsy', people: 'Adam, Prabu',
+        text: 'A small glowing creature who lives in your browser. He shows up when it gets crowded (15 tabs or more) and gets overwhelmed when you do: fast mouse, fast typing, rage clicks, wild scrolling, tab hopping, a bad connection. Stressed, he shows you a cat, and closes your forgotten tabs. Pushed too far, he dies and takes the whole browser down with him.',
+        real: ['Your mouse, typing, clicks and scrolling', 'Your network (ping and speed)'],
+        simulated: ['The browser and its tabs (it is a Chrome extension)'],
+        controls: [
+          { type: 'button', label: '+ 5 tabs', onClick: () => B.openTabs(5) },
+          { type: 'button', label: '− 1 tab', onClick: () => B.closeOne() },
+          { type: 'button', label: 'Show a cat', onClick: () => B.command('cat') },
+          { type: 'button', label: 'Kill him', onClick: () => B.command('kill') },
+          { type: 'button', label: 'Revive him', onClick: () => B.command('revive') },
+          { type: 'toggle', label: 'Demo mode: hyper-sensitive (the group used it to present)', value: true, onChange: on => B.settings({ demo: on }) },
+          { type: 'toggle', label: 'Simulate a bad connection', value: false, onChange: on => B.settings({ badNet: on }) },
+          { type: 'toggle', label: 'Safe mode: no crash when he dies', value: false, onChange: on => B.settings({ safeDeath: on }) },
+          { type: 'toggle', label: 'Show his senses (debug)', value: false, onChange: on => B.settings({ debug: on }) },
+          { type: 'toggle', label: 'Mute', value: false, onChange: on => B.settings({ mute: on }) },
+        ],
+        corner: 'bottom-left',
+        open: true,
+        source: 'https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group4',
+      });
+      setInterval(() => {
+        const n = B.count();
+        demo.setStatus(n < 15 ? `${n} tabs open · he appears at 15: open ${15 - n} more` : `${n} tabs open · he dies at 33`);
+      }, 500);
+    })();
+  </script>
+</body>
+</html>

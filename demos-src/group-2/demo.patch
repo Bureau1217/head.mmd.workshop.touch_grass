@@ -1,0 +1,69 @@
+diff --git a/app/app.vue b/app/app.vue
+index 1d8604f..f0dceb6 100644
+--- a/app/app.vue
++++ b/app/app.vue
+@@ -71,7 +71,9 @@ const handleKeyDown = (e: KeyboardEvent) => {
+ const {
+   userLat,
+   userLon,
+-  deviceAzimuth
++  deviceAzimuth,
++  requestGps,
++  setManualLocation
+ } = useLocation();
+ 
+ // 2. Satellite orbital propagation & attack zone tracking
+@@ -93,7 +95,9 @@ const {
+   isUsbConnected,
+   isSecondUsbConnected,
+   usbDevices,
+-  toggleUsbSimulation
++  toggleUsbSimulation,
++  simulatedCount,
++  setSimulatedCount
+ } = useUsbDetection();
+ 
+ // 4. Wikipedia article logic with iframe layout, attacks, healing & data preservation
+@@ -137,6 +141,21 @@ const handleTestJump = () => {
+ 
+ onMounted(() => {
+   startTracking();
++  // Touch_Grass demo: lets the demo panel (public/touch-grass-demo.js) reach the controls
++  (window as any).__satpedia = {
++    setZone: (km: number) => { attackZoneRangeKm.value = km; },
++    jump: handleTestJump,
++    setUsb: setSimulatedCount,
++    toggleOverlay,
++    useMyLocation: requestGps,
++    setLocation: setManualLocation,
++    state: () => ({
++      lat: userLat.value, lon: userLon.value, zone: attackZoneRangeKm.value, usb: simulatedCount.value,
++      inZone: commercialSatsInZone.value.map((s) => s.name), science: closestScientific.value?.name ?? null,
++      article: currentTitle.value, breakdown: breakdownProgress.value, broken: isTotallyBroken.value,
++      catalog: cachedSats.value.length
++    })
++  };
+   window.addEventListener('keydown', handleKeyDown);
+ });
+ 
+diff --git a/nuxt.config.ts b/nuxt.config.ts
+index 9ba9bf3..f3a1a87 100644
+--- a/nuxt.config.ts
++++ b/nuxt.config.ts
+@@ -3,7 +3,15 @@ export default defineNuxtConfig({
+   compatibilityDate: '2025-07-15',
+   devtools: { enabled: false },
+   app: {
+-    baseURL: process.env.NUXT_APP_BASE_URL || '/'
++    baseURL: process.env.NUXT_APP_BASE_URL || '/',
++    // Touch_Grass demo panel
++    head: process.env.TOUCH_GRASS_DEMO ? {
++      script: [
++        { src: (process.env.NUXT_APP_BASE_URL || '/') + 'touch-grass-satellites.js' },
++        { src: '/demos/demo-bar.js', defer: true },
++        { src: (process.env.NUXT_APP_BASE_URL || '/') + 'touch-grass-demo.js', defer: true }
++      ]
++    } : {}
+   },
+   css: ['~/assets/_main.scss'],
+   vite: {

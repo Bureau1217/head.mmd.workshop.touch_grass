@@ -12,6 +12,22 @@ Léa, Margarida, Julianna
 @frostie-jpg
 @guiffi
 
+::AppProjectPhotos
+---
+photos:
+  - { src: /images/projects/group-1/01.jpg, alt: "A microphone with an autumn leaf, in front of the projected forest" }
+  - { src: /images/projects/group-1/02.jpg, alt: "The microphone and its leaf, close up" }
+  - { src: /images/projects/group-1/03.jpg, alt: "The installation: branches, leaves and the projected forest" }
+  - { src: /images/projects/group-1/04.jpg, alt: "A visitor in front of the projection" }
+---
+::
+
+<div class="app-button-stack">
+
+:AppButton[SEE LIVE]{to="/demos/group-1/"}
+
+</div>
+
 #### day 1
 
 Molecules / bacteria
@@ -38,6 +54,12 @@ Luca, Julias
 @LucaCDRocha
 @bernalSphere
 
+
+<div class="app-button-stack">
+
+:AppButton[SEE LIVE]{to="/demos/group-2/"}
+
+</div>
 
 #### day 1
 
@@ -70,6 +92,22 @@ Luca, Moritz
 @lukalukalukalukaluka
 @MoritzKoenig-mmd
 
+::AppProjectPhotos
+---
+photos:
+  - { src: /images/projects/group-3/01.jpg, alt: "A visitor scanning the QR code with their phone" }
+  - { src: /images/projects/group-3/02.jpg, alt: "The table: 3D printer, screen with the tomato, vegetables on grass" }
+  - { src: /images/projects/group-3/03.jpg, alt: "A 3D-printed tomato between real carrots and a tomato" }
+  - { src: /images/projects/group-3/04.jpg, alt: "The game on a phone: the water step" }
+---
+::
+
+<div class="app-button-stack">
+
+:AppButton[SEE LIVE]{to="https://bureau1217.github.io/head.mmd.workshop.touch_grass.group3/" target="_blank"}
+
+</div>
+
 #### day 1
 
 [CAVEWOMAN:HowLargeLanguageModelsBehave Under Linguistic Input and Output Compression](https://arxiv.org/pdf/2606.24083)
@@ -99,6 +137,22 @@ Adam, Prabu
 
 @adamhudec-mmd
 @prabudhinakar
+
+::AppProjectPhotos
+---
+photos:
+  - { src: /images/projects/group-4/01.jpg, alt: "The desk where Browsy lived, with visitors around it" }
+  - { src: /images/projects/group-4/02.jpg, alt: "Browsy on screen at the desk" }
+  - { src: /images/projects/group-4/03.jpg, alt: "Browsy, the glowing creature, on screen" }
+  - { src: /images/projects/group-4/04.jpg, alt: "Browsy's dev panel: what's stressing him" }
+---
+::
+
+<div class="app-button-stack">
+
+:AppButton[SEE LIVE]{to="/demos/group-4/"}
+
+</div>
 
 #### day 1
 
@@ -149,6 +203,22 @@ Lisa, Antony
 
 @lisagrd12
 @antonynyt
+
+::AppProjectPhotos
+---
+photos:
+  - { src: /images/projects/group-5/01.jpg, alt: "The defaced company website on a screen among potatoes" }
+  - { src: /images/projects/group-5/02.jpg, alt: "Wiring the potatoes together" }
+  - { src: /images/projects/group-5/03.jpg, alt: "The installation from above: screen, crates and potatoes" }
+  - { src: /images/projects/group-5/04.jpg, alt: "Potatoes in a crate next to the screen" }
+---
+::
+
+<div class="app-button-stack">
+
+:AppButton[SEE LIVE]{to="/demos/group-5/"}
+
+</div>
 
 #### day 1
 

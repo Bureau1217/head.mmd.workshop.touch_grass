@@ -3,6 +3,7 @@
       :is="to ? NuxtLink : 'button'"
       class="v-app-button"
       :to="to"
+      :external="to ? isExternal : undefined"
       :type="to ? undefined : 'button'"
   >
     <span
@@ -19,9 +20,12 @@
 
 <script lang="ts" setup>
 // sans `to`, le composant est un <button> (pour les actions, ex: @click)
-defineProps<{
+const props = defineProps<{
   to?: string
 }>()
+
+// the group demos (public/demos/) are pages of their own, outside the Nuxt app: a normal link, not the router
+const isExternal = computed(() => !!props.to && props.to.startsWith('/demos/'))
 
 const NuxtLink = resolveComponent('NuxtLink')
 </script>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Touch Grass</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="grain.js" defer></script>
+  <script src="userdata.js" defer></script>
+  <script src="sky.js" defer></script>
+  <script src="world.js" defer></script>
+  <script src="trunk.js" defer></script>
+  <script src="pile.js" defer></script>
+  <script src="leaf.js" defer></script>
+  <script src="local-server.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="fire.js" defer></script>
+  <script src="notices.js" defer></script>
+  <script src="debug.js" defer></script>
+  <script src="mic.js" defer></script>
+</head>
+<body>
+  <aside class="news" aria-label="Forest news">
+    <h1 class="news__title">Forest Memory</h1>
+    <p class="news__user">You are <span id="userName">…</span></p>
+    <ul class="news__log" id="log" aria-live="polite"></ul>
+  </aside>
+  <p class="mic" id="micState" aria-live="polite"></p>
+  <script src="/demos/demo-bar.js"></script>
+  <script>
+    (() => {
+      const here = new URLSearchParams(location.search).get('at') || '';
+      const PLACES = [
+        ['', 'Where I am'],
+        ['37.98,23.73,Athens', 'Athens (dry: feeds the fire)'],
+        ['34.05,-118.24,Los Angeles', 'Los Angeles (dry, fires nearby)'],
+        ['60.39,5.32,Bergen', 'Bergen (humid: adds water)'],
+        ['46.20,6.14,Geneva', 'Geneva'],
+      ];
+      const demo = TouchGrassDemo({
+        group: 'Group 1', title: 'Memory of Trees', people: 'Léa, Margarida, Julianna',
+        text: 'Tree rings keep a record of the climate, and wildfires erase it. Every visitor online makes a fire more likely, from the real fire danger, humidity and wind where they are. Once it burns, the spiral of tree rings is lost word by word: blow into your microphone (or use the arrow keys) to move your leaf; humid visitors slow the fire and save words, dry ones feed it.',
+        real: ['Your microphone', 'Where you are', 'Fire danger, satellite fire hotspots, humidity, rain and wind there', 'Your frame rate'],
+        simulated: ['The shared server (it runs in this page)', 'Four other visitors: Bergen, Vancouver, Athens, Los Angeles'],
+        controls: [
+          { type: 'button', label: 'Let the 4 visitors join', onClick: () => window.__touchGrassServer.join() },
+          { type: 'button', label: 'Start a fire now', onClick: () => window.__touchGrassServer.fireNow() },
+          { type: 'button', label: 'Show the numbers', onClick: () => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'x' })) },
+          { type: 'select', label: 'Be in', options: PLACES, value: PLACES.some(([v]) => v === here) ? here : '',
+            onChange: v => { const u = new URL(location.href); v ? u.searchParams.set('at', v) : u.searchParams.delete('at'); location.href = u; } },
+        ],
+        open: true,
+        source: 'https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group1',
+      });
+      setInterval(() => {
+        const s = window.__touchGrassServer && window.__touchGrassServer.state();
+        if (!s) return;
+        const lines = [
+          `visitors online   ${1 + s.bots} (you + ${s.bots} simulated)`,
+          s.burning ? `fire              burning · humidity on it ${s.wet.toFixed(1)} / ${s.outAt}`
+            : s.started && !s.fired ? `fire              starts in ${Math.max(0, Math.ceil((s.fireAt - Date.now()) / 1000))} s`
+            : `fire likelihood   ${s.likelihood.toFixed(1)} %`,
+        ];
+        if (!s.started) lines.push('Blow (or press an arrow key) to begin.');
+        demo.setStatus(lines.join('\n'));
+      }, 500);
+    })();
+  </script>
+</body>
+</html>
