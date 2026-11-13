@@ -54,3 +54,27 @@ button {
   gap: 1rem;
   margin-top: 2rem;
 }
+
+// a project made for phones (Projects, group 3): its QR code and a line saying so
+.app-mobile-note {
+  display: flex;
+  align-items: center;
+  gap: var(--app-gutter);
+  margin-top: 1rem;
+
+  img {
+    flex: 0 0 auto;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  p {
+    margin: 0;
+    max-width: 22rem;
+  }
+
+  // on a phone, you are already there: no code to scan
+  @media (max-width: 700px) {
+    img { display: none; }
+  }
+}

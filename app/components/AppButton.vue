@@ -2,6 +2,7 @@
   <component
       :is="to ? NuxtLink : 'button'"
       class="v-app-button"
+      :class="{ 'v-app-button--live': live }"
       :to="to"
       :external="to ? isExternal : undefined"
       :type="to ? undefined : 'button'"
@@ -13,6 +14,7 @@
       <AppGrass :size="45" :sizeMax="105" :sizeMin="95"/>
     </span>
     <span class="v-app-button__label">
+      <span v-if="live" class="v-app-button__dot" aria-hidden="true"/>
       <slot/>
     </span>
   </component>
@@ -20,8 +22,10 @@
 
 <script lang="ts" setup>
 // sans `to`, le composant est un <button> (pour les actions, ex: @click)
+// live: the green "SEE LIVE" look, to stand out (the footer's green)
 const props = defineProps<{
   to?: string
+  live?: boolean
 }>()
 
 // the group demos (public/demos/) are pages of their own, outside the Nuxt app: a normal link, not the router
@@ -52,6 +56,33 @@ const NuxtLink = resolveComponent('NuxtLink')
   border: 1px solid currentColor;
   border-radius: 5rem;
   background: #FFFFFFCC;
+}
+
+.v-app-button--live .v-app-button__label {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  padding: .4rem 1rem;
+  border-color: #000;
+  background: var(--app-color-quaternary);
+  color: #000;
+  font-variation-settings: 'wght' 650;
+}
+
+.v-app-button__dot {
+  width: .45em;
+  height: .45em;
+  border-radius: 50%;
+  background: currentColor;
+  animation: v-app-button-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes v-app-button-pulse {
+  50% { opacity: .25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v-app-button__dot { animation: none; }
 }
 
 .v-app-button__grass {

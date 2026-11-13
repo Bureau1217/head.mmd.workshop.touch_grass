@@ -39,10 +39,11 @@
       ];
       const demo = TouchGrassDemo({
         group: 'Group 1', title: 'Memory of Trees', people: 'Léa, Margarida, Julianna',
-        text: 'Tree rings keep a record of the climate, and wildfires erase it. Every visitor online makes a fire more likely, from the real fire danger, humidity and wind where they are. Once it burns, the spiral of tree rings is lost word by word: blow into your microphone (or use the arrow keys) to move your leaf; humid visitors slow the fire and save words, dry ones feed it.',
+        text: 'Tree rings keep a record of the climate, and wildfires erase it. Every visitor online makes a fire more likely, from the real fire danger, humidity and wind where they are. Once it burns, the spiral of tree rings is lost word by word. Visitors blow on their leaf (here it blows by itself; switch it off below to use your microphone): humid visitors slow the fire and save words, dry ones feed it.',
         real: ['Your microphone', 'Where you are', 'Fire danger, satellite fire hotspots, humidity, rain and wind there', 'Your frame rate'],
         simulated: ['The shared server (it runs in this page)', 'Four other visitors: Bergen, Vancouver, Athens, Los Angeles'],
         controls: [
+          { type: 'toggle', label: 'Blow on the leaf automatically (off: use your microphone or the arrow keys)', value: true, onChange: on => { autoBlow = on; if (!on && window.leaf) window.leaf.blow(0, 0, 'mic'); } },
           { type: 'button', label: 'Let the 4 visitors join', onClick: () => window.__touchGrassServer.join() },
           { type: 'button', label: 'Start a fire now', onClick: () => window.__touchGrassServer.fireNow() },
           { type: 'button', label: 'Show the numbers', onClick: () => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'x' })) },
@@ -52,16 +53,27 @@
         open: true,
         source: 'https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group1',
       });
+      // the demo blows on the leaf by itself, in gusts: the first one starts the simulation, then the fire comes
+      let autoBlow = true, closedForFire = false;
+      const GUST_EVERY_MS = 2600, GUST_MS = 1300;
+      setInterval(() => {
+        if (!autoBlow || !window.leaf) return;
+        const t = performance.now() % GUST_EVERY_MS;
+        const k = t < GUST_MS ? 0.45 + 0.4 * Math.sin(Math.PI * t / GUST_MS) : 0;
+        window.leaf.blow(0, -k, 'mic'); // as the microphone does (leaf.js only listens to 'mic' and 'keys'): it gives the strength, the leaf the direction
+      }, 100);
+
       setInterval(() => {
         const s = window.__touchGrassServer && window.__touchGrassServer.state();
         if (!s) return;
+        if (s.burning && !closedForFire) { closedForFire = true; demo.close(); } // the fire is the piece: leave it the screen
         const lines = [
           `visitors online   ${1 + s.bots} (you + ${s.bots} simulated)`,
           s.burning ? `fire              burning · humidity on it ${s.wet.toFixed(1)} / ${s.outAt}`
             : s.started && !s.fired ? `fire              starts in ${Math.max(0, Math.ceil((s.fireAt - Date.now()) / 1000))} s`
             : `fire likelihood   ${s.likelihood.toFixed(1)} %`,
         ];
-        if (!s.started) lines.push('Blow (or press an arrow key) to begin.');
+        if (!s.started) lines.push(autoBlow ? 'The leaf is being blown on…' : 'Blow (or press an arrow key) to begin.');
         demo.setStatus(lines.join('\n'));
       }, 500);
     })();

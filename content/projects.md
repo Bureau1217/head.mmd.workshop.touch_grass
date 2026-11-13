@@ -24,7 +24,7 @@ photos:
 
 <div class="app-button-stack">
 
-:AppButton[SEE LIVE]{to="/demos/group-1/"}
+:AppButton[SEE LIVE]{live to="/demos/group-1/"}
 
 </div>
 
@@ -57,7 +57,7 @@ Luca, Julias
 
 <div class="app-button-stack">
 
-:AppButton[SEE LIVE]{to="/demos/group-2/"}
+:AppButton[SEE LIVE]{live to="/demos/group-2/"}
 
 </div>
 
@@ -104,8 +104,13 @@ photos:
 
 <div class="app-button-stack">
 
-:AppButton[SEE LIVE]{to="https://bureau1217.github.io/head.mmd.workshop.touch_grass.group3/" target="_blank"}
+:AppButton[SEE LIVE]{live to="https://bureau1217.github.io/head.mmd.workshop.touch_grass.group3/" target="_blank"}
 
+</div>
+
+<div class="app-mobile-note">
+<img src="/images/projects/group-3/qr.svg" alt="QR code to open the game on a phone" width="120" height="120">
+<p><strong>A mobile experience.</strong> The game is played with your phone's camera and motion sensors: scan the code to open it on your phone.</p>
 </div>
 
 #### day 1
@@ -150,7 +155,7 @@ photos:
 
 <div class="app-button-stack">
 
-:AppButton[SEE LIVE]{to="/demos/group-4/"}
+:AppButton[SEE LIVE]{live to="/demos/group-4/"}
 
 </div>
 
@@ -216,7 +221,7 @@ photos:
 
 <div class="app-button-stack">
 
-:AppButton[SEE LIVE]{to="/demos/group-5/"}
+:AppButton[SEE LIVE]{live to="/demos/group-5/"}
 
 </div>
 

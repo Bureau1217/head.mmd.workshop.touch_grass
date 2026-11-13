@@ -1,5 +1,5 @@
 diff --git a/app/app.vue b/app/app.vue
-index 1d8604f..f0dceb6 100644
+index 1d8604f..a7e6fcd 100644
 --- a/app/app.vue
 +++ b/app/app.vue
 @@ -71,7 +71,9 @@ const handleKeyDown = (e: KeyboardEvent) => {
@@ -24,7 +24,7 @@ index 1d8604f..f0dceb6 100644
  } = useUsbDetection();
  
  // 4. Wikipedia article logic with iframe layout, attacks, healing & data preservation
-@@ -137,6 +141,21 @@ const handleTestJump = () => {
+@@ -137,6 +141,36 @@ const handleTestJump = () => {
  
  onMounted(() => {
    startTracking();
@@ -36,6 +36,21 @@ index 1d8604f..f0dceb6 100644
 +    toggleOverlay,
 +    useMyLocation: requestGps,
 +    setLocation: setManualLocation,
++    // a real commercial satellite of the catalog passes overhead for `seconds` (useSatellites.ts counts it in the zone)
++    sendSatellite: (seconds = 90) => {
++      const commercial = cachedSats.value.filter((s) => s.type === 'commercial');
++      const passes = ((window as any).__satpediaDemoPasses ??= []) as { pos: any; until: number }[];
++      const taken = new Set(passes.filter((p) => p.until > Date.now()).map((p) => p.pos.name));
++      const free = commercial.filter((s) => !taken.has(s.name));
++      const sat = free[Math.floor(Math.random() * free.length)];
++      if (!sat) return null;
++      passes.push({
++        pos: { name: sat.name, type: 'commercial', purpose: sat.purpose, country: sat.country,
++          distance: Math.round(350 + Math.random() * 300), azimuth: Math.round(Math.random() * 360), elevation: Math.round(35 + Math.random() * 50) },
++        until: Date.now() + seconds * 1000
++      });
++      return sat.name;
++    },
 +    state: () => ({
 +      lat: userLat.value, lon: userLon.value, zone: attackZoneRangeKm.value, usb: simulatedCount.value,
 +      inZone: commercialSatsInZone.value.map((s) => s.name), science: closestScientific.value?.name ?? null,
@@ -46,6 +61,23 @@ index 1d8604f..f0dceb6 100644
    window.addEventListener('keydown', handleKeyDown);
  });
  
+diff --git a/app/composables/useSatellites.ts b/app/composables/useSatellites.ts
+index 0b4b0bd..e25ab82 100644
+--- a/app/composables/useSatellites.ts
++++ b/app/composables/useSatellites.ts
+@@ -267,6 +267,12 @@ export const useSatellites = (
+       knownSatsInZone = new Set(inZoneList.map((s) => s.name));
+     }
+ 
++    // Touch_Grass demo: passes sent from the demo panel count like real ones while they last
++    const demoPasses = (globalThis as { __satpediaDemoPasses?: { pos: SatellitePosition; until: number }[] }).__satpediaDemoPasses;
++    for (const pass of demoPasses ?? []) {
++      if (pass.until > Date.now() && !inZoneList.some((s) => s.name === pass.pos.name)) inZoneList.push(pass.pos);
++    }
++
+     visibleList.sort((a, b) => b.elevation - a.elevation);
+     // Focus on the closest overhead commercial satellites (capped to top 3) to prevent saturation
+     inZoneList.sort((a, b) => a.distance - b.distance);
 diff --git a/nuxt.config.ts b/nuxt.config.ts
 index 9ba9bf3..f3a1a87 100644
 --- a/nuxt.config.ts
