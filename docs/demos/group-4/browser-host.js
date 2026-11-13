@@ -54,7 +54,7 @@
     ['music.example', 'Focus playlist', '#00695c'], ['social.example', 'Notifications (9)', '#ad1457'],
     ['calendar.example', 'This week', '#4527a0'], ['search.example', 'how many tabs is too many', '#558b2f'],
   ];
-  const START_TABS = 12;
+  const START_TABS = 16; // he appears at 15 (CONFIG.appearAtTabs): he's there from the start
   let tabs = [];
   let active = null;
   let nextTab = 1;

@@ -300,8 +300,8 @@ function saveIfTogether(a, now) {
 // For the exhibition it loops: once the spiral has burnt and the saved words have flown away, a page asks for a
 // new game ('newgame', notices.js); everything starts again from 0 and every page reloads.
 const SIMULATION = true; // the demo always runs the simulation (npm run demo)
-const SIM_JOIN_S = [3, 30];   // when each simulated visitor joins, at random in this range (seconds after the first blow)
-const SIM_FIRE_S = 40;        // the fire starts this many seconds after the first blow
+const SIM_JOIN_S = [2, 10];   // when each simulated visitor joins, at random in this range (seconds after the first blow) — demo: was [3, 30]
+const SIM_FIRE_S = 14;        // the fire starts this many seconds after the first blow — demo: was 40, straight to the fire
 const SIM_BLOW_S = { humid: [5, 11], dry: [8, 18] }; // seconds between two blows of a simulated visitor
 const SIM_BOTS = [
   { id: 'simbergen', kind: 'humid', place: { city: 'Bergen', country: 'Norway' },

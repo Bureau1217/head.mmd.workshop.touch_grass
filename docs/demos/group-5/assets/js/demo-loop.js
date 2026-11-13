@@ -1,12 +1,12 @@
-/* BLTL — Touch_Grass demo loop. Stands in for the ESP32 (like sim.js) but plays by itself, every 10 seconds:
-     0 – 1.5 s   the company's site as it is, while the potatoes pile up
-     1.5 – 8.5 s the attacks, stronger and stronger (levels 1 → 3), up to the takeover (attack 13)
-     8.5 – 10 s  the site fully attacked
-     10 s        the company repairs everything, and it starts again
+/* BLTL — Touch_Grass demo loop. Stands in for the ESP32 (like sim.js) but plays by itself, every 18 seconds:
+     0 – 2.5 s    the company's site as it is, while the potatoes pile up
+     2.5 – 15 s   the attacks, stronger and stronger (levels 1 → 3), up to the takeover (attack 13)
+     15 – 18 s    the site fully attacked
+     18 s         the company repairs everything, and it starts again
    deface.js keeps asking fetch('/state') 4 times a second: this answers it. Load it before deface.js. */
 (function () {
-    var LOOP_MS = 10000;
-    var CALM_MS = 1500, ATTACKS_END_MS = 8500;
+    var LOOP_MS = 18000;
+    var CALM_MS = 2500, ATTACKS_END_MS = 15000;
     var ATTACKS = 13;                       // STAGES[3] in deface.js: the takeover
     var POTATOES = [3, 16];                 // on screen at the start and at the last attack
     var VOLTS_PER_POTATO = 0.9;             // as in sim.js / BLTL_ESP32.ino
