@@ -14,7 +14,6 @@
       <AppGrass :size="45" :sizeMax="105" :sizeMin="95"/>
     </span>
     <span class="v-app-button__label">
-      <span v-if="live" class="v-app-button__dot" aria-hidden="true"/>
       <slot/>
     </span>
   </component>
@@ -59,30 +58,11 @@ const NuxtLink = resolveComponent('NuxtLink')
 }
 
 .v-app-button--live .v-app-button__label {
-  display: inline-flex;
-  align-items: center;
-  gap: .4em;
   padding: .4rem 1rem;
   border-color: #000;
   background: var(--app-color-quaternary);
   color: #000;
   font-variation-settings: 'wght' 650;
-}
-
-.v-app-button__dot {
-  width: .45em;
-  height: .45em;
-  border-radius: 50%;
-  background: currentColor;
-  animation: v-app-button-pulse 1.4s ease-in-out infinite;
-}
-
-@keyframes v-app-button-pulse {
-  50% { opacity: .25; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .v-app-button__dot { animation: none; }
 }
 
 .v-app-button__grass {

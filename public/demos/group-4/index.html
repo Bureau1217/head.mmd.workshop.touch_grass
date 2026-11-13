@@ -35,15 +35,129 @@
     .address { flex: 1 1 auto; min-width: 0; background: #f1f3f4; border-radius: 999px; padding: 7px 14px; font-size: 13px; color: #5f6368; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* the website */
-    #page { padding: 96px 16px 120px; }
-    article { max-width: 680px; margin: 0 auto; }
-    .site { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--site); margin: 24px 0 4px; font-weight: 600; }
-    h1 { font-size: 34px; line-height: 1.15; margin: 0 0 20px; }
-    h2 { font-size: 19px; margin: 28px 0 8px; color: var(--site); }
-    p { font-size: 16px; line-height: 1.6; margin: 0; }
-    .write { display: block; font-size: 13px; color: #5f6368; margin-bottom: 8px; }
-    .write textarea { display: block; width: 100%; margin-top: 6px; font: inherit; font-size: 15px; padding: 10px; border: 1px solid #dadce0; border-radius: 8px; resize: vertical; }
+    #page { padding-top: 84px; min-height: 100vh; position: relative; }
     .empty { text-align: center; color: #9aa0a6; padding-top: 30vh; }
+    #page p { margin: 0 0 10px; line-height: 1.55; }
+    #page input, #page textarea { font: inherit; font-size: 14px; border: 1px solid #dadce0; border-radius: 8px; padding: 8px 12px; background: #fff; }
+    #page textarea { width: 100%; resize: vertical; }
+    .field { display: block; font-size: 12px; color: #5f6368; margin: 14px 0; }
+    .field textarea, .field input { display: block; margin-top: 6px; width: 100%; }
+    .th { width: 100%; border-radius: 10px; }
+    small { color: #606060; font-size: 12px; }
+
+    /* sites (sites.js) */
+    .s-wiki { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; padding: 16px; font-family: Georgia, serif; }
+    .s-wiki aside { display: flex; flex-direction: column; gap: 8px; font: 13px system-ui; color: #36c; }
+    .s-wiki h1 { font-weight: normal; font-size: 30px; border-bottom: 1px solid #a2a9b1; margin: 0; }
+    .s-wiki h2 { font-weight: normal; font-size: 22px; border-bottom: 1px solid #a2a9b1; margin: 22px 0 8px; }
+    .s-wiki .from { font-size: 13px; color: #54595d; }
+    .s-wiki .infobox { float: right; width: 260px; margin: 0 0 12px 16px; border: 1px solid #a2a9b1; background: #f8f9fa; padding: 6px; font: 12px system-ui; }
+    .s-wiki .infobox th { text-align: left; padding-right: 8px; }
+    .s-wiki sup { color: #36c; }
+    .s-video { padding: 8px 20px; }
+    .s-video .bar, .s-search .bar, .s-shop .bar, .s-cal .bar { display: flex; align-items: center; gap: 14px; padding: 8px 0; }
+    .s-video .bar input { flex: 1; max-width: 560px; border-radius: 999px; }
+    .s-video .logo { font-size: 26px; }
+    .s-video .pill { margin-left: auto; }
+    .s-video .chips { display: flex; gap: 8px; overflow: hidden; margin: 6px 0 14px; }
+    .s-video .chips span { background: #f2f2f2; border-radius: 8px; padding: 6px 12px; font-size: 13px; white-space: nowrap; }
+    .s-video .chips span:first-child { background: #0f0f0f; color: #fff; }
+    .s-video .grid, .s-shop .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px 16px; }
+    .s-video .card { position: relative; display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+    .s-video .dur { position: absolute; right: 6px; top: calc((100% - 60px) - 4px); background: rgba(0,0,0,.8); color: #fff; font-size: 11px; padding: 1px 4px; border-radius: 4px; }
+    .s-search { max-width: 700px; padding: 12px 24px 12px 160px; }
+    .s-search .bar input { flex: 1; border-radius: 999px; box-shadow: 0 1px 6px rgba(32,33,36,.28); border: 0; }
+    .s-search .meta { color: #70757a; font-size: 13px; }
+    .s-search .res { margin: 22px 0; }
+    .s-search .res a { display: block; color: #1a0dab; font-size: 20px; margin: 2px 0; cursor: pointer; }
+    .s-search .ad { font-weight: bold; font-size: 12px; }
+    .s-search .q { border-bottom: 1px solid #dadce0; padding: 10px 0; }
+    .s-mail { display: grid; grid-template-columns: 200px minmax(0, 1fr); background: #f6f8fc; min-height: calc(100vh - 84px); }
+    .s-mail aside { display: flex; flex-direction: column; gap: 4px; padding: 12px; font-size: 14px; }
+    .s-mail aside span { padding: 6px 12px; border-radius: 999px; }
+    .s-mail aside span:first-of-type { background: #d3e3fd; font-weight: bold; }
+    .s-mail .compose { background: #c2e7ff; border: 0; border-radius: 16px; padding: 16px 20px; font: inherit; margin-bottom: 10px; text-align: left; }
+    .s-mail .list { background: #fff; border-radius: 16px; margin: 8px; padding: 0 12px; }
+    .s-mail .row { display: grid; grid-template-columns: 60px 160px minmax(0, 1fr) 70px; gap: 10px; padding: 9px 4px; border-bottom: 1px solid #f1f1f1; font-size: 14px; }
+    .s-mail .row b { font-weight: normal; }
+    .s-mail .row.unread b, .s-mail .row.unread .sub { font-weight: bold; }
+    .s-mail .sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .s-mail .date { text-align: right; font-size: 12px; }
+    .s-shop { padding: 0 0 20px; }
+    .s-shop .bar { padding: 10px 20px; color: #111; }
+    .s-shop .bar input { flex: 1; }
+    .s-shop .deal { background: #cc0c39; color: #fff; padding: 8px 20px; font-weight: bold; margin-bottom: 16px; }
+    .s-shop .grid { padding: 0 20px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .s-shop .card { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+    .s-shop .stars { color: #de7921; font-size: 13px; }
+    .s-shop .price { font-size: 20px; font-weight: bold; }
+    .s-shop .card small { color: #b12704; }
+    .s-news { max-width: 1100px; margin: 0 auto; padding: 0 20px; font-family: Georgia, serif; }
+    .s-news .masthead { font: bold 46px Georgia, serif; text-align: center; border-bottom: 3px double #000; padding: 10px 0; }
+    .s-news .ticker { font: 13px system-ui; white-space: nowrap; overflow: hidden; padding: 8px 0; border-bottom: 1px solid #ddd; }
+    .s-news .ticker b { background: #d0021b; color: #fff; padding: 2px 6px; margin-right: 6px; }
+    .s-news .cols { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 28px; padding-top: 16px; }
+    .s-news h1 { font-size: 36px; line-height: 1.1; margin: 0 0 12px; }
+    .s-news aside { display: flex; flex-direction: column; gap: 14px; font-size: 15px; }
+    .adbox { background: repeating-linear-gradient(45deg, #f3f3f3 0 10px, #e9e9e9 10px 20px); color: #999; font: 11px system-ui; letter-spacing: .1em; display: flex; align-items: center; justify-content: center; height: 120px; margin: 16px 0; }
+    .adbox.tall { height: 420px; }
+    .s-social { display: grid; grid-template-columns: 200px minmax(0, 600px) 280px; justify-content: center; gap: 20px; padding: 0 16px; }
+    .s-social aside { display: flex; flex-direction: column; gap: 14px; padding-top: 16px; font-size: 18px; position: sticky; top: 84px; align-self: start; }
+    .s-social aside button { border: 0; color: #fff; border-radius: 999px; padding: 12px; font: inherit; font-weight: bold; }
+    .s-social .feed { border-left: 1px solid #eff3f4; border-right: 1px solid #eff3f4; padding: 0 16px; }
+    .s-social .post { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid #eff3f4; font-size: 15px; }
+    .s-social .post .th { margin: 6px 0; }
+    .av { width: 40px; height: 40px; border-radius: 50%; display: block; }
+    .s-social .trends { font-size: 15px; background: #f7f9f9; border-radius: 16px; padding: 16px; gap: 4px; }
+    .s-social .trends small { display: block; }
+    .s-maps { display: grid; grid-template-columns: 340px minmax(0, 1fr); height: calc(100vh - 84px); }
+    .s-maps .panel { padding: 16px; overflow: auto; box-shadow: 2px 0 6px rgba(0,0,0,.1); z-index: 1; background: #fff; }
+    .s-maps .panel input { width: 100%; margin-bottom: 12px; }
+    .s-maps .step { border-bottom: 1px solid #eee; padding: 8px 0; font-size: 14px; }
+    .s-maps .map { position: relative; background: #e8eae6; background-image: linear-gradient(#fff 3px, transparent 3px), linear-gradient(90deg, #fff 3px, transparent 3px), radial-gradient(circle at 30% 60%, #aadaff 0 12%, transparent 12.5%), radial-gradient(circle at 70% 30%, #c8e6c9 0 18%, transparent 18.5%); background-size: 120px 90px, 150px 110px, 100% 100%, 100% 100%; overflow: hidden; }
+    .s-maps .pin { position: absolute; font-size: 22px; }
+    .s-maps .route { position: absolute; left: 10%; top: 75%; width: 75%; height: 6px; background: #1a73e8; transform: rotate(-28deg); transform-origin: left; border-radius: 3px; }
+    .s-docs { background: #f9fbfd; min-height: calc(100vh - 84px); }
+    .s-docs .tools { display: flex; gap: 14px; align-items: center; padding: 8px 16px; font-size: 14px; background: #fff; border-bottom: 1px solid #e0e0e0; }
+    .s-docs .share { margin-left: auto; color: #fff; border-radius: 999px; padding: 6px 16px; }
+    .s-docs .who { font-size: 12px; color: #e37400; }
+    .s-docs .sheet { max-width: 800px; margin: 20px auto; background: #fff; box-shadow: 0 1px 3px rgba(60,64,67,.3); padding: 60px 70px; font-family: Arial, sans-serif; }
+    .s-docs .comment { color: #e37400; font-size: 13px; }
+    .s-chat { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: calc(100vh - 84px); }
+    .s-chat aside { color: #fff; display: flex; flex-direction: column; gap: 6px; padding: 16px; font-size: 15px; opacity: .95; }
+    .s-chat .msgs { padding: 8px 20px; }
+    .s-chat .msg { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 10px; padding: 8px 0; font-size: 15px; }
+    .s-chat .av { border-radius: 8px; }
+    .s-cal { padding: 0 16px; }
+    .s-cal .week { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; height: calc(100vh - 160px); }
+    .s-cal .day { position: relative; border-left: 1px solid #e0e0e0; padding: 6px; }
+    .s-cal .ev { position: absolute; left: 6px; right: 6px; font-size: 12px; border-radius: 6px; padding: 4px 6px; height: 9%; overflow: hidden; }
+
+    /* the crowd: what keeps popping up (sites.js) */
+    .crowd { position: fixed; inset: 84px 0 0 0; pointer-events: none; z-index: 5; font-size: 14px; }
+    .crowd > * { pointer-events: auto; position: absolute; background: #fff; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+    .crowd .x { position: absolute; top: 6px; right: 8px; border: 0; background: none; font-size: 18px; cursor: pointer; color: #666; }
+    .crowd button:not(.x) { font: inherit; font-size: 13px; border-radius: 6px; border: 1px solid #ccc; background: #fff; padding: 7px 12px; margin: 6px 6px 0 0; cursor: pointer; }
+    .crowd button:not(.x):first-of-type { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+    .crowd .cookie { left: 0; right: 0; bottom: 0; padding: 16px 220px 54px 24px; /* room under it for the DEMO tab */ border-top: 1px solid #ddd; }
+    .crowd .modal { left: 50%; top: 28%; transform: translateX(-50%); width: min(420px, 90vw); padding: 24px; border-radius: 14px; z-index: 2; }
+    .crowd .modal input { width: 100%; margin-top: 8px; }
+    .crowd .modal .link { border: 0 !important; background: none !important; color: #666 !important; text-decoration: underline; }
+    .crowd .modal::before { content: ''; position: fixed; inset: -100vh -100vw; background: rgba(0,0,0,.35); z-index: -1; }
+    .crowd .sticky-ad { right: 16px; bottom: 120px; width: 300px; padding: 14px 30px 14px 14px; background: #fffbe6; border: 1px solid #f0d97a; }
+    .crowd .sticky-ad span { background: #f0d97a; font-size: 10px; padding: 1px 4px; margin-right: 4px; }
+    .crowd .toast { right: 16px; padding: 12px 36px 12px 14px; border-radius: 10px; animation: toast-in .3s ease-out; }
+    .crowd .toast:nth-of-type(1) { top: 12px; } .crowd .toast:nth-of-type(2) { top: 64px; } .crowd .toast:nth-of-type(3) { top: 116px; }
+    .crowd .bubble { right: 20px; bottom: 90px; border-radius: 999px; padding: 12px 16px; background: #26a65b; color: #fff; }
+    .crowd .bubble .x { display: none; }
+    .crowd .bubble span { background: #e53935; border-radius: 999px; padding: 1px 7px; font-size: 12px; margin-left: 2px; }
+    @keyframes toast-in { from { transform: translateX(30px); opacity: 0; } }
+    @media (max-width: 800px) {
+      .s-wiki, .s-mail, .s-social, .s-maps, .s-chat, .s-news .cols { grid-template-columns: minmax(0, 1fr); }
+      .s-wiki aside, .s-social aside, .s-mail aside, .s-chat aside { display: none; }
+      .s-search { padding-left: 16px; }
+      .crowd .cookie { padding-right: 24px; }
+    }
 
     /* the browser has quit (after the crash) */
     .closed { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; position: fixed; inset: 0; z-index: 2147483647; background: #111; color: #eee; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; text-align: center; padding: 16px; }
@@ -69,6 +183,7 @@
     <button type="button" id="reopen">Open the browser again</button>
   </div>
 
+  <script src="sites.js"></script>
   <script src="browser-host.js"></script>
   <script src="browsy.js"></script>
   <script src="/demos/demo-bar.js"></script>
@@ -77,9 +192,9 @@
       const B = window.__browser;
       const demo = TouchGrassDemo({
         group: 'Group 4', title: 'Browsy', people: 'Adam, Prabu',
-        text: 'A small glowing creature who lives in your browser. He shows up when it gets crowded (15 tabs or more) and gets overwhelmed when you do: fast mouse, fast typing, rage clicks, wild scrolling, tab hopping, a bad connection. Stressed, he shows you a cat, and closes your forgotten tabs. Pushed too far, he dies and takes the whole browser down with him.',
+        text: 'A small glowing creature who lives in your browser. He shows up when it gets crowded (15 tabs or more, and these pages are crowded too: close the pop-ups, he feels every click) and gets overwhelmed when you do: fast mouse, fast typing, rage clicks, wild scrolling, tab hopping, a bad connection. Stressed, he shows you a cat, and closes your forgotten tabs. Pushed too far, he dies and takes the whole browser down with him.',
         real: ['Your mouse, typing, clicks and scrolling', 'Your network (ping and speed)'],
-        simulated: ['The browser and its tabs (it is a Chrome extension)'],
+        simulated: ['The browser and its tabs (it is a Chrome extension)', 'The websites: drawn here, not loaded'],
         controls: [
           { type: 'button', label: '+ 5 tabs', onClick: () => B.openTabs(5) },
           { type: 'button', label: '− 1 tab', onClick: () => B.closeOne() },

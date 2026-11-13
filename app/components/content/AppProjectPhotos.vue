@@ -4,6 +4,8 @@
         v-for="(photo, index) in photos"
         :key="index"
         class="v-app-project-photos__photo"
+        :class="{ 'v-app-project-photos__photo--contain': photo.fit === 'contain' }"
+        :style="photo.background ? { background: photo.background } : undefined"
         :href="photo.src"
         target="_blank"
         rel="noopener"
@@ -20,10 +22,11 @@
 //   ---
 //   photos:
 //     - { src: /images/projects/group-1/01.jpg, alt: "…" }
+//     - { src: …, alt: "…", fit: contain, background: "#1e1e1e" }   whole image (a wide screenshot), on its own colour
 //   ---
 //   ::
 defineProps<{
-  photos?: { src: string, alt?: string }[]
+  photos?: { src: string, alt?: string, fit?: 'cover' | 'contain', background?: string }[]
 }>()
 </script>
 
@@ -51,6 +54,10 @@ defineProps<{
     height: 100%;
     object-fit: cover;
     transition: transform .4s ease;
+  }
+
+  &--contain img {
+    object-fit: contain;
   }
 
   &:hover img {

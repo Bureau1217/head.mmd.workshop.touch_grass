@@ -95,10 +95,10 @@ Luca, Moritz
 ::AppProjectPhotos
 ---
 photos:
-  - { src: /images/projects/group-3/01.jpg, alt: "A visitor scanning the QR code with their phone" }
-  - { src: /images/projects/group-3/02.jpg, alt: "The table: 3D printer, screen with the tomato, vegetables on grass" }
-  - { src: /images/projects/group-3/03.jpg, alt: "A 3D-printed tomato between real carrots and a tomato" }
-  - { src: /images/projects/group-3/04.jpg, alt: "The game on a phone: the water step" }
+  - { src: /images/projects/group-3/01.jpg, alt: "Sketches of the vegetables, in pink", fit: contain, background: "#1e1e1e" }
+  - { src: /images/projects/group-3/02.jpg, alt: "The game's first screen on a phone: i am a good working human" }
+  - { src: /images/projects/group-3/03.jpg, alt: "Three CAPTCHA screens of the game", fit: contain, background: "#1e1e1e" }
+  - { src: /images/projects/group-3/04.jpg, alt: "A visitor scanning the QR code with their phone" }
 ---
 ::
 

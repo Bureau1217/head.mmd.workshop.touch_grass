@@ -44,16 +44,7 @@
   const tellBrowsy = msg => messageListeners.forEach(fn => fn(msg, {}, () => {}));
 
   // ---------- the pretend tabs ----------
-  const SITES = [
-    ['news.example', 'Morning briefing', '#c62828'], ['recipes.example', 'Ten-minute pasta', '#ef6c00'],
-    ['docs.example', 'Quarterly report — draft', '#1565c0'], ['shop.example', 'Your basket (3)', '#2e7d32'],
-    ['video.example', 'Watch later', '#d81b60'], ['mail.example', 'Inbox (128)', '#6a1b9a'],
-    ['maps.example', 'Route to the station', '#00838f'], ['wiki.example', 'Mycorrhizal network', '#455a64'],
-    ['forum.example', 'Re: Re: Re: help', '#5d4037'], ['tickets.example', 'Train Geneva → Lausanne', '#283593'],
-    ['weather.example', 'Geneva, 7 days', '#0277bd'], ['bank.example', 'Statement', '#37474f'],
-    ['music.example', 'Focus playlist', '#00695c'], ['social.example', 'Notifications (9)', '#ad1457'],
-    ['calendar.example', 'This week', '#4527a0'], ['search.example', 'how many tabs is too many', '#558b2f'],
-  ];
+  const SITES = window.DEMO_SITES; // sites.js: pages laid out like the sites everyone has open
   const START_TABS = 16; // he appears at 15 (CONFIG.appearAtTabs): he's there from the start
   let tabs = [];
   let active = null;
@@ -68,8 +59,8 @@
   const count = document.getElementById('tabCount');
 
   function newTab(activate) {
-    const [siteHost, title, color] = SITES[(nextTab - 1) % SITES.length];
-    const tab = { id: nextTab++, host: siteHost, title, color, lastAccessed: Date.now() - 1000 * (60 - tabs.length) };
+    const site = SITES[(nextTab - 1) % SITES.length];
+    const tab = { id: nextTab++, ...site, lastAccessed: Date.now() - 1000 * (60 - tabs.length) };
     tabs.push(tab);
     if (activate) setActive(tab, false);
     return tab;
@@ -114,28 +105,15 @@
     count.textContent = tabs.length;
   }
 
-  // a page of the pretend website: something to read, scroll and type in
-  const LOREM = [
-    'The meeting was moved again, so the notes from last week still apply, more or less.',
-    'Nobody remembers opening this tab, but closing it feels like losing something important.',
-    'Scroll a little further: the useful part is always just below the fold.',
-    'Prices may vary. Results may vary. Your attention, however, is finite.',
-    'Read later. Read later. Read later. The list only grows.',
-    'Somewhere a server spins a little faster every time this page is refreshed.',
-    'The update will only take a minute, it said, forty minutes ago.',
-    'Twelve people are looking at this right now. Eleven of them have another tab open.',
-  ];
+  // the page of the active tab (sites.js), and the crowd that keeps popping up on it
+  let stopCrowd = null;
   function renderPage() {
+    if (stopCrowd) { stopCrowd(); stopCrowd = null; }
     if (!active) { address.textContent = ''; page.innerHTML = '<p class="empty">No tabs open.</p>'; return; }
     address.textContent = 'https://' + active.host + '/';
-    let html = `<article style="--site:${active.color}"><p class="site">${active.host}</p><h1>${active.title}</h1>`;
-    html += '<label class="write">Write something here<textarea rows="3" placeholder="type fast, he feels it…"></textarea></label>';
-    for (let i = 0; i < 14; i++) {
-      html += `<h2>${['Overview', 'Details', 'More', 'Related', 'Comments', 'See also', 'Updates'][i % 7]}</h2>`;
-      html += '<p>' + [0, 1, 2, 3].map(j => LOREM[(active.id * 3 + i + j) % LOREM.length]).join(' ') + '</p>';
-    }
-    page.innerHTML = html + '</article>';
+    page.innerHTML = window.DEMO_RENDER(active);
     window.scrollTo(0, 0);
+    stopCrowd = window.DEMO_CROWD(page, active);
   }
 
   // like updateTabInfo() in background.ts
