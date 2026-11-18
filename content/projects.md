@@ -28,6 +28,16 @@ photos:
 
 </div>
 
+<div class="app-project-about">
+
+**Memory of Trees**
+
+Trees remember: their rings hold centuries of climate data, and wildfires, most of them caused by people, burn that memory away. In this shared web piece the page itself burns. Each visitor's real conditions feed the fire: the fire danger and satellite hotspots around them (GWIS), humidity, wind and rain (Open-Meteo), how long they stay and how many tabs they open. Visitors in damp places pour water on it instead, and anyone can blow into their microphone to carry a leaf.
+
+[Code on GitHub →](https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group1)
+
+</div>
+
 #### day 1
 
 Molecules / bacteria
@@ -54,10 +64,28 @@ Luca, Julias
 @LucaCDRocha
 @bernalSphere
 
+::AppProjectPhotos
+---
+photos:
+  - { src: /images/projects/group-2/01.jpg, alt: "A laptop showing the satellite map, in front of the projected Wikipedia article" }
+  - { src: /images/projects/group-2/02.jpg, alt: "A satellite image on the projected page, torn apart by interference" }
+  - { src: /images/projects/group-2/03.jpg, alt: "The projected article on satellites, its words eaten by glitches" }
+---
+::
 
 <div class="app-button-stack">
 
 :AppButton[SEE LIVE]{live to="/demos/group-2/"}
+
+</div>
+
+<div class="app-project-about">
+
+**SATpedia**
+
+An interactive piece imagining how satellite activity could shape our access to information. From the visitor's location, a scientific satellite overhead picks a Wikipedia article, and up to three nearby commercial satellites act as interference that progressively distorts the page (simulated, not real attacks). Double-click the title to open the orbital telemetry and the satellite map.
+
+[Code on GitHub →](https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group2)
 
 </div>
 
@@ -102,15 +130,28 @@ photos:
 ---
 ::
 
+<div class="app-mobile-note">
+<img src="/images/projects/group-3/qr.svg" alt="QR code to open the game on a phone" width="120" height="120">
+<div>
+<p class="app-mobile-note__title">Play it on your phone</p>
+<p>The game needs a phone's camera and motion sensors: on a computer it won't work. Scan the code with your phone to open it.</p>
+</div>
+</div>
+
 <div class="app-button-stack">
 
 :AppButton[SEE LIVE]{live to="https://bureau1217.github.io/head.mmd.workshop.touch_grass.group3/" target="_blank"}
 
 </div>
 
-<div class="app-mobile-note">
-<img src="/images/projects/group-3/qr.svg" alt="QR code to open the game on a phone" width="120" height="120">
-<p><strong>A mobile experience.</strong> The game is played with your phone's camera and motion sensors: scan the code to open it on your phone.</p>
+<div class="app-project-about">
+
+**Touch Grass**
+
+A browser game disguised as a CAPTCHA, played with the phone's camera and motion sensors. Prove you are "a good working human", then grow a drawing of vegetables: shine a light for the sun, show something blue for water, turn around to find the crops the wind blew away. The harvest is a 3D tomato you can download and 3D-print.
+
+[Code on GitHub →](https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group3)
+
 </div>
 
 #### day 1
@@ -156,6 +197,16 @@ photos:
 <div class="app-button-stack">
 
 :AppButton[SEE LIVE]{live to="/demos/group-4/"}
+
+</div>
+
+<div class="app-project-about">
+
+**Browsy**
+
+A browser extension: a small glowing creature who lives in your browser. He senses how crowded it gets (open tabs, switching, time on a site, the network) and gets more and more overwhelmed when you do, until he breaks down. A dev panel shows live what is stressing him; cat photos calm him down.
+
+[Code on GitHub →](https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group4)
 
 </div>
 
@@ -222,6 +273,16 @@ photos:
 <div class="app-button-stack">
 
 :AppButton[SEE LIVE]{live to="/demos/group-5/"}
+
+</div>
+
+<div class="app-project-about">
+
+**PATATATTAQUE !**
+
+Surplus potatoes, wired in series, charge a supercapacitor. Each time it is full, the energy is released and attacks the website of BL Tubercules Labs, replacing its texts with protest slogans. Visitors join the BLTL-GUEST Wi-Fi to watch it happen on a copy of the site served by an ESP32. The more potatoes, the faster the attacks: overproduction turned against itself.
+
+[Code on GitHub →](https://github.com/Bureau1217/head.mmd.workshop.touch_grass.group5)
 
 </div>
 

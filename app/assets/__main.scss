@@ -55,26 +55,55 @@ button {
   margin-top: 2rem;
 }
 
-// a project made for phones (Projects, group 3): its QR code and a line saying so
+// a project made for phones (Projects, group 3): a banner above its button,
+// with the QR code, so nobody tries it on a computer
 .app-mobile-note {
   display: flex;
   align-items: center;
   gap: var(--app-gutter);
-  margin-top: 1rem;
+  max-width: 32rem;
+  margin-top: 2rem;
+  padding: var(--app-gutter);
+  border: 3px solid var(--app-color-primary);
+  border-radius: 1rem;
+  background: #FFFFFFCC;
 
   img {
     flex: 0 0 auto;
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
   }
 
   p {
     margin: 0;
-    max-width: 22rem;
   }
 
   // on a phone, you are already there: no code to scan
   @media (max-width: 700px) {
     img { display: none; }
+  }
+}
+
+.app-mobile-note__title {
+  margin-bottom: .25rem !important;
+  color: var(--app-color-primary);
+  font-size: 1.3rem;
+  font-variation-settings: 'wght' 800;
+  text-transform: uppercase;
+}
+
+// what the project is, under its SEE LIVE button (from the group's GitHub README)
+.app-project-about {
+  max-width: 32rem;
+  margin-top: 1.5rem;
+
+  p {
+    margin: 0 0 .5rem;
+  }
+
+  // the site's weight comes from font-variation-settings, not font-weight
+  strong {
+    font-variation-settings: 'wght' 800;
+    text-transform: uppercase;
   }
 }
